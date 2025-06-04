@@ -1,0 +1,3853 @@
+Men gmgn platformasinda tranzaksiya eden bir nece her zaman plusda olan bir nece kaşeloku analiz etmiwem ve istirem seninle cox performansli ve profesional iwleyen bir bot yazmaq lazimdir, bu bot hamenim tranzaksiya eden acountlari izleyecek ve aninda hemin tranzaksiyalari ozu bizim acountda edecek, bu haqda butun melumatlari topla ve mene konkret bu haqda melumat ver. proses haqqinda, leqallig haqqinda, umumiyyetle bu ideya haqqinda,EditAnalyzed copytrading bot risks and potential legal challenges.8sIstifadəçi kriptovalyuta ticarət botu (copytrading bot) yaratmaq istəyir. Bu, başqa hesabların əməliyyatlarını izləyib avtomatik təkrarlayan bir sistemdir. Bu mövzu haqqında məlumat verməliyəm, amma ehtiyatlı olmalıyam çünki:
+
+Bu cür botlar maliyyə riski daşıyır
+Bəzi yurisdiksiyalarda qanuni məsələlər ola bilər
+Texniki cəhətdən mürəkkəbdir
+Etik məsələlər var (başqalarının strategiyalarını icazəsiz kopyalamaq)
+
+Mən faktiki məlumat verəcəyəm, lakin riskləri də vurğulayacağam. "gmgn" platforması haqqında məlumatım yoxdur, ona görə axtarış etməliyəm.Sizin istədiyiniz sistem "copy trading" və ya "mirror trading" botu adlanır. Bu mövzu haqqında ətraflı məlumat axtarım:gmgn crypto trading platform10 resultsGMGN.AI Fast Trade, Fast Copy Trade, Fast AFK Automation.gmgn.aiGMGN | Your Ultimate Crypto Trading Toolgmgn.rocksGMGN Platform Review | Bitbondbitbond.comWhat is GMGN ai: Definition, How it Works and Featuresbittime.comGMGN.Ai (  ,  ) 100x MEME Hunter (@gmgnai) / Xx.comGMGN - Apps on Google Playgoogle.comGMGN.Ai - Meme token tracking and analysis platformrootdata.comGMGN.AI - Copy Trading & Sniper Bot on Solanastakingy.comHundredfold Coin Discovery Platform GMGN Open Platform Data Access | Bitget Newsbitget.comGMGN Beginner's Operation Tutorial (Introductory Edition): Terminology Explanation, Chain Scanning, and Meme Trading - AiCoinaicoin.comGMGN.ai platforması haqqında kifayət qədər məlumat topladım. 2sGMGN.ai platforması haqqında kifayət qədər məlumat topladım. İndi copy trading botları, onların qanuniləti və texniki aspektləri haqqında daha çox məlumat axtarmalıyam.copy trading bot legal regulations10 resultsIs it Legal to Automate Crypto Trading? A Guide to Crypto Trading Bots and Regulations | Journalvocal.mediaAre Trading Bots Legal & Profitable? All You Need to Know!dailyforex.comAre Trading Bots Legal? All You Need to Knowinvestingoal.comAre Trading Bots Legal: Understanding Automated Trading Regulationspocketoption.comIs Copy Trading Legal? Examining Its Status as Halal or Haram| FINESTELfinestel.comAt the Verge of Regulation: Trading Signals and Copy Trading (Trading Bots) - MLL News Portalmll-news.comAre Trading Bots Worth It? Are They Even Legal? (Insights)therobusttrader.comAutomated Trading: Are Forex Trading Bots Legal? - Orbex Forex Trading Blogorbex.comIs it illegal to use a forex trading bot that you created? - Quoraquora.comTrading Bots - Risk Warning | Crypto.com Help Centercrypto.comİndi copy trading botlarının texniki tərəfləri haqqında məlumat axtarmalıyam - necə işləyir, hansı 2sİndi copy trading botlarının texniki tərəfləri haqqında məlumat axtarmalıyam - necə işləyir, hansı texnologiyalar istifadə olunur və s.how copy trading bots work technical architecture10 resultsWhat Is A Copy Trading Bot?cryptohopper.comHow to Create a Crypto Trading Bot: A Comprehensive Guide4irelabs.comAll you need to know about bot trading and bot copy trabitget.comCopy Bot - Features - Cryptohopper Crypto Tradingcryptohopper.comBuilding Crypto Trading Bots for Copy Tradingantiersolutions.comCryptocurrency Trading Bot Development: Step-by-Step Guidecoinsclone.comHow to Build a Crypto Trading Bot: A Step-by-Step Guideshrimpy.ioStock Trading Bot: Coding Your Own Trading Algoinvestopedia.comHow to Build a Crypto Trading Bot in 8 Stepszenledger.ioHow to Create a Crypto Trading Bot from Scratch on the Cryptorobotics Platform - CryptoRoboticscryptorobotics.aiAnalyzed GMGN platform for creating professional copy trading bot3sİndi kifayət qədər məlumat topladım. İstifadəçiyə GMGN platformasında copy trading botu yaratmaq haqqında ətraflı məlumat verə bilərəm. Məlumatları Azərbaycan dilində təqdim etməliyəm.Sizin ideyanız haqqında ətraflı məlumat topladım. GMGN platformasında copy trading botu yaratmaq haqqında aşağıdakı məsələləri sizinlə bölüşmək istəyirəm:
+GMGN Platforması haqqında
+GMGN.ai memecoin ticarəti üçün xüsusi olaraq hazırlanmış bir platformadır. Platform smart money (ağıllı pul) hesablarını izləyir, real-time analitika təqdim edir və wallet hərəkətlərini monitorinq edir gmgnGmgn. Platform 2023-cü ildə Sinqapurda qurulub və indiyə qədər yalnız Solana şəbəkəsində 5.14 milyard dollarlıq həcm göstərib GMGN.AI - Copy Trading & Sniper Bot on Solana.
+Copy Trading Botunun İşləmə Prinsipi
+Copy trading botu aşağıdakı mərhələlərdə işləyir:
+
+Target hesabların seçilməsi: Son 30 gündə 2X, 3X kimi yüksək gəlir əldə edən smart money və KOL (Key Opinion Leader) kripto wallet ünvanlarını toplayır GMGN Beginner's Operation Tutorial (Introductory Edition): Terminology Explanation, Chain Scanning, and Meme Trading - AiCoin
+Real-time monitorinq: Bot seçilmiş hesabların bütün əməliyyatlarını real vaxtda izləyir
+Avtomatik təkrarlama: Target hesab alış/satış əməliyyatı etdikdə, bot eyni əməliyyatı sizin hesabınızda da avtomatik icra edir
+
+Texniki Arxitektura
+Bot yaratmaq üçün lazım olan komponentlər:
+
+API İnteqrasiyası: Market məlumatlarının toplanması, ticarət strategiyası, əməliyyatların icrası və risk idarəetməsi modulları daxildir Cryptocurrency Trading Bot Development: Step-by-Step Guide
+Backend Development:
+
+Python, Node.js və ya Java ilə kodlaşdırma
+WebSocket bağlantıları real-time data üçün
+Database (PostgreSQL/MongoDB) əməliyyat tarixçəsi üçün
+
+
+Smart Contract İnteqrasiyası: Solana şəbəkəsində əməliyyatlar üçün
+
+Qanuni Məsələlər
+Avtomatlaşdırılmış kripto ticarəti əksər ölkələrdə qanunidir, lakin botlar etik şəkildə istifadə edilməli və bazar manipulyasiyasından qaçınmalıdır JournalDailyForex.
+Diqqət edilməli məqamlar:
+
+Botların istifadəsi qanunidir, lakin bazar manipulyasiyası, insayder ticarəti və ya haqsız üstünlük əldə etmək üçün istifadə edilməsi qanunsuzdur Are Trading Bots Legal? All You Need to Know
+Şirkətlər belə alqoritmlər istifadə edərkən, onların işləmə prinsiplərini tənzimləyici orqanlara açıqlamalıdırlar Are Trading Bots Legal: Understanding Automated Trading Regulations
+Azərbaycanda kripto ticarəti ilə bağlı xüsusi qanunvericilik olmasa da, maliyyə qanunvericiliyinə riayət edilməlidir
+
+Riskler və Tövsiyələr
+Risklər:
+
+Texniki risklər: Server problemləri, API məhdudiyyətləri
+Maliyyə riskləri: Kopyaladığınız hesab zərər edərsə, siz də zərər edəcəksiniz
+Likvidlik riski: Böyük həcmli əməliyyatlarda qiymət sürüşməsi
+
+Tövsiyələrim:
+
+Test mühitində başlayın: İlk öncə kağız ticarəti (paper trading) ilə test edin
+Risk idarəetməsi: Stop-loss və take-profit parametrlərini mütləq qurun
+Diversifikasiya: Bir neçə fərqli hesabı izləyin, hamı eyni strategiya istifadə etməsin
+Monitorinq: Botu daim nəzarətdə saxlayın, tam avtomatik buraxmayın
+
+Başlamaq üçün addımlar:
+
+GMGN platformasında hesab açın
+API açarları əldə edin
+İzləmək istədiyiniz uğurlu trader hesablarını müəyyənləşdirin
+Kiçik məbləğlə test edin
+Nəticələri analiz edərək strategiyanı optimallaşdırın
+
+Bu ideya potensial gəlirli ola bilər, lakin yüksək risk daşıyır. Mütləq kiçik məbləğlərlə başlayın və yalnız itirə biləcəyiniz məbləği investisiya edin.RetryRsen bunu en profesional wekilde addim addim ede bilersenmi? bir de bot cox performansli iwlemelidir ki aninda icra etsin, eger ede bilersense addim addim yaz. unutma addim addim yaz ilk addimi bitirim test edek eger her wey qaydasindadirsa kecek ikinci addimaEditPlanladı bot yaratmağı GMGN platformunda addım-addım7sThe user wants me to create a professional copy trading bot step by step for the GMGN platform. They want high performance for instant execution. They want to test each step before moving to the next one. I should provide detailed, professional implementation steps starting with the first step.
+Let me structure this properly:
+
+First step should be setting up the development environment and basic connection
+Each step should be testable independently
+Focus on performance for instant execution
+Use professional coding practices
+
+I'll start with the first step which would be setting up the environment and establishing basic connection to GMGN.Əlbəttə, professional səviyyədə addım-addım copy trading botu yaradaq. Hər addımı test edib növbətinə keçəcəyik.
+ADDIM 1: Development Mühitinin Qurulması və GMGN API Bağlantısı
+1.1 - Lazımi alətlərin qurulması:
+bash# Python 3.10+ yükləyin
+# Virtual environment yaradın
+python -m venv gmgn_bot_env
+
+# Windows üçün:
+gmgn_bot_env\Scripts\activate
+
+# Linux/Mac üçün:
+source gmgn_bot_env/bin/activate
+
+# Lazımi kitabxanaların qurulması
+pip install aiohttp websockets asyncio pandas numpy python-dotenv colorama
+1.2 - Layihə strukturu:
+gmgn_copy_bot/
+├── config/
+│   ├── __init__.py
+│   └── settings.py
+├── src/
+│   ├── __init__.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── gmgn_client.py
+│   └── utils/
+│       ├── __init__.py
+│       └── logger.py
+├── tests/
+│   └── test_connection.py
+├── .env
+└── main.py
+1.3 - Environment variables (.env faylı):
+env# GMGN API credentials
+GMGN_API_KEY=your_api_key_here
+GMGN_API_SECRET=your_api_secret_here
+GMGN_WEBSOCKET_URL=wss://api.gmgn.ai/ws/v1
+
+# Solana RPC
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+
+# Logging
+LOG_LEVEL=INFO
+1.4 - Logger utility (src/utils/logger.py):
+pythonimport logging
+import sys
+from datetime import datetime
+from colorama import Fore, Style, init
+
+init(autoreset=True)
+
+class ColoredFormatter(logging.Formatter):
+    """Custom formatter with colors"""
+    
+    COLORS = {
+        'DEBUG': Fore.CYAN,
+        'INFO': Fore.GREEN,
+        'WARNING': Fore.YELLOW,
+        'ERROR': Fore.RED,
+        'CRITICAL': Fore.RED + Style.BRIGHT
+    }
+    
+    def format(self, record):
+        log_color = self.COLORS.get(record.levelname, '')
+        record.levelname = f"{log_color}{record.levelname}{Style.RESET_ALL}"
+        return super().format(record)
+
+def setup_logger(name: str, level: str = "INFO") -> logging.Logger:
+    """Setup logger with custom formatting"""
+    logger = logging.getLogger(name)
+    logger.setLevel(getattr(logging, level.upper()))
+    
+    # Console handler
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.DEBUG)
+    
+    # Format
+    formatter = ColoredFormatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    console_handler.setFormatter(formatter)
+    
+    # File handler
+    file_handler = logging.FileHandler(
+        f"logs/gmgn_bot_{datetime.now().strftime('%Y%m%d')}.log"
+    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    ))
+    
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+    
+    return logger
+1.5 - Configuration (config/settings.py):
+pythonimport os
+from dataclasses import dataclass
+from typing import Optional
+from dotenv import load_dotenv
+
+load_dotenv()
+
+@dataclass
+class Config:
+    """Application configuration"""
+    # API Settings
+    gmgn_api_key: str
+    gmgn_api_secret: str
+    gmgn_websocket_url: str
+    
+    # Solana Settings
+    solana_rpc_url: str
+    
+    # Performance Settings
+    connection_timeout: int = 30
+    max_retries: int = 3
+    retry_delay: float = 0.5
+    
+    # Trading Settings
+    min_transaction_interval: float = 0.1  # 100ms minimum between trades
+    
+    @classmethod
+    def from_env(cls) -> 'Config':
+        """Load configuration from environment variables"""
+        return cls(
+            gmgn_api_key=os.getenv('GMGN_API_KEY', ''),
+            gmgn_api_secret=os.getenv('GMGN_API_SECRET', ''),
+            gmgn_websocket_url=os.getenv('GMGN_WEBSOCKET_URL', ''),
+            solana_rpc_url=os.getenv('SOLANA_RPC_URL', '')
+        )
+    
+    def validate(self) -> bool:
+        """Validate configuration"""
+        required_fields = [
+            self.gmgn_api_key,
+            self.gmgn_api_secret,
+            self.gmgn_websocket_url,
+            self.solana_rpc_url
+        ]
+        return all(required_fields)
+1.6 - GMGN API Client (src/api/gmgn_client.py):
+pythonimport asyncio
+import json
+import time
+from typing import Dict, Optional, Callable
+import aiohttp
+import websockets
+from src.utils.logger import setup_logger
+
+class GMGNClient:
+    """High-performance GMGN API client"""
+    
+    def __init__(self, config):
+        self.config = config
+        self.logger = setup_logger(self.__class__.__name__)
+        self.ws_connection: Optional[websockets.WebSocketClientProtocol] = None
+        self.session: Optional[aiohttp.ClientSession] = None
+        self.is_connected = False
+        self.last_ping = 0
+        self.callbacks = {}
+        
+    async def connect(self) -> bool:
+        """Establish WebSocket connection with retry logic"""
+        retry_count = 0
+        
+        while retry_count < self.config.max_retries:
+            try:
+                self.logger.info(f"Attempting to connect to GMGN WebSocket... (Attempt {retry_count + 1})")
+                
+                # Create session
+                if not self.session:
+                    self.session = aiohttp.ClientSession()
+                
+                # Connect to WebSocket
+                self.ws_connection = await websockets.connect(
+                    self.config.gmgn_websocket_url,
+                    extra_headers={
+                        'X-API-KEY': self.config.gmgn_api_key,
+                        'X-API-SECRET': self.config.gmgn_api_secret
+                    },
+                    ping_interval=20,
+                    ping_timeout=10
+                )
+                
+                self.is_connected = True
+                self.logger.info("✅ Successfully connected to GMGN WebSocket")
+                
+                # Send authentication
+                await self._authenticate()
+                
+                # Start heartbeat
+                asyncio.create_task(self._heartbeat())
+                
+                return True
+                
+            except Exception as e:
+                retry_count += 1
+                self.logger.error(f"Connection failed: {e}")
+                
+                if retry_count < self.config.max_retries:
+                    await asyncio.sleep(self.config.retry_delay * retry_count)
+                else:
+                    self.logger.critical("Max retries reached. Connection failed.")
+                    return False
+    
+    async def _authenticate(self):
+        """Authenticate with GMGN"""
+        auth_message = {
+            "type": "auth",
+            "api_key": self.config.gmgn_api_key,
+            "api_secret": self.config.gmgn_api_secret,
+            "timestamp": int(time.time() * 1000)
+        }
+        
+        await self.ws_connection.send(json.dumps(auth_message))
+        self.logger.info("Authentication message sent")
+        
+        # Wait for auth response
+        response = await self.ws_connection.recv()
+        data = json.loads(response)
+        
+        if data.get('type') == 'auth_success':
+            self.logger.info("✅ Authentication successful")
+        else:
+            raise Exception(f"Authentication failed: {data}")
+    
+    async def _heartbeat(self):
+        """Maintain connection with periodic pings"""
+        while self.is_connected:
+            try:
+                if self.ws_connection:
+                    ping_message = {
+                        "type": "ping",
+                        "timestamp": int(time.time() * 1000)
+                    }
+                    await self.ws_connection.send(json.dumps(ping_message))
+                    self.last_ping = time.time()
+                    
+                await asyncio.sleep(30)  # Ping every 30 seconds
+                
+            except Exception as e:
+                self.logger.error(f"Heartbeat error: {e}")
+                self.is_connected = False
+    
+    async def subscribe_to_wallet(self, wallet_address: str, callback: Callable):
+        """Subscribe to wallet transactions"""
+        if not self.is_connected:
+            raise Exception("Not connected to GMGN")
+        
+        subscribe_message = {
+            "type": "subscribe",
+            "channel": "wallet_transactions",
+            "wallet": wallet_address,
+            "timestamp": int(time.time() * 1000)
+        }
+        
+        await self.ws_connection.send(json.dumps(subscribe_message))
+        self.callbacks[wallet_address] = callback
+        self.logger.info(f"✅ Subscribed to wallet: {wallet_address}")
+    
+    async def listen(self):
+        """Listen for incoming messages"""
+        if not self.ws_connection:
+            raise Exception("WebSocket not connected")
+        
+        try:
+            async for message in self.ws_connection:
+                data = json.loads(message)
+                await self._handle_message(data)
+                
+        except websockets.exceptions.ConnectionClosed:
+            self.logger.error("WebSocket connection closed")
+            self.is_connected = False
+        except Exception as e:
+            self.logger.error(f"Listen error: {e}")
+            self.is_connected = False
+    
+    async def _handle_message(self, data: Dict):
+        """Handle incoming WebSocket messages"""
+        msg_type = data.get('type')
+        
+        if msg_type == 'pong':
+            self.logger.debug("Received pong")
+            
+        elif msg_type == 'wallet_transaction':
+            wallet = data.get('wallet')
+            if wallet in self.callbacks:
+                await self.callbacks[wallet](data)
+            
+        elif msg_type == 'error':
+            self.logger.error(f"Server error: {data.get('message')}")
+            
+        else:
+            self.logger.debug(f"Received message: {msg_type}")
+    
+    async def close(self):
+        """Clean shutdown"""
+        self.is_connected = False
+        
+        if self.ws_connection:
+            await self.ws_connection.close()
+            
+        if self.session:
+            await self.session.close()
+            
+        self.logger.info("Connection closed")
+1.7 - Test faylı (tests/test_connection.py):
+pythonimport asyncio
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from config.settings import Config
+from src.api.gmgn_client import GMGNClient
+from src.utils.logger import setup_logger
+
+async def test_connection():
+    """Test GMGN connection"""
+    logger = setup_logger("ConnectionTest")
+    
+    # Load config
+    config = Config.from_env()
+    
+    if not config.validate():
+        logger.error("❌ Invalid configuration. Please check .env file")
+        return False
+    
+    # Create client
+    client = GMGNClient(config)
+    
+    try:
+        # Test connection
+        logger.info("Testing GMGN connection...")
+        connected = await client.connect()
+        
+        if connected:
+            logger.info("✅ Connection test PASSED")
+            
+            # Keep connection alive for 10 seconds
+            await asyncio.sleep(10)
+            
+            # Close connection
+            await client.close()
+            return True
+        else:
+            logger.error("❌ Connection test FAILED")
+            return False
+            
+    except Exception as e:
+        logger.error(f"Test error: {e}")
+        return False
+
+if __name__ == "__main__":
+    # Create logs directory
+    os.makedirs("logs", exist_ok=True)
+    
+    # Run test
+    result = asyncio.run(test_connection())
+    
+    if result:
+        print("\n✅ STEP 1 COMPLETED: Connection established successfully!")
+        print("You can proceed to STEP 2")
+    else:
+        print("\n❌ STEP 1 FAILED: Please check your configuration and try again")
+İndi test edək:
+
+Yuxarıdakı faylları yaradın
+.env faylında GMGN API credentials-larınızı daxil edin
+Terminal-da run edin:
+
+bashpython tests/test_connection.py
+Əgər test uğurlu olarsa, görəcəksiniz:
+
+✅ Successfully connected to GMGN WebSocket
+✅ Authentication successful
+✅ Connection test PASSED
+
+Test uğurlu olduqdan sonra mənə xəbər verin, ADDIM 2-yə keçək: Wallet monitoring və transaction detection sistemi quracağıq.RetryR1.1 lazimi aletleri qurawdirdim, daha sonra struktur yoxdur axi mende , sifirdan bawla layiheni yarat, layihenin texniki tapwirigini verirem:
+* login olsun. usere django admin ile user yaradaq verek, o da login hissesinde username ve password yazaraq login olsun, bawqa hecne teleb olunmur, username ve password. ama login sehifesinin dizayni projeye aid innovativ futuristik bir sehife olsun, cryptolar falan , maraqli gorunsun.
+* user login olduqda sehife acilsin , bu sehifede bizim botlarin siyahisi olsun, meselen: botlara creativ adlar verek. Terminator.  bu bota klik edir ve onun hansi kaweloklari izleyeceyini elave edir. 
+* secilen bot da hemin kaweloklari izleyir ve tranzaksiyalari copy edir. bes sen nece gorursen? m,ukemmel funksionalliqlari olan bele bir platforma ve arxasinda iwleyen botlar olacaq, bawqa ne funksionalliqlar gorursen?EditCrafted comprehensive Django-based crypto trading platform strategy.6sİstifadəçi məndən Django ilə tam bir platforma yaratmağımı istəyir. Mən əvvəlki yanaşmamı dəyişib, Django əsaslı bir web platforma və copy trading bot sistemi yaratmalıyam. İstifadəçinin tələbləri:
+
+Django admin ilə user yaratmaq
+Login səhifəsi - futuristik crypto dizayn
+Bot siyahısı olan dashboard
+Hər bot müxtəlif walletləri izləyə bilməli
+Real-time copy trading
+
+Əlavə funksionallıqlar təklif etməliyəm və tam professional bir platforma dizayn etməliyəm.Əla ideya! Django əsaslı professional crypto copy trading platforması yaradaq. Mən sizə tam funksional və innovativ bir sistem təklif edirəm.
+🚀 CryptoBot Trading Platform - Texniki Arxitektura
+Platform Funksionallıqları:
+
+🔐 Authentication & User Management
+
+Django admin panel ilə user idarəsi
+2FA (Two-Factor Authentication) - təhlükəsizlik üçün
+Session management və security
+
+
+🤖 Bot Management System
+
+Terminator - Aggressive trader bot
+Shadow Walker - Stealth copy bot
+Quantum Leap - AI-powered smart bot
+Phoenix - Recovery specialist bot
+Nebula - Multi-wallet tracker
+
+
+📊 Advanced Features
+
+Real-time P&L tracking
+Risk management settings
+Wallet performance analytics
+Trade history və detailed logs
+Alert sistem (Telegram/Email)
+Bot performance comparison
+Portfolio diversification tools
+
+
+💹 Trading Features
+
+Auto stop-loss/take-profit
+Position sizing management
+Slippage protection
+Gas fee optimization
+Emergency stop button
+
+
+
+İndi başlayaq yaratmağa:
+ADDIM 1: Django Project Setup
+bash# Yeni folder yaradaq
+mkdir crypto_bot_platform
+cd crypto_bot_platform
+
+# Virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Django və digər paketləri quraşdıraq
+pip install django djangorestframework django-cors-headers celery redis channels channels-redis python-decouple psycopg2-binary web3 solana aiohttp websockets pandas plotly
+ADDIM 2: Django Project Structure
+bash# Django project yaradaq
+django-admin startproject cryptobot_platform .
+
+# Apps yaradaq
+python manage.py startapp accounts
+python manage.py startapp bots
+python manage.py startapp trading
+python manage.py startapp dashboard
+Project Structure:
+crypto_bot_platform/
+├── cryptobot_platform/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── accounts/
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   └── templates/
+├── bots/
+│   ├── models.py
+│   ├── bot_engine.py
+│   └── strategies/
+├── trading/
+│   ├── models.py
+│   ├── gmgn_client.py
+│   └── executors/
+├── dashboard/
+│   ├── views.py
+│   └── templates/
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── templates/
+│   └── base.html
+└── manage.py
+ADDIM 3: Settings Configuration
+cryptobot_platform/settings.py
+pythonfrom pathlib import Path
+from decouple import config
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SECRET_KEY = config('SECRET_KEY', default='your-secret-key-here')
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = ['*']
+
+# Application definition
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'channels',
+    'accounts',
+    'bots',
+    'trading',
+    'dashboard',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'cryptobot_platform.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+# Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME', default='cryptobot_db'),
+        'USER': config('DB_USER', default='postgres'),
+        'PASSWORD': config('DB_PASSWORD', default='password'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
+    }
+}
+
+# Channels configuration
+ASGI_APPLICATION = 'cryptobot_platform.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+# Static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Login
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'login'
+
+# Celery Configuration
+CELERY_BROKER_URL = config('REDIS_URL', default='redis://localhost:6379')
+CELERY_RESULT_BACKEND = config('REDIS_URL', default='redis://localhost:6379')
+ADDIM 4: Models
+bots/models.py
+pythonfrom django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+
+class TradingBot(models.Model):
+    BOT_CHOICES = [
+        ('terminator', 'Terminator - Aggressive Trader'),
+        ('shadow_walker', 'Shadow Walker - Stealth Copier'),
+        ('quantum_leap', 'Quantum Leap - AI Smart Bot'),
+        ('phoenix', 'Phoenix - Recovery Specialist'),
+        ('nebula', 'Nebula - Multi-Wallet Tracker'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('active', 'Active'),
+        ('paused', 'Paused'),
+        ('stopped', 'Stopped'),
+    ]
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bots')
+    name = models.CharField(max_length=100)
+    bot_type = models.CharField(max_length=50, choices=BOT_CHOICES)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='stopped')
+    
+    # Performance metrics
+    total_trades = models.IntegerField(default=0)
+    successful_trades = models.IntegerField(default=0)
+    total_profit_loss = models.DecimalField(max_digits=20, decimal_places=8, default=0)
+    win_rate = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    
+    # Settings
+    max_position_size = models.DecimalField(max_digits=20, decimal_places=8, default=100)
+    stop_loss_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=5)
+    take_profit_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=10)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+    
+    def __str__(self):
+        return f"{self.name} ({self.get_bot_type_display()})"
+
+class WalletTracker(models.Model):
+    bot = models.ForeignKey(TradingBot, on_delete=models.CASCADE, related_name='tracked_wallets')
+    wallet_address = models.CharField(max_length=100)
+    alias = models.CharField(max_length=100, blank=True)
+    
+    # Performance tracking
+    total_copied_trades = models.IntegerField(default=0)
+    successful_copies = models.IntegerField(default=0)
+    
+    is_active = models.BooleanField(default=True)
+    added_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        unique_together = ['bot', 'wallet_address']
+    
+    def __str__(self):
+        return f"{self.alias or self.wallet_address[:10]}..."
+trading/models.py
+pythonfrom django.db import models
+from bots.models import TradingBot, WalletTracker
+
+class Trade(models.Model):
+    TRADE_TYPES = [
+        ('buy', 'Buy'),
+        ('sell', 'Sell'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('executed', 'Executed'),
+        ('failed', 'Failed'),
+        ('cancelled', 'Cancelled'),
+    ]
+    
+    bot = models.ForeignKey(TradingBot, on_delete=models.CASCADE, related_name='trades')
+    original_wallet = models.ForeignKey(WalletTracker, on_delete=models.SET_NULL, null=True)
+    
+    # Trade details
+    trade_type = models.CharField(max_length=10, choices=TRADE_TYPES)
+    token_address = models.CharField(max_length=100)
+    token_symbol = models.CharField(max_length=20)
+    amount = models.DecimalField(max_digits=20, decimal_places=8)
+    price = models.DecimalField(max_digits=20, decimal_places=8)
+    total_value = models.DecimalField(max_digits=20, decimal_places=8)
+    
+    # Execution details
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    tx_hash = models.CharField(max_length=150, blank=True)
+    gas_used = models.DecimalField(max_digits=20, decimal_places=8, default=0)
+    slippage = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    
+    # Profit/Loss
+    profit_loss = models.DecimalField(max_digits=20, decimal_places=8, null=True, blank=True)
+    profit_loss_percentage = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    
+    executed_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-executed_at']
+    
+    def __str__(self):
+        return f"{self.trade_type.upper()} {self.token_symbol} - {self.status}"
+ADDIM 5: Futuristic Login Page
+templates/registration/login.html
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoBot Platform - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Animated background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .matrix-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 170, 0.03) 2px,
+                rgba(0, 255, 170, 0.03) 4px
+            );
+            animation: scan 8s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
+        }
+        
+        /* Floating crypto icons */
+        .crypto-float {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.1;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+        }
+        
+        /* Login container */
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 40px;
+            background: rgba(15, 15, 35, 0.9);
+            border: 2px solid #00ffaa;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 170, 0.5),
+                        inset 0 0 50px rgba(0, 255, 170, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00ffaa, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 170, 0.5);
+        }
+        
+        .logo p {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 255, 170, 0.05);
+            border: 1px solid rgba(0, 255, 170, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #00ffaa;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: rgba(15, 15, 35, 0.9);
+            padding: 0 10px;
+            color: #00ffaa;
+            font-size: 14px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00ffaa, #00aaff);
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 170, 0.5);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Animated elements */
+        .cyber-lines {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffaa, transparent);
+            animation: cyber-scan 3s linear infinite;
+        }
+        
+        .cyber-lines.top {
+            top: 0;
+        }
+        
+        .cyber-lines.bottom {
+            bottom: 0;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes cyber-scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Error messages */
+        .errorlist {
+            list-style: none;
+            color: #ff3366;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix background -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Floating crypto icons -->
+    <div class="crypto-float" style="top: 10%; left: 10%;">₿</div>
+    <div class="crypto-float" style="top: 20%; right: 15%; animation-delay: 2s;">Ξ</div>
+    <div class="crypto-float" style="bottom: 20%; left: 20%; animation-delay: 4s;">◎</div>
+    <div class="crypto-float" style="bottom: 30%; right: 25%; animation-delay: 6s;">₿</div>
+    
+    <!-- Login form -->
+    <div class="login-container">
+        <div class="cyber-lines top"></div>
+        <div class="cyber-lines bottom"></div>
+        
+        <div class="logo">
+            <h1>CRYPTOBOT</h1>
+            <p>Advanced Trading Platform</p>
+        </div>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Username</label>
+                <input type="text" name="username" id="id_username" required autofocus>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password">Password</label>
+                <input type="password" name="password" id="id_password" required>
+            </div>
+            
+            {% if form.errors %}
+                <div class="errorlist">
+                    Invalid username or password
+                </div>
+            {% endif %}
+            
+            <button type="submit" class="submit-btn">
+                INITIALIZE CONNECTION
+            </button>
+        </form>
+    </div>
+    
+    <script>
+        // Add glitch effect on hover
+        document.querySelector('.logo h1').addEventListener('mouseover', function() {
+            this.style.animation = 'glitch 0.3s infinite';
+        });
+        
+        document.querySelector('.logo h1').addEventListener('mouseout', function() {
+            this.style.animation = 'none';
+        });
+    </script>
+</body>
+</html>
+ADDIM 6: Bot Engine
+bots/bot_engine.py
+pythonimport asyncio
+import json
+from typing import Dict, List
+from datetime import datetime
+from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.db import database_sync_to_async
+from .models import TradingBot, WalletTracker
+from trading.models import Trade
+from trading.gmgn_client import GMGNClient
+
+class BotEngine:
+    """Main bot orchestrator"""
+    
+    def __init__(self):
+        self.active_bots: Dict[int, BotInstance] = {}
+        self.gmgn_client = GMGNClient()
+        
+    async def start_bot(self, bot_id: int):
+        """Start a specific bot"""
+        bot = await self.get_bot(bot_id)
+        if bot.id not in self.active_bots:
+            bot_instance = BotInstance(bot, self.gmgn_client)
+            self.active_bots[bot.id] = bot_instance
+            await bot_instance.start()
+            
+    async def stop_bot(self, bot_id: int):
+        """Stop a specific bot"""
+        if bot_id in self.active_bots:
+            await self.active_bots[bot_id].stop()
+            del self.active_bots[bot_id]
+            
+    @database_sync_to_async
+    def get_bot(self, bot_id: int):
+        return TradingBot.objects.get(id=bot_id)
+
+class BotInstance:
+    """Individual bot instance"""
+    
+    def __init__(self, bot: TradingBot, gmgn_client: GMGNClient):
+        self.bot = bot
+        self.gmgn_client = gmgn_client
+        self.is_running = False
+        self.tracked_wallets = []
+        
+    async def start(self):
+        """Start monitoring wallets"""
+        self.is_running = True
+        self.tracked_wallets = await self.get_tracked_wallets()
+        
+        # Subscribe to each wallet
+        for wallet in self.tracked_wallets:
+            await self.gmgn_client.subscribe_to_wallet(
+                wallet.wallet_address,
+                self.handle_transaction
+            )
+            
+    async def stop(self):
+        """Stop the bot"""
+        self.is_running = False
+        
+    async def handle_transaction(self, transaction_data: Dict):
+        """Handle incoming transaction from tracked wallet"""
+        if not self.is_running:
+            return
+            
+        # Analyze transaction
+        if self.should_copy_trade(transaction_data):
+            await self.execute_copy_trade(transaction_data)
+            
+    def should_copy_trade(self, transaction_data: Dict) -> bool:
+        """Determine if we should copy this trade"""
+        # Bot-specific logic based on bot type
+        if self.bot.bot_type == 'terminator':
+            # Aggressive - copy all trades
+            return True
+        elif self.bot.bot_type == 'shadow_walker':
+            # Only copy profitable wallets
+            return transaction_data.get('historical_profit', 0) > 0
+        # Add more bot-specific logic
+        return True
+        
+    async def execute_copy_trade(self, transaction_data: Dict):
+        """Execute the copy trade"""
+        # Create trade record
+        trade = await self.create_trade_record(transaction_data)
+        
+        # Execute on blockchain
+        # ... blockchain execution logic ...
+        
+        # Update trade status
+        await self.update_trade_status(trade, 'executed')
+        
+    @database_sync_to_async
+    def get_tracked_wallets(self):
+        return list(self.bot.tracked_wallets.filter(is_active=True))
+        
+    @database_sync_to_async
+    def create_trade_record(self, transaction_data: Dict):
+        return Trade.objects.create(
+            bot=self.bot,
+            trade_type=transaction_data['type'],
+            token_address=transaction_data['token'],
+            amount=transaction_data['amount'],
+            # ... more fields
+        )
+İndi bu layihəni test edək:
+bash# Migrate
+python manage.py makemigrations
+python manage.py migrate
+
+# Superuser yaradaq
+python manage.py createsuperuser
+
+# Run server
+python manage.py runserver
+Bu birinci mərhələdir. Test edib mənə nəticəni bildirin, sonra:
+
+Dashboard və bot management interface
+Real-time WebSocket connections
+Trading execution engine
+Performance analytics
+
+əlavə edəcəyik. Hazırsınızsa başlayaq!RetryRbir deqiqer aydin olmadi , gel sifirdan bawlayaq, ve projeni yaradarken caliw crypto kimi bot kimi sozlerdense daha kreativ sozler istifade ed, buyur yeniden yarat, projenin adi copbot olsun, bawla sifirdan ne lazimdirsa yarat ve lazimi butun paketleri yukle ve kodu yazEditHazırladı Django proyektini kreativ adlandırmaqla başladı.2sOkay, user wants to start from scratch with a project called "copbot" and wants me to use more creative names instead of crypto/bot terminology. Let me create a full Django project from scratch with creative naming.Əla, gəlin sıfırdan başlayaq! CopBot platforması yaradaq - daha kreativ və innovativ adlarla.
+🚀 CopBot - Smart Mirror Trading Platform
+ADDIM 1: Layihənin Yaradılması
+bash# Yeni qovluq yaradaq
+mkdir copbot_platform
+cd copbot_platform
+
+# Virtual environment yaradaq
+python -m venv venv
+
+# Aktivləşdirək
+# Windows:
+venv\Scripts\activate
+# Linux/Mac:
+source venv/bin/activate
+
+# Bütün lazımi paketləri yükləyək
+pip install django==4.2.7 djangorestframework==3.14.0 django-cors-headers==4.3.0 
+pip install celery==5.3.4 redis==5.0.1 channels==4.0.0 channels-redis==4.1.0 
+pip install python-decouple==3.8 Pillow==10.1.0 django-crispy-forms==2.1
+pip install crispy-bootstrap5==0.7 psycopg2-binary==2.9.9 
+pip install aiohttp==3.9.1 websockets==12.0 pandas==2.1.3 
+pip install plotly==5.18.0 gunicorn==21.2.0 whitenoise==6.6.0
+ADDIM 2: Django Layihəsini Yaradaq
+bash# Django layihəsi yaradaq
+django-admin startproject copbot .
+
+# Tətbiqləri yaradaq
+python manage.py startapp nexus        # İstifadəçi sistemləri
+python manage.py startapp mirrors      # Mirror (bot) sistemi  
+python manage.py startapp pulse        # Trading engine
+python manage.py startapp horizon      # Dashboard və analytics
+ADDIM 3: Layihə Strukturu
+copbot_platform/
+├── copbot/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── nexus/                 # User management
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   └── templates/
+├── mirrors/               # Bot management
+│   ├── models.py
+│   ├── mirror_engine.py
+│   └── strategies/
+├── pulse/                 # Trading operations
+│   ├── models.py
+│   ├── connectors.py
+│   └── executors/
+├── horizon/               # Dashboard
+│   ├── views.py
+│   └── templates/
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── templates/
+├── media/
+├── logs/
+├── .env
+├── requirements.txt
+└── manage.py
+ADDIM 4: Environment Variables (.env)
+.env faylı yaradın:
+envSECRET_KEY=your-super-secret-key-123456789
+DEBUG=True
+DB_NAME=copbot_db
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
+
+# Mirror Engine Settings
+PULSE_WEBSOCKET_URL=wss://api.gmgn.ai/ws/v1
+PULSE_API_KEY=your_api_key
+PULSE_API_SECRET=your_api_secret
+
+# Redis
+REDIS_URL=redis://localhost:6379
+ADDIM 5: Settings Configuration
+copbot/settings.py:
+pythonfrom pathlib import Path
+from decouple import config
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = ['*']
+
+# Application definition
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    # Third party
+    'rest_framework',
+    'corsheaders',
+    'channels',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    
+    # Our apps
+    'nexus.apps.NexusConfig',
+    'mirrors.apps.MirrorsConfig',
+    'pulse.apps.PulseConfig',
+    'horizon.apps.HorizonConfig',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'copbot.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'copbot.wsgi.application'
+ASGI_APPLICATION = 'copbot.asgi.application'
+
+# Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
+
+# Password validation
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+# Internationalization
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
+
+# Static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Login URLs
+LOGIN_URL = 'nexus:portal'
+LOGIN_REDIRECT_URL = 'horizon:command_center'
+LOGOUT_REDIRECT_URL = 'nexus:portal'
+
+# Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Channels
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [(config('REDIS_URL', default='redis://127.0.0.1:6379'))],
+        },
+    },
+}
+
+# Celery Configuration
+CELERY_BROKER_URL = config('REDIS_URL', default='redis://localhost:6379')
+CELERY_RESULT_BACKEND = config('REDIS_URL', default='redis://localhost:6379')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ADDIM 6: Models - Kreativ Adlarla
+mirrors/models.py:
+pythonfrom django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+
+class Mirror(models.Model):
+    """Mirror - our intelligent copy systems"""
+    
+    MIRROR_TYPES = [
+        ('phantom', 'Phantom - Invisible Tracker'),
+        ('echo', 'Echo - Perfect Replicator'),  
+        ('shadow', 'Shadow - Stealth Hunter'),
+        ('prism', 'Prism - Multi-Angle Analyzer'),
+        ('nexus', 'Nexus - Neural Network'),
+    ]
+    
+    STATES = [
+        ('sleeping', 'Sleeping'),
+        ('hunting', 'Hunting'),
+        ('paused', 'Paused'),
+    ]
+    
+    pilot = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mirrors')
+    codename = models.CharField(max_length=100, unique=True)
+    mirror_type = models.CharField(max_length=20, choices=MIRROR_TYPES)
+    state = models.CharField(max_length=20, choices=STATES, default='sleeping')
+    
+    # Neural metrics
+    sync_count = models.IntegerField(default=0)
+    success_rate = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    pulse_frequency = models.IntegerField(default=1000)  # milliseconds
+    
+    # Limits
+    max_echo_size = models.DecimalField(max_digits=20, decimal_places=8, default=100)
+    risk_threshold = models.DecimalField(max_digits=5, decimal_places=2, default=5)
+    gain_target = models.DecimalField(max_digits=5, decimal_places=2, default=10)
+    
+    awakened_at = models.DateTimeField(auto_now_add=True)
+    last_pulse = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-awakened_at']
+    
+    def __str__(self):
+        return f"{self.codename} ({self.get_mirror_type_display()})"
+    
+    @property
+    def is_active(self):
+        return self.state == 'hunting'
+
+class Target(models.Model):
+    """Targets being tracked by mirrors"""
+    
+    mirror = models.ForeignKey(Mirror, on_delete=models.CASCADE, related_name='targets')
+    beacon_id = models.CharField(max_length=100)  # wallet address
+    alias = models.CharField(max_length=50, blank=True)
+    
+    # Tracking metrics
+    echoes_captured = models.IntegerField(default=0)
+    perfect_syncs = models.IntegerField(default=0)
+    sync_quality = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    
+    is_tracking = models.BooleanField(default=True)
+    locked_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        unique_together = ['mirror', 'beacon_id']
+    
+    def __str__(self):
+        return f"{self.alias or f'Target-{self.beacon_id[:8]}'}"
+pulse/models.py:
+pythonfrom django.db import models
+from mirrors.models import Mirror, Target
+
+class Echo(models.Model):
+    """Echo - replicated actions"""
+    
+    ECHO_TYPES = [
+        ('acquire', 'Acquire'),
+        ('release', 'Release'),
+    ]
+    
+    PHASES = [
+        ('pending', 'Pending'),
+        ('synced', 'Synced'),
+        ('failed', 'Failed'),
+        ('void', 'Void'),
+    ]
+    
+    mirror = models.ForeignKey(Mirror, on_delete=models.CASCADE, related_name='echoes')
+    origin_target = models.ForeignKey(Target, on_delete=models.SET_NULL, null=True)
+    
+    # Echo details
+    echo_type = models.CharField(max_length=20, choices=ECHO_TYPES)
+    beacon_address = models.CharField(max_length=100)  # token
+    beacon_symbol = models.CharField(max_length=20)
+    magnitude = models.DecimalField(max_digits=20, decimal_places=8)
+    frequency = models.DecimalField(max_digits=20, decimal_places=8)  # price
+    resonance = models.DecimalField(max_digits=20, decimal_places=8)  # total value
+    
+    # Sync details
+    phase = models.CharField(max_length=20, choices=PHASES, default='pending')
+    sync_hash = models.CharField(max_length=150, blank=True)
+    energy_cost = models.DecimalField(max_digits=20, decimal_places=8, default=0)  # gas
+    drift = models.DecimalField(max_digits=5, decimal_places=2, default=0)  # slippage
+    
+    # Results
+    amplitude_gain = models.DecimalField(max_digits=20, decimal_places=8, null=True)  # profit/loss
+    gain_percentage = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    
+    pulsed_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-pulsed_at']
+    
+    def __str__(self):
+        return f"{self.echo_type} {self.beacon_symbol} - {self.phase}"
+
+class Pulse(models.Model):
+    """System heartbeat and metrics"""
+    
+    mirror = models.ForeignKey(Mirror, on_delete=models.CASCADE, related_name='pulses')
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+    # Vitals
+    sync_latency = models.IntegerField()  # milliseconds
+    echo_count = models.IntegerField(default=0)
+    success_count = models.IntegerField(default=0)
+    
+    # Performance
+    total_amplitude = models.DecimalField(max_digits=20, decimal_places=8, default=0)
+    resonance_quality = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    
+    class Meta:
+        ordering = ['-timestamp']
+ADDIM 7: Futuristic Login Page
+Qovluqları yaradın:
+bashmkdir -p nexus/templates/nexus
+mkdir -p templates
+mkdir -p static/css static/js static/img
+nexus/templates/nexus/portal.html:
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopBot - Neural Access Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #ff00ff;
+            --danger-glow: #ff0066;
+            --bg-dark: #0a0a0f;
+            --panel-bg: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Neural Network Background */
+        .neural-network {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .neural-network canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Holographic Grid */
+        .holo-grid {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Access Panel */
+        .access-panel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) perspective(1000px);
+            width: 420px;
+            z-index: 10;
+        }
+        
+        .panel-container {
+            background: var(--panel-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 204, 0.3),
+                inset 0 0 30px rgba(0, 255, 204, 0.1);
+            animation: panel-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes panel-float {
+            0%, 100% { transform: translateY(0) rotateX(0); }
+            50% { transform: translateY(-10px) rotateX(2deg); }
+        }
+        
+        /* Scan Lines */
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary-glow), 
+                transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        .scan-line.top {
+            top: 0;
+        }
+        
+        .scan-line.bottom {
+            bottom: 0;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Logo */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo-text {
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 5px;
+            background: linear-gradient(45deg, 
+                var(--primary-glow), 
+                var(--secondary-glow), 
+                var(--primary-glow));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .logo-subtitle {
+            color: rgba(0, 255, 204, 0.7);
+            font-size: 0.9em;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+        
+        /* Form Fields */
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-glow);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 204, 0.3),
+                inset 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+        
+        .input-label {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: var(--panel-bg);
+            padding: 0 10px;
+            color: var(--primary-glow);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        /* Submit Button */
+        .sync-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, 
+                var(--primary-glow), 
+                var(--secondary-glow));
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-dark);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .sync-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.5);
+        }
+        
+        .sync-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .sync-button:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Error Messages */
+        .error-msg {
+            color: var(--danger-glow);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+            animation: error-pulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes error-pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: float-up 10s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Glitch Effect */
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 
+                    2px 0 var(--danger-glow),
+                    -2px 0 var(--secondary-glow);
+            }
+            25% {
+                text-shadow: 
+                    -2px 0 var(--danger-glow),
+                    2px 0 var(--secondary-glow);
+            }
+            50% {
+                text-shadow: 
+                    2px 0 var(--secondary-glow),
+                    -2px 0 var(--danger-glow);
+            }
+        }
+        
+        .glitch:hover {
+            animation: glitch 0.3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <div class="neural-network">
+        <canvas id="neural-canvas"></canvas>
+    </div>
+    
+    <!-- Holographic Grid -->
+    <div class="holo-grid"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+    
+    <!-- Access Panel -->
+    <div class="access-panel">
+        <div class="panel-container">
+            <div class="scan-line top"></div>
+            <div class="scan-line bottom"></div>
+            
+            <div class="logo-section">
+                <h1 class="logo-text glitch">COPBOT</h1>
+                <p class="logo-subtitle">NEURAL SYNC PROTOCOL</p>
+            </div>
+            
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label class="input-label" for="id_username">ACCESS ID</label>
+                    <input type="text" 
+                           name="username" 
+                           id="id_username" 
+                           class="input-field" 
+                           required 
+                           autofocus
+                           autocomplete="off">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="id_password">SYNC KEY</label>
+                    <input type="password" 
+                           name="password" 
+                           id="id_password" 
+                           class="input-field" 
+                           required>
+                </div>
+                
+                {% if form.errors %}
+                    <div class="error-msg">
+                        ⚠ AUTHENTICATION FAILED - INVALID CREDENTIALS
+                    </div>
+                {% endif %}
+                
+                <button type="submit" class="sync-button">
+                    INITIATE NEURAL SYNC
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Neural Network Animation
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 50;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 255, 204, 0.8)';
+                ctx.fill();
+            }
+        }
+        
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
+        
+        function animate() {
+            ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            // Draw connections
+            ctx.strokeStyle = 'rgba(0, 255, 204, 0.1)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Floating Particles
+        const particlesContainer = document.getElementById('particles');
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.fontSize = Math.random() * 10 + 10 + 'px';
+            particle.style.color = Math.random() > 0.5 ? '#00ffcc' : '#ff00ff';
+            particle.textContent = Math.random() > 0.5 ? '◆' : '◇';
+            
+            particlesContainer.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 10000);
+        }
+        
+        setInterval(createParticle, 1000);
+        
+        // Window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+ADDIM 8: Views və URLs
+nexus/views.py:
+pythonfrom django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+
+def portal_view(request):
+    """Neural Access Portal - Login"""
+    if request.user.is_authenticated:
+        return redirect('horizon:command_center')
+    
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, f"Neural sync established. Welcome, {username}.")
+                return redirect('horizon:command_center')
+    else:
+        form = AuthenticationForm()
+    
+    return render(request, 'nexus/portal.html', {'form': form})
+nexus/urls.py:
+pythonfrom django.urls import path
+from django.contrib.auth import views as auth_views
+from . import views
+
+app_name = 'nexus'
+
+urlpatterns = [
+    path('portal/', views.portal_view, name='portal'),
+    path('disconnect/', auth_views.LogoutView.as_view(), name='disconnect'),
+]
+copbot/urls.py:
+pythonfrom django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('nexus/', include('nexus.urls')),
+    path('mirrors/', include('mirrors.urls')),
+    path('pulse/', include('pulse.urls')),
+    path('', include('horizon.urls')),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+ADDIM 9: Database və Migration
+bash# PostgreSQL-də database yaradın
+createdb copbot_db
+
+# Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# Superuser yaradın
+python manage.py createsuperuser
+# Username: admin
+# Email: admin@copbot.com
+# Password: güclü parol
+
+# Static files collect
+python manage.py collectstatic --noinput
+
+# Server başladın
+python manage.py runserver
+ADDIM 10: Boş URL faylları yaradın
+bash# mirrors/urls.py
+echo "from django.urls import path
+app_name = 'mirrors'
+urlpatterns = []" > mirrors/urls.py
+
+# pulse/urls.py
+echo "from django.urls import path
+app_name = 'pulse'
+urlpatterns = []" > pulse/urls.py
+
+# horizon/urls.py
+echo "from django.urls import path
+from django.shortcuts import redirect
+app_name = 'horizon'
+urlpatterns = [
+    path('', lambda request: redirect('nexus:portal'), name='index'),
+    path('command-center/', lambda request: redirect('nexus:portal'), name='command_center'),
+]" > horizon/urls.py
+İndi layihə hazırdır!
+Test etmək üçün:
+
+http://127.0.0.1:8000/nexus/portal/ açın
+Admin panel: http://127.0.0.1:8000/admin/
+Yaratdığınız user ilə login olun
+
+Növbəti addımda Dashboard və Mirror management sistemini yaradacağıq. Test edib nəticəni bildirin!RetryRbir nece sualim var. 
+* ilk olaraq proje folderim nece gorunur elave resim faylinda gonderdim. 
+* 10-cu addimi bawa duwmedim, harda ve ne fayl yaratmaliyam, 
+* butun yazdiqlarin bir bir izah etmeni istirem hansi kod ve ya fayl ne iwe yarayir.
+* createdb copbot_db  burada cmd-de bu komandani vururam, sualim odur ki hardan bilir ki postgree-de yaradir bazani, bunu izah et, bir de passwordu unutmuwam yazarken error verirEditAnalyzed project structure, database, and code explanation requests.10sIstifadəçinin bir neçə sualı var:
+
+Layihə strukturu haqqında - şəkildən görünür ki, folder strukturu düzgündür
+10-cu addım haqqında - URL fayllarını yaratmaq lazımdır
+Hər kodun nə işə yaradığını izah etmək istəyir
+PostgreSQL database yaratmaq haqqında sual
+
+Bunları bir-bir izah edim.Əla suallar! Hər birini ətraflı izah edim:
+1. Layihə Strukturunuz
+Şəkildən görürəm ki, strukturunuz düzgündür! Belə görünməlidir:
+copbot_platform/
+├── copbot/          # Ana Django konfiqurasiya folderi
+├── horizon/         # Dashboard app
+├── mirrors/         # Bot idarəetmə app
+├── nexus/          # İstifadəçi sistemi app
+├── pulse/          # Trading engine app
+├── venv/           # Virtual environment
+├── .env            # Gizli məlumatlar
+└── manage.py       # Django əsas faylı
+2. 10-cu Addım - URL Faylları
+Hər app-in öz urls.py faylı olmalıdır. Bunları yaradın:
+mirrors/urls.py yaradın:
+python# mirrors folderinin içində urls.py faylı yaradın
+from django.urls import path
+
+app_name = 'mirrors'
+urlpatterns = [
+    # Hələlik boşdur, sonra əlavə edəcəyik
+]
+pulse/urls.py yaradın:
+python# pulse folderinin içində urls.py faylı yaradın
+from django.urls import path
+
+app_name = 'pulse'
+urlpatterns = [
+    # Hələlik boşdur, sonra əlavə edəcəyik
+]
+horizon/urls.py yaradın:
+python# horizon folderinin içində urls.py faylı yaradın
+from django.urls import path
+from django.shortcuts import redirect
+
+app_name = 'horizon'
+urlpatterns = [
+    path('', lambda request: redirect('nexus:portal'), name='index'),
+    path('command-center/', lambda request: redirect('nexus:portal'), name='command_center'),
+]
+3. Hər Faylın İzahı
+Folder Strukturu:
+
+copbot/ - Ana konfiqurasiya
+
+settings.py - Bütün Django ayarları
+urls.py - Ana URL yönləndirmələri
+wsgi.py - Web server bağlantısı
+asgi.py - Async web server
+
+
+nexus/ - İstifadəçi sistemi
+
+models.py - Database cədvəlləri
+views.py - Səhifə məntiqləri
+urls.py - URL yolları
+templates/ - HTML şablonları
+
+
+mirrors/ - Bot sistemi
+
+models.py - Bot və target modelləri
+mirror_engine.py - Bot işləmə məntiqi
+
+
+pulse/ - Trading sistemi
+
+models.py - Trade modelləri
+connectors.py - API bağlantıları
+
+
+horizon/ - Dashboard
+
+views.py - Dashboard səhifələri
+templates/ - Dashboard HTML-ləri
+
+
+
+Əsas Fayllar:
+
+.env - Gizli məlumatlar (parollar, API keys)
+manage.py - Django əmrləri üçün
+requirements.txt - Yüklənən paketlər
+
+4. PostgreSQL Database Məsələsi
+PostgreSQL quraşdırma:
+
+PostgreSQL yoxlayın:
+
+bashpsql --version
+
+PostgreSQL-ə daxil olun:
+
+bash# Windows
+psql -U postgres
+
+# Əgər parol unudubsunuzsa, yenidən qurun:
+# 1. PostgreSQL servisini dayandırın
+# 2. pg_hba.conf faylını tapın (C:\Program Files\PostgreSQL\15\data\)
+# 3. "local all all trust" yazın
+# 4. Servisi yenidən başladın
+
+Database yaradın SQL ilə:
+
+sql-- PostgreSQL-də
+CREATE DATABASE copbot_db;
+CREATE USER copbot_user WITH PASSWORD 'yeni_parol_123';
+GRANT ALL PRIVILEGES ON DATABASE copbot_db TO copbot_user;
+
+.env faylını yeniləyin:
+
+envSECRET_KEY=django-insecure-12345678
+DEBUG=True
+DB_NAME=copbot_db
+DB_USER=copbot_user
+DB_PASSWORD=yeni_parol_123
+DB_HOST=localhost
+DB_PORT=5432
+Alternativ: SQLite istifadə edin (test üçün)
+settings.py-də bu hissəni dəyişin:
+pythonDATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+5. İndi bu addımları edin:
+bash# 1. Virtual environment aktivləşdirin
+venv\Scripts\activate
+
+# 2. URL fayllarını yaradın (yuxarıda göstərdiyim kimi)
+
+# 3. Migrations (SQLite ilə)
+python manage.py makemigrations
+python manage.py migrate
+
+# 4. Superuser yaradın
+python manage.py createsuperuser
+# Username: admin
+# Email: boş qoya bilərsiniz (Enter)
+# Password: 12345678 (test üçün)
+
+# 5. Server başladın
+python manage.py runserver
+6. Test edin:
+
+Brauzerdə açın: http://127.0.0.1:8000/nexus/portal/
+Admin ilə login olun
+Əgər error varsa, mənə bildirin!
+
+PostgreSQL problemi həll olmazsa, SQLite ilə davam edək, sonra production-da PostgreSQL-ə keçərik.RetryRDATABASE_USER=postgres
+DATABASE_PASSWORD=P@ssw0rd(venv) PS D:\projects\copbot_platform> createdb copbot_db
+Password:
+Password:
+createdb: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "HP"
+(venv) PS D:\projects\copbot_platform>mesele odur ki database user bawqadir burada ise windows user hp erroru verirEditDiagnosed Windows user authentication issue with PostgreSQL connection.6sGörürəm ki, createdb əmri Windows user adını (HP) istifadə edir, PostgreSQL user adını (postgres) yox. Bu Windows-da çox rast gəlinən problemdir. Gəlin bu problemi həll edək.Problemi başa düşdüm! Windows-da createdb əmri default olaraq Windows username-ni (HP) istifadə edir, sizin PostgreSQL username-niz isə postgres-dir.
+Həll yolları:
+1-ci Yol: PostgreSQL username ilə createdb
+bash# PostgreSQL user-i göstərərək yaradın
+createdb -U postgres copbot_db
+
+# Parol soruşanda: P@ssw0rd yazın
+2-ci Yol: pgAdmin ilə yaradın (Ən asan)
+
+pgAdmin açın
+Servers → PostgreSQL → sağ klik → Create → Database
+Database name: copbot_db
+Save
+
+3-cü Yol: psql ilə yaradın
+bash# PostgreSQL-ə postgres user ilə daxil olun
+psql -U postgres
+
+# Parol: P@ssw0rd
+
+# Database yaradın
+CREATE DATABASE copbot_db;
+
+# Çıxın
+\q
+4-cü Yol: Environment variable qoyun
+bash# PowerShell-də
+$env:PGUSER="postgres"
+$env:PGPASSWORD="P@ssw0rd"
+
+# İndi createdb işləyəcək
+createdb copbot_db
+.env faylınızı yeniləyin:
+envSECRET_KEY=django-insecure-your-secret-key-here
+DEBUG=True
+DB_NAME=copbot_db
+DB_USER=postgres
+DB_PASSWORD=P@ssw0rd
+DB_HOST=localhost
+DB_PORT=5432
+
+# GMGN API (sonra əlavə edəcəyik)
+PULSE_WEBSOCKET_URL=wss://api.gmgn.ai/ws/v1
+PULSE_API_KEY=your_api_key
+PULSE_API_SECRET=your_api_secret
+
+# Redis
+REDIS_URL=redis://localhost:6379
+Database yaradıldıqdan sonra:
+bash# 1. Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# 2. Superuser yaradın
+python manage.py createsuperuser
+
+# 3. Server başladın
+python manage.py runserver
+Əgər hələ də problem varsa - SQLite keçidi:
+copbot/settings.py faylında database hissəsini belə dəyişin:
+pythonDATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# PostgreSQL hissəsini comment edin:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         ...
+#     }
+# }
+Bu halda heç bir database yaratmağa ehtiyac yoxdur, Django özü yaradacaq.
+Hansı yolu seçdiyinizi və nəticəni mənə bildirin!RetryR(venv) PS D:\projects\copbot_platform> python manage.py makemigrations
+SystemCheckError: System check identified some issues:
+ERRORS:
+?: (admin.E410) 'django.contrib.sessions.middleware.SessionMiddleware' must be in MIDDLEWARE in order to use the admin application.
+        HINT: Insert 'django.contrib.sessions.middleware.SessionMiddleware' before 'django.contrib.auth.middleware.AuthenticationMiddleware'.
+WARNINGS:
+?: (staticfiles.W004) The directory 'D:\projects\copbot_platform\static' in the STATICFILES_DIRS setting does not exist.
+(venv) PS D:\projects\copbot_platform>EditDiagnosed middleware and static folder configuration issues.4sİki problem var:
+
+SessionMiddleware MIDDLEWARE listində yoxdur və ya düzgün sırada deyil
+static folder mövcud deyil
+
+Bunları həll etməliyəm.Bu xətaları həll edək:
+1. MIDDLEWARE Problemi - settings.py düzəldin:
+copbot/settings.py faylında MIDDLEWARE hissəsini belə düzəldin:
+pythonMIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # Bu sətir əlavə olunmalı
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+2. Static folder yaradın:
+bash# Ana layihə folderində (copbot_platform içində)
+mkdir static
+mkdir static\css
+mkdir static\js  
+mkdir static\img
+
+# Templates folder da yaradın
+mkdir templates
+
+# Media folder
+mkdir media
+
+# Logs folder
+mkdir logs
+3. Hər app üçün templates folder yaradın:
+bash# Nexus templates
+mkdir nexus\templates
+mkdir nexus\templates\nexus
+
+# Horizon templates
+mkdir horizon\templates
+mkdir horizon\templates\horizon
+
+# Mirrors templates
+mkdir mirrors\templates
+mkdir mirrors\templates\mirrors
+4. İndi yenidən cəhd edin:
+bash# Migrations
+python manage.py makemigrations
+
+# Əgər "No changes detected" deyirsə, normal - modellərimiz hələ boşdur
+# Force migration
+python manage.py makemigrations nexus mirrors pulse horizon
+
+# Migrate
+python manage.py migrate
+
+# Static files collect (optional)
+python manage.py collectstatic --noinput
+5. Tam folder strukturu belə olmalıdır:
+copbot_platform/
+├── copbot/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── nexus/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── nexus/
+│   │       └── portal.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+├── mirrors/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── mirrors/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   └── urls.py
+├── pulse/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   └── urls.py
+├── horizon/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── horizon/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── templates/
+├── media/
+├── logs/
+├── .env
+├── manage.py
+└── db.sqlite3 (migrate-dən sonra yaranacaq)
+Bu addımları etdikdən sonra nəticəni bildirin!RetryR(venv) PS D:\projects\copbot_platform> python manage.py makemigrations
+D:\projects\copbot_platform\venv\Lib\site-packages\django\core\management\commands\makemigrations.py:158: RuntimeWarning: Got an error checking a consistent migration history performed for database connection 'default': connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  warnings.warn(
+Migrations for 'mirrors':
+  mirrors\migrations\0001_initial.py
+    - Create model Mirror
+    - Create model Target
+Migrations for 'pulse':
+  pulse\migrations\0001_initial.py
+    - Create model Pulse
+    - Create model Echo
+(venv) PS D:\projects\copbot_platform>EditDiagnosed PostgreSQL authentication issue, suggested SQLite workaround.10sİstifadəçi makemigrations əmrini çalışdırıb və migration faylları yaranıb, amma PostgreSQL bağlantısı üçün xəbərdarlıq var. Password authentication failed görünür. İndi migrate etməyə çalışsa, eyni problem olacaq. Ona SQLite ilə davam etməyi təklif edim.Yaxşı xəbər - migrations yarandı! Amma PostgreSQL bağlantı problemi var. Gəlin SQLite ilə davam edək, sonra production-da PostgreSQL-ə keçərik.
+SQLite-ə keçid (Development üçün daha rahat):
+1. copbot/settings.py faylında database hissəsini dəyişin:
+python# PostgreSQL hissəsini comment edin və SQLite əlavə edin:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Production üçün saxlayın (comment halında):
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+2. İndi migrate edin:
+bash# Database cədvəllərini yaradın
+python manage.py migrate
+
+# Superuser yaradın
+python manage.py createsuperuser
+# UsernameRetryRxeyr. postgree ile davam edek bu problemi duzeldekEditDiagnosed PostgreSQL connection issue with user authentication.5sİstifadəçi PostgreSQL ilə davam etmək istəyir. PostgreSQL bağlantı problemini həll edək. Error mesajı göstərir ki, "postgres" user-i üçün parol düzgün deyil.Əla, PostgreSQL problemi həll edək! Error göstərir ki, parol düzgün deyil.
+PostgreSQL Bağlantı Problemini Həll edək:
+1. İlk öncə PostgreSQL-in işlədiyini yoxlayın:
+bash# PostgreSQL servisi işləyirmi?
+# Windows PowerShell (Admin kimi açın):
+Get-Service -Name postgresql*
+
+# Əgər stopped-dursa, başladın:
+Start-Service -Name "postgresql-x64-15"  # version nömrəniz fərqli ola bilər
+2. PostgreSQL-ə doğru parol ilə test edin:
+bash# Test edin - bu işləməlidir
+psql -U postgres -h localhost
+# Parol: P@ssw0rd
+3. .env faylınızı yoxlayın və düzəldin:
+.env faylı:
+envSECRET_KEY=django-insecure-very-secret-key-12345
+DEBUG=True
+DB_NAME=copbot_db
+DB_USER=postgres
+DB_PASSWORD=P@ssw0rd
+DB_HOST=localhost
+DB_PORT=5432
+
+# GMGN API (sonra lazım olacaq)
+PULSE_WEBSOCKET_URL=wss://api.gmgn.ai/ws/v1
+PULSE_API_KEY=your_api_key
+PULSE_API_SECRET=your_api_secret
+
+# Redis
+REDIS_URL=redis://localhost:6379
+4. settings.py faylında database konfiqurasiyanı yoxlayın:
+pythonfrom decouple import config
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
+5. Database-i manual yaradın (əgər yoxdursa):
+bash# PowerShell-də
+psql -U postgres -h localhost
+
+# Parol: P@ssw0rd
+
+# PostgreSQL prompt-da (#):
+CREATE DATABASE copbot_db;
+\l  # database-ləri göstərir
+\q  # çıxış
+6. Python-da test edin:
+python# test_db.py faylı yaradın
+import psycopg2
+
+try:
+    conn = psycopg2.connect(
+        host="localhost",
+        database="copbot_db",
+        user="postgres",
+        password="P@ssw0rd"
+    )
+    print("✅ PostgreSQL bağlantısı uğurlu!")
+    conn.close()
+except Exception as e:
+    print(f"❌ Error: {e}")
+Çalıştırın:
+bashpython test_db.py
+7. Əgər hələ də problem varsa, pg_hba.conf düzəldin:
+
+pg_hba.conf faylını tapın:
+
+Adətən: C:\Program Files\PostgreSQL\15\data\pg_hba.conf
+
+
+Bu sətirləri tapın və düzəldin:
+
+conf# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   all             all                                     trust
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+
+PostgreSQL servisini restart edin:
+
+bashRestart-Service -Name "postgresql-x64-15"
+8. İndi yenidən migrate edin:
+bash# Təmiz başlayaq
+python manage.py makemigrations --dry-run  # test
+python manage.py makemigrations
+python manage.py migrate
+Hansı addımda problem yaranır? Exact error mesajını göndərin.RetryR(venv) PS D:\projects\copbot_platform> Get-Service -Name postgresql*
+Status   Name               DisplayName
+------   ----               -----------
+Running  postgresql-x64-15  postgresql-x64-15 - PostgreSQL Serv...
+(venv) PS D:\projects\copbot_platform> Start-Service -Name "postgresql-x64-15"
+Start-Service : Service 'postgresql-x64-15 - PostgreSQL Server 15 (postgresql-x64-15)' cannot be started due to the
+following error: Cannot open postgresql-x64-15 service on computer '.'.
+At line:1 char:1
++ Start-Service -Name "postgresql-x64-15"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (System.ServiceProcess.ServiceController:ServiceController) [Start-Service],
+   ServiceCommandException
+    + FullyQualifiedErrorId : CouldNotStartService,Microsoft.PowerShell.Commands.StartServiceCommand
+(venv) PS D:\projects\copbot_platform> psql -U postgres -h localhost
+Password for user postgres:
+psql (15.10)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+postgres=#DATABASE_USER=postgres
+DATABASE_PASSWORD=P@ssw0rd
+DATABASE_HOST=localhost
+DATABASE_PORT=5432EditDiagnosed environment variable mismatch blocking database connection.14sPostgreSQL servisi çalışıyor və psql ile bağlantı uğurlu oldu. Demək ki PostgreSQL düzgün işləyir və parol doğrudur. Amma Django bağlana bilmir.
+İstifadəçinin .env faylında problem ola bilər. Onun göstərdiyi:
+DATABASE_USER=postgres
+DATABASE_PASSWORD=P@ssw0rd
+Amma bizim settings.py faylında DB_USER və DB_PASSWORD istifadə edirik, DATABASE_USER və DATABASE_PASSWORD yox.
+Bu uyğunsuzluq problemə səbəb ola bilər.Əla! PostgreSQL işləyir və bağlantı uğurludur. Problem .env faylındakı variable adlarındadır.
+Problemi tapdım!
+Sizin .env faylında:
+DATABASE_USER=postgres
+DATABASE_PASSWORD=P@ssw0rd
+Amma settings.py-də biz belə istifadə edirik:
+python'USER': config('DB_USER'),
+'PASSWORD': config('DB_PASSWORD'),
+Həll:
+1. .env faylını düzəldin:
+envSECRET_KEY=django-insecure-very-secret-key-12345
+DEBUG=True
+DB_NAME=copbot_db
+DB_USER=postgres
+DB_PASSWORD=P@ssw0rd
+DB_HOST=localhost
+DB_PORT=5432
+
+# GMGN API
+PULSE_WEBSOCKET_URL=wss://api.gmgn.ai/ws/v1
+PULSE_API_KEY=your_api_key
+PULSE_API_SECRET=your_api_secret
+
+# Redis
+REDIS_URL=redis://localhost:6379
+DİQQƏT: DATABASE_USER yox, DB_USER olmalıdır!
+2. PostgreSQL-də database yaradın:
+sqlpostgres=# CREATE DATABASE copbot_db;
+CREATE DATABASE
+postgres=# \l
+postgres=# \q
+3. İndi migrate edin:
+bash# Migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# Əgər uğurlu olarsa görəcəksiniz:
+# Applying contenttypes.0001_initial... OK
+# Applying auth.0001_initial... OK
+# ...
+4. Superuser yaradın:
+bashpython manage.py createsuperuser
+# Username: admin
+# Email: admin@copbot.com (və ya boş qoyun)
+# Password: güclü parol
+5. Server başladın:
+bashpython manage.py runserver
+6. Test edin:
+Brauzerdə açın: http://127.0.0.1:8000/nexus/portal/
+İndi işləməlidir! Nəticəni bildirin.RetryRiwledi, access id ve sync key isteyirEditHazırladı login səhifəsini və access məlumatlarını10sƏla! Django proyekti işləyir və login səhifəsi açılır. İndi user-ə access vermək lazımdır. User artıq superuser yaradıb, ona görə admin paneldən və ya Django shell-dən istifadəçi yarada bilər.
+Access ID = username
+Sync Key = password
+Bu login səhifəsidir. Superuser ilə login olmalıdır.Əla! Sistem işləyir! 🎉
+Login üçün:
+Access ID = Username (yaratdığınız superuser adı)
+Sync Key = Password (yaratdığınız parol)
+Əgər superuser yaratmamısınızsa:
+bashpython manage.py createsuperuser
+# Username: admin
+# Email: (boş qoya bilərsiniz, Enter basın)
+# Password: admin123 (və ya istədiyiniz parol)
+Login olduqdan sonra:
+Hazırda horizon:command_center səhifəsinə yönləndirilir, amma biz hələ o səhifəni yaratmamışıq. Ona görə error verəcək.
+İndi Dashboard yaradaq!
+1. horizon/views.py:
+pythonfrom django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from mirrors.models import Mirror, Target
+from pulse.models import Echo
+
+@login_required
+def command_center(request):
+    """Main dashboard - Command Center"""
+    context = {
+        'mirrors': Mirror.objects.filter(pilot=request.user),
+        'total_mirrors': Mirror.objects.filter(pilot=request.user).count(),
+        'active_mirrors': Mirror.objects.filter(pilot=request.user, state='hunting').count(),
+        'recent_echoes': Echo.objects.filter(mirror__pilot=request.user).order_by('-pulsed_at')[:10],
+    }
+    return render(request, 'horizon/command_center.html', context)
+2. horizon/urls.py düzəldin:
+pythonfrom django.urls import path
+from . import views
+
+app_name = 'horizon'
+
+urlpatterns = [
+    path('', views.command_center, name='index'),
+    path('command-center/', views.command_center, name='command_center'),
+]
+3. horizon/templates/horizon/command_center.html yaradın:
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopBot - Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        .nav-header {
+            background: var(--panel);
+            border-bottom: 1px solid var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+        
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-user span {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .btn-logout {
+            background: linear-gradient(45deg, var(--danger), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 102, 0.5);
+        }
+        
+        /* Main Container */
+        .command-center {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.2), transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Mirror Section */
+        .section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+        
+        .btn-create {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-create:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
+        }
+        
+        /* Mirror Grid */
+        .mirror-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .mirror-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .mirror-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .mirror-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .mirror-type {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mirror-stats {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .mirror-state {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        
+        .state-hunting {
+            background: rgba(0, 255, 204, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .state-sleeping {
+            background: rgba(255, 255, 255, 0.1);
+            color: #888;
+            border: 1px solid #888;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .empty-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="{% url 'horizon:command_center' %}" class="nav-brand">COPBOT</a>
+        <div class="nav-user">
+            <span>PILOT: {{ user.username }}</span>
+            <form action="{% url 'nexus:disconnect' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">DISCONNECT</button>
+            </form>
+        </div>
+    </nav>
+    
+    <!-- Command Center -->
+    <div class="command-center">
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Mirrors</div>
+                <div class="stat-value">{{ total_mirrors }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Hunters</div>
+                <div class="stat-value">{{ active_mirrors }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Echoes Today</div>
+                <div class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Success Rate</div>
+                <div class="stat-value">0%</div>
+            </div>
+        </div>
+        
+        <!-- Mirrors Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">NEURAL MIRRORS</h2>
+                <button class="btn-create" onclick="alert('Mirror creation coming soon!')">
+                    + DEPLOY NEW MIRROR
+                </button>
+            </div>
+            
+            {% if mirrors %}
+                <div class="mirror-grid">
+                    {% for mirror in mirrors %}
+                        <div class="mirror-card">
+                            <div class="mirror-name">{{ mirror.codename }}</div>
+                            <div class="mirror-type">{{ mirror.get_mirror_type_display }}</div>
+                            <div class="mirror-stats">
+                                <span>Syncs: {{ mirror.sync_count }}</span>
+                                <span>Success: {{ mirror.success_rate }}%</span>
+                            </div>
+                            <span class="mirror-state state-{{ mirror.state }}">
+                                {{ mirror.get_state_display|upper }}
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <div class="empty-icon">🤖</div>
+                    <div class="empty-text">No mirrors deployed yet</div>
+                    <button class="btn-create" onclick="alert('Mirror creation coming soon!')">
+                        DEPLOY YOUR FIRST MIRROR
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactivity
+        document.querySelectorAll('.mirror-card').forEach(card => {
+            card.addEventListener('click', function() {
+                alert('Mirror details coming soon!');
+            });
+        });
+    </script>
+</body>
+</html>
+4. Server restart edin və test edin:
+bashpython manage.py runserver
+İndi login olduqdan sonra dashboard görünəcək!
+Növbəti addımda Mirror yaratma funksiyasını əlavə edəcəyik. Nəticəni bildirin!RetryRela, indi mene izah et buradaki bolmeler nedir? mirror yaratma funksiyasi ne demekdir? ve davam et, novbeti addimlari izah et. ne edeceyik ve kodu da yazEditAnalyzed Mirror dashboard, explained bot trading and next steps.15sİstifadəçi dashboard-u gördü və indi sistemin nə olduğunu, Mirror-ların nə iş gördüyünü və növbəti addımları soruşur. Ona izah edim:
+
+Mirror nədir və nə işə yarayır
+Dashboard-dakı bölmələr
+Növbəti addımlar - Mirror yaratma funksiyası
+Kodları yazım
+
+Mirror = Bot (copy trading bot)
+Target = İzlənəcək wallet
+Echo = Kopyalanan trade
+Pulse = Sistem metriklərƏla sual! Gəlin sistemi ətraflı izah edim:
+🎯 Sistemin Strukturu və Terminologiya
+Mirror (Güzgü) Nədir?
+Mirror = Sizin Copy Trading botunuz. Hər Mirror fərqli strategiya ilə işləyir:
+
+Phantom - Görünməz izləyici (gizli şəkildə kopyalayır)
+Echo - Mükəmməl təkrarlayıcı (1:1 kopyalayır)
+Shadow - Gizli ovçu (yalnız uğurlu trade-ləri kopyalayır)
+Prism - Çox bucaqlı analizator (bir neçə wallet-i eyni anda izləyir)
+Nexus - Neural şəbəkə (AI ilə ən yaxşı trade-ləri seçir)
+
+Dashboard Bölmələri:
+
+Total Mirrors - Yaratdığınız botların sayı
+Active Hunters - Hazırda işləyən botlar
+Echoes Today - Bugün kopyalanan trade-lər
+Success Rate - Uğurlu trade-lərin faizi
+
+İş Prinsipi:
+
+Siz bir Mirror (bot) yaradırsınız
+Bu Mirror-a Target (wallet adresi) əlavə edirsiniz
+Mirror həmin wallet-i real-time izləyir
+Wallet trade edəndə, Mirror eyni trade-i sizin hesabınızda edir
+Hər kopyalanan trade = Echo
+
+📝 İndi Mirror Yaratma Funksiyasını Əlavə Edək
+1. mirrors/forms.py yaradın:
+pythonfrom django import forms
+from .models import Mirror, Target
+
+class MirrorForm(forms.ModelForm):
+    class Meta:
+        model = Mirror
+        fields = ['codename', 'mirror_type', 'max_echo_size', 'risk_threshold', 'gain_target']
+        widgets = {
+            'codename': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter unique codename...'
+            }),
+            'mirror_type': forms.Select(attrs={
+                'class': 'form-control'
+            }),
+            'max_echo_size': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Max trade size (SOL)'
+            }),
+            'risk_threshold': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Stop loss %'
+            }),
+            'gain_target': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Take profit %'
+            })
+        }
+
+class TargetForm(forms.ModelForm):
+    class Meta:
+        model = Target
+        fields = ['beacon_id', 'alias']
+        widgets = {
+            'beacon_id': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Wallet address to track...'
+            }),
+            'alias': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Nickname (optional)'
+            })
+        }
+2. mirrors/views.py yaradın:
+pythonfrom django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import Mirror, Target
+from .forms import MirrorForm, TargetForm
+
+@login_required
+def create_mirror(request):
+    """Deploy new mirror"""
+    if request.method == 'POST':
+        form = MirrorForm(request.POST)
+        if form.is_valid():
+            mirror = form.save(commit=False)
+            mirror.pilot = request.user
+            mirror.save()
+            messages.success(request, f'Mirror "{mirror.codename}" deployed successfully!')
+            return redirect('mirrors:mirror_detail', pk=mirror.pk)
+    else:
+        form = MirrorForm()
+    
+    return render(request, 'mirrors/create_mirror.html', {'form': form})
+
+@login_required
+def mirror_detail(request, pk):
+    """Mirror control panel"""
+    mirror = get_object_or_404(Mirror, pk=pk, pilot=request.user)
+    targets = mirror.targets.all()
+    
+    if request.method == 'POST':
+        # Handle mirror actions
+        action = request.POST.get('action')
+        
+        if action == 'activate':
+            mirror.state = 'hunting'
+            mirror.save()
+            messages.success(request, f'{mirror.codename} is now hunting!')
+            
+        elif action == 'deactivate':
+            mirror.state = 'sleeping'
+            mirror.save()
+            messages.info(request, f'{mirror.codename} is sleeping.')
+            
+        elif action == 'add_target':
+            target_form = TargetForm(request.POST)
+            if target_form.is_valid():
+                target = target_form.save(commit=False)
+                target.mirror = mirror
+                target.save()
+                messages.success(request, f'Target added to {mirror.codename}')
+                
+        return redirect('mirrors:mirror_detail', pk=pk)
+    
+    target_form = TargetForm()
+    
+    context = {
+        'mirror': mirror,
+        'targets': targets,
+        'target_form': target_form,
+    }
+    
+    return render(request, 'mirrors/mirror_detail.html', context)
+
+@login_required
+def mirror_list(request):
+    """List all mirrors"""
+    mirrors = Mirror.objects.filter(pilot=request.user)
+    return render(request, 'mirrors/mirror_list.html', {'mirrors': mirrors})
+3. mirrors/urls.py güncelleyin:
+pythonfrom django.urls import path
+from . import views
+
+app_name = 'mirrors'
+
+urlpatterns = [
+    path('', views.mirror_list, name='mirror_list'),
+    path('create/', views.create_mirror, name='create_mirror'),
+    path('<int:pk>/', views.mirror_detail, name='mirror_detail'),
+]
+4. mirrors/templates/mirrors/create_mirror.html yaradın:
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy New Mirror - CopBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        .nav-header {
+            background: var(--panel);
+            border-bottom: 1px solid var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* Form Container */
+        .deploy-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .deploy-panel {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .deploy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .deploy-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .deploy-subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        .form-help {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        /* Mirror Type Cards */
+        .mirror-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .type-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+        }
+        
+        .type-card.selected {
+            background: rgba(0, 255, 204, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .type-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .type-name {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .type-desc {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Submit Button */
+        .btn-deploy {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .btn-deploy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.5);
+        }
+        
+        /* Animated Background */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="{% url 'horizon:command_center' %}" class="nav-brand">COPBOT</a>
+        <div class="nav-links">
+            <a href="{% url 'horizon:command_center' %}" class="nav-link">← COMMAND CENTER</a>
+        </div>
+    </nav>
+    
+    <!-- Deploy Form -->
+    <div class="deploy-container">
+        <div class="deploy-panel">
+            <div class="cyber-grid"></div>
+            
+            <div class="deploy-header">
+                <h1 class="deploy-title">DEPLOY NEW MIRROR</h1>
+                <p class="deploy-subtitle">Configure your neural trading agent</p>
+            </div>
+            
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label class="form-label">CODENAME</label>
+                    {{ form.codename }}
+                    <p class="form-help">Unique identifier for your mirror</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">MIRROR TYPE</label>
+                    {{ form.mirror_type }}
+                    <div class="mirror-types">
+                        <div class="type-card" data-type="phantom">
+                            <div class="type-icon">👻</div>
+                            <div class="type-name">PHANTOM</div>
+                            <div class="type-desc">Invisible tracker</div>
+                        </div>
+                        <div class="type-card" data-type="echo">
+                            <div class="type-icon">🔊</div>
+                            <div class="type-name">ECHO</div>
+                            <div class="type-desc">Perfect replicator</div>
+                        </div>
+                        <div class="type-card" data-type="shadow">
+                            <div class="type-icon">🌑</div>
+                            <div class="type-name">SHADOW</div>
+                            <div class="type-desc">Stealth hunter</div>
+                        </div>
+                        <div class="type-card" data-type="prism">
+                            <div class="type-icon">💎</div>
+                            <div class="type-name">PRISM</div>
+                            <div class="type-desc">Multi-angle analyzer</div>
+                        </div>
+                        <div class="type-card" data-type="nexus">
+                            <div class="type-icon">🧠</div>
+                            <div class="type-name">NEXUS</div>
+                            <div class="type-desc">Neural network</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">MAX ECHO SIZE (SOL)</label>
+                    {{ form.max_echo_size }}
+                    <p class="form-help">Maximum amount per trade copy</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">RISK THRESHOLD (%)</label>
+                    {{ form.risk_threshold }}
+                    <p class="form-help">Stop loss percentage</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">GAIN TARGET (%)</label>
+                    {{ form.gain_target }}
+                    <p class="form-help">Take profit percentage</p>
+                </div>
+                
+                <button type="submit" class="btn-deploy">
+                    🚀 DEPLOY MIRROR
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Mirror type selector
+        document.querySelectorAll('.type-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selected from all
+                document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+                // Add selected to clicked
+                this.classList.add('selected');
+                // Update select value
+                document.getElementById('id_mirror_type').value = this.dataset.type;
+            });
+        });
+        
+        // Auto-select based on dropdown
+        const mirrorTypeSelect = document.getElementById('id_mirror_type');
+        if (mirrorTypeSelect.value) {
+            document.querySelector(`[data-type="${mirrorTypeSelect.value}"]`)?.classList.add('selected');
+        }
+        
+        mirrorTypeSelect.addEventListener('change', function() {
+            document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+            document.querySelector(`[data-type="${this.value}"]`)?.classList.add('selected');
+        });
+    </script>
+</body>
+</html>
+5. mirrors/templates/mirrors/mirror_detail.html yaradın:
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ mirror.codename }} - Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Previous styles... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --success: #00ff88;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Control Panel */
+        .control-panel {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .mirror-header {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mirror-info h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .mirror-meta {
+            display: flex;
+            gap: 20px;
+            color: #888;
+        }
+        
+        .mirror-controls {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-control {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .btn-activate {
+            background: var(--success);
+            color: var(--dark);
+        }
+        
+        .btn-deactivate {
+            background: var(--danger);
+            color: #fff;
+        }
+        
+        .btn-control:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
+        }
+        
+        /* Target Section */
+        .targets-section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .btn-add-target {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        /* Target Grid */
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .target-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .target-address {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-family: monospace;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+        
+        .target-alias {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .target-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .modal-header {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .btn-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header" style="background: var(--panel); border-bottom: 1px solid var(--primary); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="{% url 'horizon:command_center' %}" class="nav-brand" style="font-size: 2rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 3px;">COPBOT</a>
+        <a href="{% url 'horizon:command_center' %}" class="nav-link" style="color: var(--primary); text-decoration: none; padding: 10px 20px; border: 1px solid var(--primary); border-radius: 5px;">← BACK</a>
+    </nav>
+    
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <!-- Mirror Header -->
+        <div class="mirror-header">
+            <div class="mirror-info">
+                <h1>{{ mirror.codename }}</h1>
+                <div class="mirror-meta">
+                    <span>TYPE: {{ mirror.get_mirror_type_display }}</span>
+                    <span>STATUS: {{ mirror.get_state_display|upper }}</span>
+                    <span>SYNCS: {{ mirror.sync_count }}</span>
+                </div>
+            </div>
+            <div class="mirror-controls">
+                <form method="post" style="display: inline;">
+                    {% csrf_token %}
+                    {% if mirror.state == 'sleeping' %}
+                        <input type="hidden" name="action" value="activate">
+                        <button type="submit" class="btn-control btn-activate">🚀 ACTIVATE</button>
+                    {% else %}
+                        <input type="hidden" name="action" value="deactivate">
+                        <button type="submit" class="btn-control btn-deactivate">⏸️ DEACTIVATE</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        
+        <!-- Targets Section -->
+        <div class="targets-section">
+            <div class="section-header">
+                <h2 class="section-title">TRACKING TARGETS</h2>
+                <button class="btn-add-target" onclick="showAddTarget()">+ ADD TARGET</button>
+            </div>
+            
+            {% if targets %}
+                <div class="targets-grid">
+                    {% for target in targets %}
+                        <div class="target-card">
+                            <div class="target-alias">{{ target.alias|default:"Unnamed Target" }}</div>
+                            <div class="target-address">{{ target.beacon_id }}</div>
+                            <div class="target-stats">
+                                <span>Echoes: {{ target.echoes_captured }}</span>
+                                <span>Success: {{ target.perfect_syncs }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div style="text-align: center; padding: 60px 20px; color: #888;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
+                    <p>No targets configured. Add wallet addresses to start tracking.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Add Target Modal -->
+    <div id="addTargetModal" class="modal">
+        <div class="modal-content">
+            <button class="btn-close" onclick="hideAddTarget()">×</button>
+            <h3 class="modal-header">ADD NEW TARGET</h3>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="add_target">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="display: block; color: var(--primary); margin-bottom: 10px;">WALLET ADDRESS</label>
+                    {{ target_form.beacon_id }}
+                </div>
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <label class="form-label" style="display: block; color: var(--primary); margin-bottom: 10px;">ALIAS (Optional)</label>
+                    {{ target_form.alias }}
+                </div>
+                <button type="submit" class="btn-deploy" style="width: 100%; padding: 15px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
+                    ADD TARGET
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function showAddTarget() {
+            document.getElementById('addTargetModal').style.display = 'block';
+        }
+        
+        function hideAddTarget() {
+            document.getElementById('addTargetModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('addTargetModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+6. Admin Panel-də modelləri qeydiyyatdan keçirin:
+mirrors/admin.py:
+pythonfrom django.contrib import admin
+from .models import Mirror, Target
+
+@admin.register(Mirror)
+class MirrorAdmin(admin.ModelAdmin):
+    list_display = ['codename', 'pilot', 'mirror_type', 'state', 'sync_count', 'success_rate']
+    list_filter = ['mirror_type', 'state', 'pilot']
+    search_fields = ['codename', 'pilot__username']
+
+@admin.register(Target)
+class TargetAdmin(admin.ModelAdmin):
+    list_display = ['alias', 'beacon_id', 'mirror', 'echoes_captured', 'is_tracking']
+    list_filter = ['is_tracking', 'mirror']
+    search_fields = ['beacon_id', 'alias']
+7. Dashboard-da "Deploy New Mirror" düyməsini işlək edin:
+horizon/templates/horizon/command_center.html faylında bu sətri tapın:
+html<button class="btn-create" onclick="alert('Mirror creation coming soon!')">
+Bunu bununla əvəz edin:
+html<a href="{% url 'mirrors:create_mirror' %}" class="btn-create">
+    + DEPLOY NEW MIRROR
+</a>
+8. Migrate və test edin:
+bashpython manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+📌 Növbəti Addımlar:
+
+WebSocket Integration - Real-time wallet monitoring
+Trading Engine - Actual trade execution
+Analytics Dashboard - Performance charts
+Alert System - Telegram/Email notifications
+Risk Management - Auto stop-loss/take-profit
+
+İndi test edin:
+
+Dashboard-da "DEPLOY NEW MIRROR" basın
+Mirror yaradın (məs: codename "Alpha-1")
+Mirror-a klik edib target (wallet) əlavə edin
+Mirror-ı activate edin
+
+Nəticəni bildirin və növbəti hansı funksiyanı əlavə etmək istədiyinizi deyin!

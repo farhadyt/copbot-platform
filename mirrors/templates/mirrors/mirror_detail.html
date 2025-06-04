@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ mirror.codename }} - Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Previous styles... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --success: #00ff88;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Control Panel */
+        .control-panel {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .mirror-header {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mirror-info h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .mirror-meta {
+            display: flex;
+            gap: 20px;
+            color: #888;
+        }
+        
+        .mirror-controls {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-control {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .btn-activate {
+            background: var(--success);
+            color: var(--dark);
+        }
+        
+        .btn-deactivate {
+            background: var(--danger);
+            color: #fff;
+        }
+        
+        .btn-control:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
+        }
+        
+        /* Target Section */
+        .targets-section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .btn-add-target {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        /* Target Grid */
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .target-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .target-address {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-family: monospace;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+        
+        .target-alias {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .target-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .modal-header {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .btn-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header" style="background: var(--panel); border-bottom: 1px solid var(--primary); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="{% url 'horizon:command_center' %}" class="nav-brand" style="font-size: 2rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 3px;">COPBOT</a>
+        <a href="{% url 'horizon:command_center' %}" class="nav-link" style="color: var(--primary); text-decoration: none; padding: 10px 20px; border: 1px solid var(--primary); border-radius: 5px;">← BACK</a>
+    </nav>
+    
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <!-- Mirror Header -->
+        <div class="mirror-header">
+            <div class="mirror-info">
+                <h1>{{ mirror.codename }}</h1>
+                <div class="mirror-meta">
+                    <span>TYPE: {{ mirror.get_mirror_type_display }}</span>
+                    <span>STATUS: {{ mirror.get_state_display|upper }}</span>
+                    <span>SYNCS: {{ mirror.sync_count }}</span>
+                </div>
+            </div>
+            <div class="mirror-controls">
+                <form method="post" style="display: inline;">
+                    {% csrf_token %}
+                    {% if mirror.state == 'sleeping' %}
+                        <input type="hidden" name="action" value="activate">
+                        <button type="submit" class="btn-control btn-activate">🚀 ACTIVATE</button>
+                    {% else %}
+                        <input type="hidden" name="action" value="deactivate">
+                        <button type="submit" class="btn-control btn-deactivate">⏸️ DEACTIVATE</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        
+        <!-- Targets Section -->
+        <div class="targets-section">
+            <div class="section-header">
+                <h2 class="section-title">TRACKING TARGETS</h2>
+                <button class="btn-add-target" onclick="showAddTarget()">+ ADD TARGET</button>
+            </div>
+            
+            {% if targets %}
+                <div class="targets-grid">
+                    {% for target in targets %}
+                        <div class="target-card">
+                            <div class="target-alias">{{ target.alias|default:"Unnamed Target" }}</div>
+                            <div class="target-address">{{ target.beacon_id }}</div>
+                            <div class="target-stats">
+                                <span>Echoes: {{ target.echoes_captured }}</span>
+                                <span>Success: {{ target.perfect_syncs }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div style="text-align: center; padding: 60px 20px; color: #888;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
+                    <p>No targets configured. Add wallet addresses to start tracking.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Add Target Modal -->
+    <div id="addTargetModal" class="modal">
+        <div class="modal-content">
+            <button class="btn-close" onclick="hideAddTarget()">×</button>
+            <h3 class="modal-header">ADD NEW TARGET</h3>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="add_target">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label class="form-label" style="display: block; color: var(--primary); margin-bottom: 10px;">WALLET ADDRESS</label>
+                    {{ target_form.beacon_id }}
+                </div>
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <label class="form-label" style="display: block; color: var(--primary); margin-bottom: 10px;">ALIAS (Optional)</label>
+                    {{ target_form.alias }}
+                </div>
+                <button type="submit" class="btn-deploy" style="width: 100%; padding: 15px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
+                    ADD TARGET
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function showAddTarget() {
+            document.getElementById('addTargetModal').style.display = 'block';
+        }
+        
+        function hideAddTarget() {
+            document.getElementById('addTargetModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('addTargetModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

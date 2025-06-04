@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopBot - Neural Access Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #ff00ff;
+            --danger-glow: #ff0066;
+            --bg-dark: #0a0a0f;
+            --panel-bg: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Neural Network Background */
+        .neural-network {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .neural-network canvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Holographic Grid */
+        .holo-grid {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Access Panel */
+        .access-panel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) perspective(1000px);
+            width: 420px;
+            z-index: 10;
+        }
+        
+        .panel-container {
+            background: var(--panel-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 204, 0.3),
+                inset 0 0 30px rgba(0, 255, 204, 0.1);
+            animation: panel-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes panel-float {
+            0%, 100% { transform: translateY(0) rotateX(0); }
+            50% { transform: translateY(-10px) rotateX(2deg); }
+        }
+        
+        /* Scan Lines */
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary-glow), 
+                transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        .scan-line.top {
+            top: 0;
+        }
+        
+        .scan-line.bottom {
+            bottom: 0;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Logo */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo-text {
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 5px;
+            background: linear-gradient(45deg, 
+                var(--primary-glow), 
+                var(--secondary-glow), 
+                var(--primary-glow));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .logo-subtitle {
+            color: rgba(0, 255, 204, 0.7);
+            font-size: 0.9em;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+        
+        /* Form Fields */
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-glow);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 204, 0.3),
+                inset 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+        
+        .input-label {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: var(--panel-bg);
+            padding: 0 10px;
+            color: var(--primary-glow);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        /* Submit Button */
+        .sync-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, 
+                var(--primary-glow), 
+                var(--secondary-glow));
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-dark);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .sync-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.5);
+        }
+        
+        .sync-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .sync-button:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Error Messages */
+        .error-msg {
+            color: var(--danger-glow);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+            animation: error-pulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes error-pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: float-up 10s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Glitch Effect */
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 
+                    2px 0 var(--danger-glow),
+                    -2px 0 var(--secondary-glow);
+            }
+            25% {
+                text-shadow: 
+                    -2px 0 var(--danger-glow),
+                    2px 0 var(--secondary-glow);
+            }
+            50% {
+                text-shadow: 
+                    2px 0 var(--secondary-glow),
+                    -2px 0 var(--danger-glow);
+            }
+        }
+        
+        .glitch:hover {
+            animation: glitch 0.3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <div class="neural-network">
+        <canvas id="neural-canvas"></canvas>
+    </div>
+    
+    <!-- Holographic Grid -->
+    <div class="holo-grid"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+    
+    <!-- Access Panel -->
+    <div class="access-panel">
+        <div class="panel-container">
+            <div class="scan-line top"></div>
+            <div class="scan-line bottom"></div>
+            
+            <div class="logo-section">
+                <h1 class="logo-text glitch">COPBOT</h1>
+                <p class="logo-subtitle">NEURAL SYNC PROTOCOL</p>
+            </div>
+            
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label class="input-label" for="id_username">ACCESS ID</label>
+                    <input type="text" 
+                           name="username" 
+                           id="id_username" 
+                           class="input-field" 
+                           required 
+                           autofocus
+                           autocomplete="off">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="id_password">SYNC KEY</label>
+                    <input type="password" 
+                           name="password" 
+                           id="id_password" 
+                           class="input-field" 
+                           required>
+                </div>
+                
+                {% if form.errors %}
+                    <div class="error-msg">
+                        ⚠ AUTHENTICATION FAILED - INVALID CREDENTIALS
+                    </div>
+                {% endif %}
+                
+                <button type="submit" class="sync-button">
+                    INITIATE NEURAL SYNC
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Neural Network Animation
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const nodes = [];
+        const nodeCount = 50;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 255, 204, 0.8)';
+                ctx.fill();
+            }
+        }
+        
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
+        
+        function animate() {
+            ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            // Draw connections
+            ctx.strokeStyle = 'rgba(0, 255, 204, 0.1)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Floating Particles
+        const particlesContainer = document.getElementById('particles');
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.fontSize = Math.random() * 10 + 10 + 'px';
+            particle.style.color = Math.random() > 0.5 ? '#00ffcc' : '#ff00ff';
+            particle.textContent = Math.random() > 0.5 ? '◆' : '◇';
+            
+            particlesContainer.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 10000);
+        }
+        
+        setInterval(createParticle, 1000);
+        
+        // Window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

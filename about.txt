@@ -1,0 +1,177 @@
+🎯 LAYIHƏ HAQQINDA
+
+# CopBot Platform
+
+**Nədir:** Solana blockchain-də smart wallet-ləri izləyən və onların trade-lərini avtomatik kopyalayan professional trading platforması.
+
+**Texnologiyalar:**
+- Backend: Django 4.2.7, Python 3.10+
+- Database: PostgreSQL (development-də SQLite)
+- Frontend: HTML5, CSS3, JavaScript (Futuristic UI)
+- Real-time: WebSockets, Channels, Redis
+- Trading: GMGN.ai API integration
+
+**İstifadəçi:** Django admin paneldən yaradılan user-lər login olub öz trading bot-larını yaradır və idarə edir.
+
+
+
+📖 TERMİNOLOGİYA İZAHI
+
+## Platform Terminləri:
+
+### 1. MIRROR (Güzgü)
+- **Nədir:** Sizin trading botunuz. Başqa wallet-ləri izləyib onların trade-lərini kopyalayır.
+- **Niyə Mirror:** Güzgü kimi qarşı tərəfi əks etdirir.
+
+### 2. MIRROR TYPES (Bot növləri):
+- **PHANTOM (👻):** Görünməz izləyici - gizli şəkildə izləyir, heç kim bilmir
+- **ECHO (🔊):** Mükəmməl təkrarlayıcı - 1:1 eyni kopyalayır
+- **SHADOW (🌑):** Gizli ovçu - yalnız profit edən trade-ləri kopyalayır
+- **PRISM (💎):** Çox bucaqlı analizator - eyni anda bir neçə wallet izləyir
+- **NEXUS (🧠):** Neural şəbəkə - AI ilə ən yaxşı trade-ləri seçir
+
+### 3. CODENAME
+- **Nədir:** Botunuzun unikal adı (məs: "Alpha-Hunter", "Ghost-Trader")
+- **Məqsəd:** Botları asanlıqla tanımaq üçün
+
+### 4. TARGET
+- **Nədir:** İzlənən wallet adresi
+- **Beacon ID:** Wallet-in blockchain adresi (44 simvol)
+- **Alias:** Wallet-ə verdiyiniz ad (məs: "Whale #1", "Smart Money")
+
+### 5. ECHO
+- **Nədir:** Kopyalanan hər bir trade
+- **Echo Types:** Acquire (alma), Release (satma)
+
+### 6. TRADING PARAMETRLƏRİ:
+- **Max Echo Size (SOL):** Maksimum trade həcmi (məs: 100 SOL)
+- **Risk Threshold (%):** Stop-loss faizi (məs: 5% = zərər 5% olsa dayandır)
+- **Gain Target (%):** Take-profit faizi (məs: 10% = 10% qazanc olsa sat)
+
+### 7. STATES (Vəziyyətlər):
+- **SLEEPING:** Bot passivdir, heç nə etmir
+- **HUNTING:** Bot aktivdir, wallet-ləri izləyir və trade kopyalayır
+- **PAUSED:** Müvəqqəti dayandırılıb
+
+
+🏗️ HAZIRKI VƏZİYYƏT
+
+## Tamamlanan Funksiyalar:
+
+✅ Django layihə strukturu
+✅ PostgreSQL/SQLite database
+✅ Futuristic login səhifəsi
+✅ User authentication sistemi
+✅ Dashboard (Command Center)
+✅ Mirror yaratma funksiyası
+✅ Mirror detail səhifəsi
+✅ Target əlavə etmə
+✅ Mirror activate/deactivate
+
+## Layihə Strukturu:
+copbot_platform/
+├── copbot/              # Ana konfiqurasiya
+│   ├── settings.py      # Django settings
+│   ├── urls.py          # Ana URL routing
+│   └── wsgi.py          # Web server interface
+├── nexus/               # İstifadəçi sistemi
+│   ├── models.py        # User models
+│   ├── views.py         # Login/logout views
+│   ├── urls.py          # Auth URLs
+│   └── templates/       # Login template
+├── mirrors/             # Bot sistemi
+│   ├── models.py        # Mirror, Target models
+│   ├── views.py         # CRUD operations
+│   ├── forms.py         # Mirror/Target forms
+│   ├── urls.py          # Mirror URLs
+│   └── templates/       # Mirror templates
+├── pulse/               # Trading engine
+│   ├── models.py        # Echo, Pulse models
+│   └── (gözləyir)       # Trading logic
+├── horizon/             # Dashboard
+│   ├── views.py         # Dashboard views
+│   ├── urls.py          # Dashboard URLs
+│   └── templates/       # Command center
+├── static/              # CSS, JS, images
+├── media/               # User uploads
+├── logs/                # Log files
+├── .env                 # Gizli məlumatlar
+└── db.sqlite3           # Database
+
+
+🔧 NÖVBƏTİ ADDIMLAR
+
+## Ediləcəklər (Priority order):
+
+### 1. WebSocket Integration (Real-time monitoring)
+- GMGN.ai WebSocket bağlantısı
+- Real-time wallet monitoring
+- Instant trade detection
+
+### 2. Trading Engine
+- Solana blockchain integration
+- Trade execution logic
+- Transaction confirmation
+
+### 3. Mirror Engine (Bot Core)
+- Background task runner (Celery)
+- Trade analysis algorithm
+- Copy decision logic
+
+### 4. Analytics Dashboard
+- Performance charts (Chart.js/Plotly)
+- P&L tracking
+- Success rate visualization
+
+### 5. Alert System
+- Telegram bot integration
+- Email notifications
+- In-app notifications
+
+### 6. Advanced Features
+- Multi-wallet management
+- Portfolio analytics
+- Risk management tools
+- Export reports
+
+
+🚀 QUICK REFERENCE
+# Models Overview
+Mirror: Bot model (codename, type, state, settings)
+Target: Tracked wallet (beacon_id, alias)
+Echo: Copied trade (type, amount, status)
+Pulse: System metrics (performance data)
+
+# URL Structure
+/admin/                    # Django admin
+/nexus/portal/            # Login page
+/nexus/disconnect/        # Logout
+/                         # Dashboard
+/mirrors/                 # Mirror list
+/mirrors/create/          # Create mirror
+/mirrors/<id>/            # Mirror detail
+
+# Key Functions
+- Create Mirror → Set type, limits
+- Add Target → Enter wallet address
+- Activate Mirror → Start copying
+- View Echoes → See copied trades
+
+📋 YENİ CHAT ÜÇÜN COPY-PASTE MESAJ
+Mən CopBot platforması üzərində işləyirəm. Bu Solana blockchain-də wallet tracking və copy trading platformasıdır.
+
+Hazırkı vəziyyət:
+- Django backend hazırdır
+- Login, dashboard, mirror creation işləyir
+- PostgreSQL database qurulub
+- Models: Mirror (bot), Target (wallet), Echo (trade), Pulse (metrics)
+
+İndi WebSocket integration və real trading engine yazmaq lazımdır.
+
+[BU DOKUMENTASIYANIN HAMISI BURA PASTE OLUNACAQ]
+
+Davam etmək istəyirəm: [hansı feature üzərində işləmək istəyirsiniz]
+
+
+
+
