@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Mirror, Target
 from .forms import MirrorForm, TargetForm
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 @login_required
 def create_mirror(request):
@@ -35,10 +37,36 @@ def mirror_detail(request, pk):
             mirror.save()
             messages.success(request, f'{mirror.codename} is now hunting!')
             
+            # Send WebSocket update
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                f'mirror_{mirror.id}',
+                {
+                    'type': 'mirror_update',
+                    'data': {
+                        'state': 'hunting',
+                        'message': f'{mirror.codename} activated'
+                    }
+                }
+            )
+            
         elif action == 'deactivate':
             mirror.state = 'sleeping'
             mirror.save()
             messages.info(request, f'{mirror.codename} is sleeping.')
+            
+            # Send WebSocket update
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                f'mirror_{mirror.id}',
+                {
+                    'type': 'mirror_update',
+                    'data': {
+                        'state': 'sleeping',
+                        'message': f'{mirror.codename} deactivated'
+                    }
+                }
+            )
             
         elif action == 'add_target':
             target_form = TargetForm(request.POST)

@@ -31,20 +31,600 @@
         
         /* Control Panel */
         .control-panel {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+            max-width: none;
+            margin: 20px 15px;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 66% 34%;
+            gap: 20px;
+            min-height: calc(100vh - 140px);
         }
         
+        @media (max-width: 1400px) {
+            .control-panel {
+                grid-template-columns: 65% 35%;
+                gap: 18px;
+                margin: 18px 12px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .control-panel {
+                grid-template-columns: 60% 40%;
+                gap: 15px;
+                margin: 15px 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .control-panel {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 10px 5px;
+            }
+            
+            .wallet-sidebar {
+                order: 2;
+                position: static;
+                height: auto;
+                max-height: none;
+                margin-top: 20px;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+        
+        .main-content {
+            /* Main content takes the left column and fills available space */
+            min-width: 0; /* Prevents grid overflow */
+        }
+        
+        .wallet-sidebar {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .wallet-list {
+            max-height: 500px;
+            overflow-y: auto;
+            overflow-x: visible;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+        
+        .wallet-item {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .wallet-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .wallet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .wallet-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .wallet-status {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .wallet-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .stat-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-value {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .profit-value {
+            color: var(--success);
+        }
+        
+        .loss-value {
+            color: var(--danger);
+        }
+        
+        .stat-change {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            background: var(--success);
+            color: var(--dark);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: bold;
+            animation: bounce 0.5s ease;
+            opacity: 0;
+        }
+        
+        .stat-change.show {
+            opacity: 1;
+        }
+        
+        .stat-change.negative {
+            background: var(--danger);
+            color: #fff;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+        
+        /* Wallet Details Panel */
+        .wallet-details-panel {
+            background: linear-gradient(135deg, rgba(0, 10, 20, 0.98), rgba(20, 0, 30, 0.98));
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            margin-top: 15px;
+            padding: 0;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.15);
+        }
+        
+        .wallet-details-panel.expanded {
+            max-height: 600px;
+            opacity: 1;
+            padding: 20px;
+        }
+        
+        .wallet-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .wallet-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            background: rgba(0, 255, 204, 0.08);
+        }
+        
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 255, 204, 0.3);
+        }
+        
+        .panel-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .panel-summary {
+            font-size: 0.9rem;
+            color: #888;
+            text-align: right;
+        }
+        
+        .close-panel {
+            background: rgba(255, 0, 102, 0.2);
+            border: 1px solid #ff0066;
+            color: #ff0066;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .close-panel:hover {
+            background: rgba(255, 0, 102, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .platforms-section {
+            margin-bottom: 15px;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .platforms-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .platform-item {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-item:hover {
+            background: rgba(0, 255, 204, 0.08);
+            border-color: rgba(0, 255, 204, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .platform-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--platform-color, var(--primary));
+        }
+        
+        .platform-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .platform-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .platform-badge {
+            background: var(--platform-color, var(--primary));
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .platform-total-trades {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .platform-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .stat-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        
+        .ratio-positive {
+            color: var(--success);
+        }
+        
+        .ratio-negative {
+            color: var(--danger);
+        }
+        
+        .investment-summary {
+            background: rgba(0, 100, 200, 0.1);
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .investment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        
+        .investment-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .investment-label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .investment-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .performance-section {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        
+        .performance-item {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 204, 0.1);
+        }
+        
+        .performance-label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        
+        .performance-value {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        
+        .success-rate {
+            color: var(--success);
+        }
+        
+        .avg-trade {
+            color: var(--primary);
+        }
+        
+        .best-platform {
+            color: #FFD700;
+        }
+        
+        .detailed-stats {
+            font-size: 0.7rem;
+            color: #888;
+            line-height: 1.4;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+        
+        /* Wallet item click indicator */
+        .wallet-item::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            color: var(--primary);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .wallet-item.active::after {
+            transform: translateY(-50%) rotate(0deg);
+        }
+        
+        /* Platform color variables for dynamic theming */
+        :root {
+            --platform-raydium: #8C65F7;
+            --platform-jupiter: #FBA43A;
+            --platform-pump: #FF6B9D;
+            --platform-dexscreener: #00D4AA;
+            --platform-gmgn: #FF4757;
+            --platform-photon: #5F27CD;
+            --platform-uniswap: #FF007A;
+            --platform-pancakeswap: #FFDF00;
+        }
+        
+        .wallet-address {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--primary);
+            opacity: 0.7;
+            margin-top: 8px;
+            text-align: center;
+            word-break: break-all;
+        }
+        
+        .total-pnl {
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(255, 0, 255, 0.1));
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .total-pnl-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .total-pnl-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Mirror Header responsive */
         .mirror-header {
             background: var(--panel);
             border: 1px solid var(--primary);
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mirror-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 20px;
+            }
+        }
+        
+        /* Activity section wider */
+        .activity-section {
+            width: 100%;
+        }
+        
+        /* Targets section responsive */
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .targets-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         .mirror-info h1 {
@@ -120,13 +700,6 @@
             cursor: pointer;
             font-weight: 700;
             transition: all 0.3s;
-        }
-        
-        /* Target Grid */
-        .targets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
         }
         
         .target-card {
@@ -212,6 +785,8 @@
     
     <!-- Control Panel -->
     <div class="control-panel">
+        <!-- Main Content -->
+        <div class="main-content">
         <!-- Mirror Header -->
         <div class="mirror-header">
             <div class="mirror-info">
@@ -262,6 +837,28 @@
                     <p>No targets configured. Add wallet addresses to start tracking.</p>
                 </div>
             {% endif %}
+            </div>
+        </div>
+        
+        <!-- Wallet Statistics Sidebar -->
+        <div class="wallet-sidebar">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">🎯 WALLET STATS</h3>
+            </div>
+            
+            <!-- Total P&L Summary -->
+            <div class="total-pnl">
+                <div class="total-pnl-label">Total P&L</div>
+                <div class="total-pnl-value" id="totalPnlValue">$0.00</div>
+            </div>
+            
+            <!-- Wallet List -->
+            <div class="wallet-list" id="walletList">
+                <div style="text-align: center; color: #888; padding: 40px 20px;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+                    <p>Waiting for wallet activity...</p>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -305,5 +902,776 @@
             }
         }
     </script>
+
+    <!-- WebSocket Integration -->
+<script>
+    // WebSocket variables
+    let socket = null;
+    let reconnectInterval = null;
+    const mirrorId = "{{ mirror.id }}";
+    
+    // Wallet statistics tracking
+    let walletStats = {};
+    let totalPnl = 0;
+    
+    // Activity log container - create HTML string first
+    function createActivitySection() {
+        const activitySection = document.createElement('div');
+        activitySection.className = 'activity-section';
+        activitySection.style.cssText = 'background: var(--panel); border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 30px;';
+        
+        activitySection.innerHTML = `
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 class="section-title" style="font-size: 1.8rem; color: var(--primary);">LIVE ACTIVITY FEED</h2>
+                <div class="connection-status" id="connectionStatus" style="display: flex; align-items: center; gap: 10px;">
+                    <span class="status-dot" style="width: 10px; height: 10px; border-radius: 50%; background: #888;"></span>
+                    <span class="status-text">Disconnected</span>
+                </div>
+            </div>
+            <div id="activityFeed" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
+                <div style="text-align: center; color: #888; padding: 40px;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">📡</div>
+                    <p>Waiting for wallet activity...</p>
+                </div>
+            </div>
+        `;
+        
+        return activitySection;
+    }
+    
+    // Add activity section after targets section
+    document.addEventListener('DOMContentLoaded', function() {
+        const targetsSection = document.querySelector('.targets-section');
+        if (targetsSection) {
+            const activitySection = createActivitySection();
+            targetsSection.parentNode.insertBefore(activitySection, targetsSection.nextSibling);
+        }
+        
+        // Start WebSocket connection if mirror is hunting
+        const mirrorState = "{{ mirror.state }}";
+        if (mirrorState === 'hunting') {
+            connectWebSocket();
+        } else {
+            addSystemMessage('Mirror is sleeping. Activate to start monitoring.', 'info');
+        }
+    });
+    
+    // WebSocket functions
+    function connectWebSocket() {
+        const wsScheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        const wsUrl = `${wsScheme}://${window.location.host}/ws/mirror/${mirrorId}/`;
+        
+        console.log('Connecting to WebSocket URL:', wsUrl);
+        socket = new WebSocket(wsUrl);
+        
+        socket.onopen = function(e) {
+            console.log('WebSocket connection successful!');
+            updateConnectionStatus('connected');
+            
+            // Clear reconnect interval
+            if (reconnectInterval) {
+                clearInterval(reconnectInterval);
+                reconnectInterval = null;
+            }
+            
+            // Start monitoring
+            socket.send(JSON.stringify({
+                'command': 'start_monitoring'
+            }));
+        };
+        
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log('Received:', data);
+            
+            switch(data.type) {
+                case 'connection_established':
+                    addSystemMessage('Neural link established with Mirror #' + data.mirror_id);
+                    break;
+                    
+                case 'monitoring_started':
+                    addSystemMessage(data.message, 'success');
+                    break;
+                    
+                case 'wallet_activity':
+                    addActivityToFeed(data);
+                    break;
+                    
+                case 'trade_executed':
+                    handleTradeExecuted(data);
+                    break;
+                    
+                case 'trade_error':
+                    handleTradeError(data);
+                    break;
+                    
+                case 'heartbeat':
+                    updateHeartbeat(data);
+                    break;
+                    
+                case 'error':
+                    addSystemMessage(data.message, 'error');
+                    break;
+            }
+        };
+        
+        socket.onclose = function(e) {
+            console.log('WebSocket closed');
+            updateConnectionStatus('disconnected');
+            
+            // Attempt to reconnect after 5 seconds
+            if (!reconnectInterval) {
+                reconnectInterval = setInterval(function() {
+                    console.log('Attempting to reconnect...');
+                    connectWebSocket();
+                }, 5000);
+            }
+        };
+        
+        socket.onerror = function(err) {
+            console.error('WebSocket error:', err);
+            updateConnectionStatus('error');
+        };
+    }
+    
+    function updateConnectionStatus(status) {
+        const statusDot = document.querySelector('.status-dot');
+        const statusText = document.querySelector('.status-text');
+        
+        if (statusDot && statusText) {
+            switch(status) {
+                case 'connected':
+                    statusDot.style.background = '#00ffcc';
+                    statusText.textContent = 'Connected';
+                    break;
+                case 'disconnected':
+                    statusDot.style.background = '#888';
+                    statusText.textContent = 'Disconnected';
+                    break;
+                case 'error':
+                    statusDot.style.background = '#ff0066';
+                    statusText.textContent = 'Connection Error';
+                    break;
+            }
+        }
+    }
+    
+    function addSystemMessage(message, type = 'info') {
+        const feed = document.getElementById('activityFeed');
+        if (!feed) return;
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'system-message';
+        messageDiv.style.cssText = `padding: 15px; margin-bottom: 10px; background: rgba(0, 255, 204, 0.1); border-left: 3px solid ${type === 'error' ? '#ff0066' : '#00ffcc'}; color: #aaa; font-size: 0.9rem;`;
+        
+        messageDiv.innerHTML = `
+            <span style="color: ${type === 'error' ? '#ff0066' : '#00ffcc'};">SYSTEM:</span> ${message}
+            <span style="float: right; font-size: 0.8rem;">${new Date().toLocaleTimeString()}</span>
+        `;
+        
+        // Clear placeholder if exists
+        const placeholder = feed.querySelector('div[style*="text-align: center"]');
+        if (placeholder) {
+            placeholder.remove();
+        }
+        
+        feed.insertBefore(messageDiv, feed.firstChild);
+        
+        // Keep only last 50 messages
+        while (feed.children.length > 50) {
+            feed.removeChild(feed.lastChild);
+        }
+    }
+    
+    // Wallet Statistics Functions
+    function initializeWalletStats(targetId, targetAlias) {
+        if (!walletStats[targetId]) {
+            walletStats[targetId] = {
+                alias: targetAlias,
+                profit: 0,
+                loss: 0,
+                totalPnl: 0,
+                tradesCount: 0,
+                platforms: {},
+                successfulTrades: 0,
+                failedTrades: 0,
+                avgTradeSize: 0,
+                bestPlatform: null,
+                worstPlatform: null,
+                totalVolume: 0
+            };
+            renderWalletList();
+        }
+    }
+    
+    function updateWalletStats(data) {
+        const activity = data.activity;
+        const targetId = data.target_id;
+        const targetAlias = data.target_alias;
+        const platform = activity.platform;
+        const tradeTotal = parseFloat(activity.total) || 0;
+        
+        // Initialize wallet if not exists
+        initializeWalletStats(targetId, targetAlias);
+        
+        const wallet = walletStats[targetId];
+        wallet.tradesCount++;
+        wallet.totalVolume += tradeTotal;
+        
+        // Initialize platform if not exists
+        if (!wallet.platforms[platform]) {
+            wallet.platforms[platform] = {
+                name: platform,
+                totalTrades: 0,
+                positiveTrades: 0,
+                negativeTrades: 0,
+                profit: 0,
+                loss: 0,
+                totalPnl: 0,
+                volume: 0,
+                successRate: 0
+            };
+        }
+        
+        const platformStats = wallet.platforms[platform];
+        platformStats.totalTrades++;
+        platformStats.volume += tradeTotal;
+        
+        // Update P&L if available
+        if (activity.pnl !== null && activity.pnl !== undefined) {
+            const pnlValue = parseFloat(activity.pnl);
+            
+            if (pnlValue > 0) {
+                wallet.profit += pnlValue;
+                wallet.successfulTrades++;
+                platformStats.profit += pnlValue;
+                platformStats.positiveTrades++;
+                animateStatChange(targetId, 'profit', pnlValue);
+            } else if (pnlValue < 0) {
+                wallet.loss += Math.abs(pnlValue);
+                wallet.failedTrades++;
+                platformStats.loss += Math.abs(pnlValue);
+                platformStats.negativeTrades++;
+                animateStatChange(targetId, 'loss', Math.abs(pnlValue));
+            } else {
+                // Neutral trade
+                wallet.failedTrades++;
+                platformStats.negativeTrades++;
+            }
+            
+            wallet.totalPnl += pnlValue;
+            platformStats.totalPnl += pnlValue;
+            totalPnl += pnlValue;
+            
+            // Calculate success rate for platform
+            platformStats.successRate = (platformStats.positiveTrades / platformStats.totalTrades * 100).toFixed(1);
+        } else {
+            // If no P&L data, assume neutral
+            wallet.failedTrades++;
+            platformStats.negativeTrades++;
+        }
+        
+        // Update average trade size
+        wallet.avgTradeSize = wallet.totalVolume / wallet.tradesCount;
+        
+        // Find best and worst performing platforms
+        updateBestWorstPlatforms(wallet);
+            
+            // Update displays
+            renderWalletList();
+            updateTotalPnl();
+        }
+    
+    function updateBestWorstPlatforms(wallet) {
+        let bestPnl = -Infinity;
+        let worstPnl = Infinity;
+        let bestPlatform = null;
+        let worstPlatform = null;
+        
+        Object.values(wallet.platforms).forEach(platform => {
+            if (platform.totalPnl > bestPnl) {
+                bestPnl = platform.totalPnl;
+                bestPlatform = platform.name;
+            }
+            if (platform.totalPnl < worstPnl) {
+                worstPnl = platform.totalPnl;
+                worstPlatform = platform.name;
+            }
+        });
+        
+        wallet.bestPlatform = bestPlatform;
+        wallet.worstPlatform = worstPlatform;
+    }
+    
+    function generatePanelContent(wallet, targetId) {
+        const platforms = Object.values(wallet.platforms);
+        if (platforms.length === 0) {
+            return `
+                <div class="panel-header">
+                    <div class="panel-title">📊 ${wallet.alias}</div>
+                    <button class="close-panel" onclick="closeWalletDetails('${targetId}')">✕</button>
+                </div>
+                <div style="text-align: center; color: #888; padding: 40px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">📈</div>
+                    <p>Hələ əməliyyat məlumatı mövcud deyil</p>
+                </div>
+            `;
+        }
+        
+        // Platform colors mapping
+        const platformColors = {
+            'raydium': '#8C65F7',
+            'jupiter': '#FBA43A', 
+            'pump': '#FF6B9D',
+            'dexscreener': '#00D4AA',
+            'gmgn': '#FF4757',
+            'photon': '#5F27CD',
+            'uniswap': '#FF007A',
+            'pancakeswap': '#FFDF00'
+        };
+        
+        // Generate platforms list
+        const platformsHtml = platforms.map(platform => {
+            const color = platformColors[platform.name] || '#888';
+            const successRate = platform.successRate || 0;
+            const profitPercentage = platform.totalTrades > 0 ? 
+                ((platform.profit / platform.volume) * 100).toFixed(2) : 0;
+            const avgInvestment = platform.totalTrades > 0 ? 
+                (platform.volume / platform.totalTrades).toFixed(2) : 0;
+            
+            return `
+                <div class="platform-item" style="--platform-color: ${color};">
+                    <div class="platform-header">
+                        <div class="platform-name">
+                            ${platform.name.toUpperCase()}
+                            <span class="platform-badge" style="background: ${color};">${platform.totalTrades}</span>
+                        </div>
+                        <div class="platform-total-trades">Ümumi əməliyyat: ${platform.totalTrades}</div>
+                    </div>
+                    
+                    <div class="platform-stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Mənfəət</div>
+                            <div class="stat-value" style="color: var(--success);">+$${platform.profit.toFixed(2)}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Zərər</div>
+                            <div class="stat-value" style="color: var(--danger);">-$${platform.loss.toFixed(2)}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Müvəffəqiyyət</div>
+                            <div class="stat-value" style="color: var(--primary);">${successRate}%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Ümumi P&L</div>
+                            <div class="stat-value" style="color: ${platform.totalPnl >= 0 ? 'var(--success)' : 'var(--danger)'};">
+                                ${platform.totalPnl >= 0 ? '+' : ''}$${platform.totalPnl.toFixed(2)}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="investment-summary">
+                        <div class="investment-row">
+                            <span class="investment-label">Orta yatırım məbləği:</span>
+                            <span class="investment-value" style="color: var(--primary);">$${avgInvestment}</span>
+                        </div>
+                        <div class="investment-row">
+                            <span class="investment-label">Ümumi həcm:</span>
+                            <span class="investment-value" style="color: var(--primary);">$${platform.volume.toFixed(2)}</span>
+                        </div>
+                        <div class="investment-row">
+                            <span class="investment-label">Mənfəət faizi:</span>
+                            <span class="investment-value" style="color: ${profitPercentage >= 0 ? 'var(--success)' : 'var(--danger)'};">
+                                ${profitPercentage >= 0 ? '+' : ''}${profitPercentage}%
+                            </span>
+                        </div>
+                        <div class="investment-row">
+                            <span class="investment-label">Müsbət/Mənfi nisbəti:</span>
+                            <span class="investment-value">
+                                <span style="color: var(--success);">${platform.positiveTrades}</span>
+                                /
+                                <span style="color: var(--danger);">${platform.negativeTrades}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        // Calculate overall success rate
+        const overallSuccessRate = wallet.tradesCount > 0 ? 
+            ((wallet.successfulTrades / wallet.tradesCount) * 100).toFixed(1) : 0;
+        
+        // Calculate ROI
+        const overallROI = wallet.totalVolume > 0 ? 
+            ((wallet.totalPnl / wallet.totalVolume) * 100).toFixed(2) : 0;
+        
+        // Find best performing platform by ROI
+        const bestPlatformByROI = platforms.reduce((best, platform) => {
+            const platformROI = platform.volume > 0 ? (platform.totalPnl / platform.volume) * 100 : -Infinity;
+            const bestROI = best && best.volume > 0 ? (best.totalPnl / best.volume) * 100 : -Infinity;
+            return platformROI > bestROI ? platform : best;
+        }, null);
+        
+        return `
+            <div class="panel-header">
+                <div class="panel-title">
+                    💼 ${wallet.alias}
+                </div>
+                <div class="panel-summary">
+                    ${platforms.length} platform • ${wallet.tradesCount} əməliyyat<br>
+                    Ümumi P&L: <span style="color: ${wallet.totalPnl >= 0 ? 'var(--success)' : 'var(--danger)'};">
+                        ${wallet.totalPnl >= 0 ? '+' : ''}$${wallet.totalPnl.toFixed(2)}
+                    </span>
+                </div>
+                <button class="close-panel" onclick="closeWalletDetails('${targetId}')">✕</button>
+            </div>
+            
+            <div class="platforms-section">
+                <div class="section-label">
+                    🏛️ Platforma Əməliyyatları
+                </div>
+                <div class="platforms-list">
+                    ${platformsHtml}
+                </div>
+            </div>
+            
+            <div class="performance-section">
+                <div class="section-label">
+                    📈 Ümumi Statistika
+                </div>
+                <div class="performance-grid">
+                    <div class="performance-item">
+                        <div class="performance-label">Müvəffəqiyyət Nisbəti</div>
+                        <div class="performance-value success-rate">${overallSuccessRate}%</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-label">Orta Əməliyyat</div>
+                        <div class="performance-value avg-trade">$${wallet.avgTradeSize.toFixed(0)}</div>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-label">ROI</div>
+                        <div class="performance-value" style="color: ${overallROI >= 0 ? 'var(--success)' : 'var(--danger)'};">
+                            ${overallROI >= 0 ? '+' : ''}${overallROI}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detailed-stats">
+                <div class="stat-row">
+                    <span>Ümumi həcm:</span>
+                    <span style="color: var(--primary);">$${wallet.totalVolume.toFixed(2)}</span>
+                </div>
+                <div class="stat-row">
+                    <span>Müvəffəq əməliyyatlar:</span>
+                    <span style="color: var(--success);">${wallet.successfulTrades} (${((wallet.successfulTrades / wallet.tradesCount) * 100).toFixed(1)}%)</span>
+                </div>
+                <div class="stat-row">
+                    <span>Uğursuz əməliyyatlar:</span>
+                    <span style="color: var(--danger);">${wallet.failedTrades} (${((wallet.failedTrades / wallet.tradesCount) * 100).toFixed(1)}%)</span>
+                </div>
+                <div class="stat-row">
+                    <span>Ən yaxşı platforma (ROI):</span>
+                    <span style="color: ${bestPlatformByROI ? platformColors[bestPlatformByROI.name] || '#888' : '#888'};">
+                        ${bestPlatformByROI ? bestPlatformByROI.name.toUpperCase() : 'N/A'}
+                        ${bestPlatformByROI ? `(${((bestPlatformByROI.totalPnl / bestPlatformByROI.volume) * 100).toFixed(1)}% ROI)` : ''}
+                    </span>
+                </div>
+                <div class="stat-row">
+                    <span>Ən pis platforma:</span>
+                    <span style="color: var(--danger);">${wallet.worstPlatform ? wallet.worstPlatform.toUpperCase() : 'N/A'}</span>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Wallet panel toggle functions
+    function toggleWalletDetails(targetId) {
+        const walletItem = document.querySelector(`[data-wallet-id="${targetId}"]`);
+        const panel = document.getElementById(`details-${targetId}`);
+        
+        // Close all other panels
+        document.querySelectorAll('.wallet-item.active').forEach(item => {
+            if (item.dataset.walletId !== targetId) {
+                item.classList.remove('active');
+            }
+        });
+        document.querySelectorAll('.wallet-details-panel.expanded').forEach(p => {
+            if (p.id !== `details-${targetId}`) {
+                p.classList.remove('expanded');
+            }
+        });
+        
+        // Toggle current panel
+        if (walletItem && panel) {
+            walletItem.classList.toggle('active');
+            panel.classList.toggle('expanded');
+        }
+    }
+    
+    function closeWalletDetails(targetId) {
+        const walletItem = document.querySelector(`[data-wallet-id="${targetId}"]`);
+        const panel = document.getElementById(`details-${targetId}`);
+        
+        if (walletItem && panel) {
+            walletItem.classList.remove('active');
+            panel.classList.remove('expanded');
+        }
+    }
+    
+    function renderWalletList() {
+        const container = document.getElementById('walletList');
+        if (!container) return;
+        
+        if (Object.keys(walletStats).length === 0) {
+            container.innerHTML = `
+                <div style="text-align: center; color: #888; padding: 40px 20px;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+                    <p>Waiting for wallet activity...</p>
+                </div>
+            `;
+            return;
+        }
+        
+        const walletsHtml = Object.entries(walletStats).map(([targetId, wallet]) => {
+            const profitColor = wallet.profit > 0 ? 'var(--success)' : '#666';
+            const lossColor = wallet.loss > 0 ? 'var(--danger)' : '#666';
+            const pnlColor = wallet.totalPnl >= 0 ? 'var(--success)' : 'var(--danger)';
+            const pnlSign = wallet.totalPnl >= 0 ? '+' : '';
+            
+
+            
+            return `
+                <div class="wallet-item" data-wallet-id="${targetId}" onclick="toggleWalletDetails('${targetId}')">
+                    <div class="wallet-header">
+                        <div class="wallet-name" title="${wallet.alias}">${wallet.alias}</div>
+                        <div class="wallet-status"></div>
+                    </div>
+                    <div class="wallet-stats">
+                        <div class="stat-box" id="profit-${targetId}">
+                            <div class="stat-label">Profit</div>
+                            <div class="stat-value profit-value">$${wallet.profit.toFixed(2)}</div>
+                            <div class="stat-change" id="profit-change-${targetId}">↗</div>
+                        </div>
+                        <div class="stat-box" id="loss-${targetId}">
+                            <div class="stat-label">Loss</div>
+                            <div class="stat-value loss-value">$${wallet.loss.toFixed(2)}</div>
+                            <div class="stat-change negative" id="loss-change-${targetId}">↘</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <span style="color: ${pnlColor}; font-weight: 700; font-size: 1.1rem;">
+                            ${pnlSign}$${wallet.totalPnl.toFixed(2)}
+                        </span>
+                        <span style="color: #888; font-size: 0.8rem; margin-left: 10px;">
+                            (${wallet.tradesCount} trades)
+                        </span>
+                    </div>
+                </div>
+                <div class="wallet-details-panel" id="details-${targetId}">
+                    ${generatePanelContent(wallet, targetId)}
+                </div>
+            `;
+        }).join('');
+        
+        container.innerHTML = walletsHtml;
+    }
+    
+    function updateTotalPnl() {
+        const totalElement = document.getElementById('totalPnlValue');
+        if (totalElement) {
+            const color = totalPnl >= 0 ? 'var(--success)' : 'var(--danger)';
+            const sign = totalPnl >= 0 ? '+' : '';
+            totalElement.textContent = `${sign}$${totalPnl.toFixed(2)}`;
+            totalElement.style.color = color;
+        }
+    }
+    
+    function animateStatChange(targetId, type, value) {
+        const changeElement = document.getElementById(`${type}-change-${targetId}`);
+        if (changeElement) {
+            changeElement.textContent = type === 'profit' ? '↗' : '↘';
+            changeElement.classList.add('show');
+            
+            setTimeout(() => {
+                changeElement.classList.remove('show');
+            }, 2000);
+        }
+    }
+    
+    function addActivityToFeed(data) {
+        const feed = document.getElementById('activityFeed');
+        if (!feed) return;
+        
+        const activity = data.activity;
+        
+        // Update wallet statistics
+        updateWalletStats(data);
+        
+        const activityDiv = document.createElement('div');
+        activityDiv.className = 'activity-item';
+        activityDiv.style.cssText = 'padding: 20px; margin-bottom: 15px; background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.3); border-radius: 10px;';
+        
+        const tradeColor = activity.type === 'acquire' ? '#00ff88' : '#ff0066';
+        const tradeText = activity.type === 'acquire' ? '🟢 BUY' : '🔴 SELL';
+        
+        // Platform badge styling
+        const platformColors = {
+            'raydium': '#8C65F7',
+            'jupiter': '#FBA43A',
+            'pump': '#FF6B9D',
+            'dexscreener': '#00D4AA',
+            'gmgn': '#FF4757',
+            'photon': '#5F27CD',
+            'uniswap': '#FF007A',
+            'pancakeswap': '#FFDF00'
+        };
+        
+        const platformColor = platformColors[activity.platform] || '#888';
+        
+        // P&L styling
+        let pnlSection = '';
+        if (activity.pnl !== null && activity.pnl !== undefined) {
+            const pnlColor = activity.pnl >= 0 ? '#00ff88' : '#ff0066';
+            const pnlSign = activity.pnl >= 0 ? '+' : '';
+            pnlSection = `
+                <div style="grid-column: span 2; display: flex; align-items: center; gap: 15px; margin-top: 10px; padding: 10px; background: rgba(${activity.pnl >= 0 ? '0, 255, 136' : '255, 0, 102'}, 0.1); border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <span style="color: #888; font-size: 0.9rem;">P&L:</span>
+                        <span style="color: ${pnlColor}; font-weight: 700; font-size: 1.1rem;">${pnlSign}$${Math.abs(activity.pnl)}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 5px;">
+                        <span style="color: #888; font-size: 0.9rem;">%:</span>
+                        <span style="color: ${pnlColor}; font-weight: 700;">${pnlSign}${activity.pnl_percentage}%</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        activityDiv.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="color: #00ffcc; font-weight: 700; font-size: 1.1rem;">
+                        ${data.target_alias}
+                    </span>
+                    <span style="color: ${tradeColor}; margin-left: 10px;">
+                        ${tradeText}
+                    </span>
+                    <span style="background: ${platformColor}; color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">
+                        ${activity.platform.toUpperCase()}
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="color: #888; font-size: 0.8rem;">
+                    ${new Date(activity.timestamp).toLocaleTimeString()}
+                </span>
+                    <button onclick="copyTxHash('${activity.tx_hash}')" style="background: rgba(0, 255, 204, 0.2); border: 1px solid #00ffcc; color: #00ffcc; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.7rem;">
+                        TX
+                    </button>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; font-size: 0.9rem;">
+                <div>
+                    <span style="color: #888;">Token:</span><br>
+                    <span style="color: #ff00ff; font-weight: 700;">${activity.token}</span>
+                </div>
+                <div>
+                    <span style="color: #888;">Amount:</span><br>
+                    <span style="color: #fff; font-weight: 700;">${activity.amount}</span>
+                </div>
+                <div>
+                    <span style="color: #888;">Price:</span><br>
+                    <span style="color: #fff; font-weight: 700;">$${activity.price}</span>
+                </div>
+                <div>
+                    <span style="color: #888;">Total:</span><br>
+                    <span style="color: #00ffcc; font-weight: 700;">$${activity.total}</span>
+                </div>
+                ${pnlSection}
+            </div>
+            <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 10px;">
+                <button onclick="simulateCopyTrade('${activity.token}', '${activity.type}', ${activity.amount})" style="background: linear-gradient(45deg, #00ffcc, #ff00ff); color: #0a0a0f; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: 700; font-size: 0.9rem;">
+                        🤖 AUTO COPY
+                    </button>
+                    <button onclick="manualCopyTrade('${activity.token}', '${activity.type}', ${activity.amount})" style="background: rgba(0, 255, 204, 0.2); border: 1px solid #00ffcc; color: #00ffcc; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 0.9rem;">
+                        📋 MANUAL
+                </button>
+                </div>
+                <div id="trade-status-${activity.token}" style="font-size: 0.8rem; color: #888;">
+                    Ready to copy
+                </div>
+            </div>
+        `;
+        
+        // Clear placeholder if exists
+        const placeholder = feed.querySelector('div[style*="text-align: center"]');
+        if (placeholder) {
+            placeholder.remove();
+        }
+        
+        feed.insertBefore(activityDiv, feed.firstChild);
+        
+        // Keep only last 20 activities
+        while (feed.children.length > 20) {
+            feed.removeChild(feed.lastChild);
+        }
+    }
+    
+    function updateHeartbeat(data) {
+        const statusText = document.querySelector('.status-text');
+        if (statusText && statusText.textContent === 'Connected') {
+            statusText.textContent = `Connected (${data.targets_monitored} targets)`;
+        }
+    }
+    
+    function simulateCopyTrade(token, type, amount) {
+        addSystemMessage(`🤖 Initiating auto copy: ${type} ${amount} ${token}...`, 'success');
+        
+        // In real implementation, this would trigger the actual copy trade
+        setTimeout(() => {
+            addSystemMessage(`✅ Auto copy executed: ${type === 'acquire' ? 'Bought' : 'Sold'} ${amount} ${token}`, 'success');
+        }, 1000);
+    }
+    
+    function manualCopyTrade(token, type, amount) {
+        const confirmed = confirm(`Execute manual copy trade:\n${type === 'acquire' ? 'BUY' : 'SELL'} ${amount} ${token}\n\nProceed?`);
+        if (confirmed) {
+            addSystemMessage(`📋 Manual copy initiated: ${type} ${amount} ${token}...`, 'success');
+            
+            // Send manual trade execution command
+            socket.send(JSON.stringify({
+                'command': 'execute_trade',
+                'token': token,
+                'type': type,
+                'amount': amount
+            }));
+        }
+    }
+    
+    // Add new message handlers
+    function handleTradeExecuted(data) {
+        addSystemMessage(`✅ Copy trade executed: ${data.message}`, 'success');
+        
+        // Update status for specific trade
+        const statusElement = document.getElementById(`trade-status-${data.echo_id}`);
+        if (statusElement) {
+            statusElement.innerHTML = '<span style="color: #00ff88;">✅ Executed</span>';
+        }
+    }
+    
+    function handleTradeError(data) {
+        addSystemMessage(`❌ Trade failed: ${data.message}`, 'error');
+    }
+    
+    // New utility functions
+    function copyTxHash(txHash) {
+        navigator.clipboard.writeText(txHash).then(() => {
+            addSystemMessage('Transaction hash copied to clipboard', 'success');
+        });
+    }
+</script>
+
 </body>
 </html>

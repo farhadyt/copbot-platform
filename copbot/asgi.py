@@ -1,16 +1,31 @@
 """
-ASGI config for copbot project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
+ASGI config for copbot project with WebSocket support.
 """
 
 import os
-
+import django
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'copbot.settings')
+django.setup()
 
-application = get_asgi_application()
+# Now import channels modules after Django is setup
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+from channels.security.websocket import AllowedHostsOriginValidator
+import pulse.routing
+
+# Create the http application first
+http_application = get_asgi_application()
+
+# Then combine with the WebSocket application
+application = ProtocolTypeRouter({
+    "http": http_application,
+    "websocket": AllowedHostsOriginValidator(
+        AuthMiddlewareStack(
+            URLRouter(
+                pulse.routing.websocket_urlpatterns
+            )
+        )
+    ),
+})

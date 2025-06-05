@@ -64,6 +64,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'copbot.wsgi.application'
 ASGI_APPLICATION = 'copbot.asgi.application'
 
+
+# Development üçün InMemory backend
+if DEBUG:
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels.layers.InMemoryChannelLayer'
+        }
+    }
+else:
+    # Production üçün Redis
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                "hosts": [(config('REDIS_URL', default='redis://127.0.0.1:6379'))],
+            },
+        },
+    }
+
+
+
 # Database
 DATABASES = {
     'default': {
