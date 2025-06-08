@@ -34,15 +34,33 @@
             max-width: none;
             margin: 20px 15px;
             padding: 0;
-            display: grid;
-            grid-template-columns: 66% 34%;
+            display: flex;
             gap: 20px;
-            min-height: calc(100vh - 140px);
+            min-height: calc(100vh - 40px);
+            align-items: stretch;
+        }
+        
+        .main-content {
+            flex: 2;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .wallet-sidebar {
+            flex: 1;
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         
         @media (max-width: 1400px) {
             .control-panel {
-                grid-template-columns: 65% 35%;
                 gap: 18px;
                 margin: 18px 12px;
             }
@@ -50,7 +68,6 @@
         
         @media (max-width: 1200px) {
             .control-panel {
-                grid-template-columns: 60% 40%;
                 gap: 15px;
                 margin: 15px 10px;
             }
@@ -58,9 +75,10 @@
         
         @media (max-width: 768px) {
             .control-panel {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 20px;
                 margin: 10px 5px;
+                min-height: auto;
             }
             
             .wallet-sidebar {
@@ -76,23 +94,6 @@
             }
         }
         
-        .main-content {
-            /* Main content takes the left column and fills available space */
-            min-width: 0; /* Prevents grid overflow */
-        }
-        
-        .wallet-sidebar {
-            background: var(--panel);
-            border: 1px solid var(--primary);
-            border-radius: 15px;
-            padding: 20px;
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        
         .sidebar-header {
             display: flex;
             align-items: center;
@@ -100,6 +101,7 @@
             margin-bottom: 20px;
             padding-bottom: 12px;
             border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+            flex-shrink: 0;
         }
         
         .sidebar-title {
@@ -109,12 +111,57 @@
             letter-spacing: 1px;
         }
         
+        .total-pnl {
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .total-pnl-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .total-pnl-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
         .wallet-list {
-            max-height: 500px;
+            flex: 1;
             overflow-y: auto;
-            overflow-x: visible;
+            overflow-x: hidden;
             scrollbar-width: thin;
             scrollbar-color: var(--primary) transparent;
+            padding-right: 5px;
+        }
+        
+        /* Style for activity section that will be created */
+        .activity-section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        
+        #activityFeed {
+            flex: 1;
+            overflow-y: auto;
+            margin-top: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+            padding-right: 5px;
         }
         
         .wallet-item {
@@ -126,6 +173,9 @@
             position: relative;
             transition: all 0.3s ease;
             cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
         
         .wallet-item:hover {
@@ -562,33 +612,6 @@
             word-break: break-all;
         }
         
-        .total-pnl {
-            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(255, 0, 255, 0.1));
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .total-pnl-label {
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .total-pnl-value {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Mirror Header responsive */
         .mirror-header {
             background: var(--panel);
             border: 1px solid var(--primary);
@@ -837,7 +860,73 @@
                     <p>No targets configured. Add wallet addresses to start tracking.</p>
                 </div>
             {% endif %}
+        </div>
+        
+        <!-- Trading Bot Section -->
+        <div class="trading-bot-section" style="background: var(--panel); border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 30px;">
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 class="section-title" style="font-size: 1.8rem; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+                    🤖 TRADING BOT
+                    {% if mirror.trading_bot %}
+                        <span id="botStatus" style="font-size: 0.8rem; padding: 4px 12px; border-radius: 20px; background: {% if mirror.trading_bot.is_active %}var(--success){% else %}#888{% endif %}; color: #000;">
+                            {% if mirror.trading_bot.is_active %}ACTIVE{% else %}INACTIVE{% endif %}
+                        </span>
+                    {% endif %}
+                </h2>
+                <div style="display: flex; gap: 10px;">
+                    {% if mirror.trading_bot %}
+                        <button onclick="toggleBot()" class="btn-control" style="background: {% if mirror.trading_bot.is_active %}var(--danger){% else %}var(--success){% endif %}; border: none; color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                            {% if mirror.trading_bot.is_active %}⏸️ STOP BOT{% else %}▶️ START BOT{% endif %}
+                        </button>
+                        <a href="{% url 'mirrors:bot_executions' mirror.pk %}" class="btn-control" style="background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                            📊 EXECUTIONS
+                        </a>
+                    {% endif %}
+                    <a href="{% url 'mirrors:configure_bot' mirror.pk %}" class="btn-control" style="background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                        ⚙️ CONFIGURE
+                    </a>
+                </div>
             </div>
+            
+            {% if mirror.trading_bot %}
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Platform</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary);">{{ mirror.trading_bot.platform.name|upper }}</div>
+                    </div>
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Copy Mode</div>
+                        <div style="font-size: 1.2rem; font-weight: 700;">{{ mirror.trading_bot.get_copy_mode_display }}</div>
+                    </div>
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Success Rate</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: {% if mirror.trading_bot.success_rate > 50 %}var(--success){% else %}var(--danger){% endif %};">{{ mirror.trading_bot.success_rate|floatformat:1 }}%</div>
+                    </div>
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Net Profit</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: {% if mirror.trading_bot.net_profit >= 0 %}var(--success){% else %}var(--danger){% endif %};">
+                            {% if mirror.trading_bot.net_profit >= 0 %}+{% endif %}${{ mirror.trading_bot.net_profit|floatformat:2 }}
+                        </div>
+                    </div>
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Total Trades</div>
+                        <div style="font-size: 1.2rem; font-weight: 700;">{{ mirror.trading_bot.total_trades }}</div>
+                    </div>
+                    <div style="background: rgba(0, 255, 204, 0.05); border: 1px solid rgba(0, 255, 204, 0.2); border-radius: 10px; padding: 20px;">
+                        <div style="color: #888; font-size: 0.9rem; margin-bottom: 5px;">Daily Limit</div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--warning);">${{ mirror.trading_bot.daily_loss_limit|floatformat:0 }}</div>
+                    </div>
+                </div>
+            {% else %}
+                <div style="text-align: center; padding: 40px; color: #888;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🤖</div>
+                    <p style="margin-bottom: 20px;">No trading bot configured. Set up automatic copy trading to mirror wallet activities.</p>
+                    <a href="{% url 'mirrors:configure_bot' mirror.pk %}" style="background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                        CONFIGURE TRADING BOT
+                    </a>
+                </div>
+            {% endif %}
+        </div>
         </div>
         
         <!-- Wallet Statistics Sidebar -->
@@ -918,17 +1007,16 @@
     function createActivitySection() {
         const activitySection = document.createElement('div');
         activitySection.className = 'activity-section';
-        activitySection.style.cssText = 'background: var(--panel); border: 1px solid var(--primary); border-radius: 15px; padding: 30px; margin-top: 30px;';
         
         activitySection.innerHTML = `
-            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-shrink: 0;">
                 <h2 class="section-title" style="font-size: 1.8rem; color: var(--primary);">LIVE ACTIVITY FEED</h2>
                 <div class="connection-status" id="connectionStatus" style="display: flex; align-items: center; gap: 10px;">
                     <span class="status-dot" style="width: 10px; height: 10px; border-radius: 50%; background: #888;"></span>
                     <span class="status-text">Disconnected</span>
                 </div>
             </div>
-            <div id="activityFeed" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
+            <div id="activityFeed">
                 <div style="text-align: center; color: #888; padding: 40px;">
                     <div style="font-size: 2rem; margin-bottom: 10px;">📡</div>
                     <p>Waiting for wallet activity...</p>
@@ -1440,10 +1528,8 @@
             const pnlColor = wallet.totalPnl >= 0 ? 'var(--success)' : 'var(--danger)';
             const pnlSign = wallet.totalPnl >= 0 ? '+' : '';
             
-
-            
             return `
-                <div class="wallet-item" data-wallet-id="${targetId}" onclick="toggleWalletDetails('${targetId}')">
+                <div class="wallet-item" data-wallet-id="${targetId}">
                     <div class="wallet-header">
                         <div class="wallet-name" title="${wallet.alias}">${wallet.alias}</div>
                         <div class="wallet-status"></div>
@@ -1468,14 +1554,27 @@
                             (${wallet.tradesCount} trades)
                         </span>
                     </div>
-                </div>
-                <div class="wallet-details-panel" id="details-${targetId}">
-                    ${generatePanelContent(wallet, targetId)}
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button onclick="showWalletModal('${targetId}')" style="flex: 1; background: rgba(0, 255, 204, 0.2); border: 1px solid var(--primary); color: var(--primary); padding: 8px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem;">
+                            📊 Quick View
+                        </button>
+                        <a href="{% url 'mirrors:wallet_detail' mirror.pk '__WALLET_ID__' %}" target="_blank" style="flex: 1; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); padding: 8px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-align: center;">
+                            🔍 Full Details
+                        </a>
+                    </div>
                 </div>
             `;
         }).join('');
         
         container.innerHTML = walletsHtml;
+        
+        // Replace __WALLET_ID__ with actual wallet IDs in the generated links
+        container.querySelectorAll('a[href*="__WALLET_ID__"]').forEach(link => {
+            const walletItem = link.closest('.wallet-item');
+            const walletId = walletItem.dataset.walletId;
+            const href = link.getAttribute('href');
+            link.setAttribute('href', href.replace('__WALLET_ID__', walletId));
+        });
     }
     
     function updateTotalPnl() {
@@ -1627,12 +1726,29 @@
     }
     
     function simulateCopyTrade(token, type, amount) {
-        addSystemMessage(`🤖 Initiating auto copy: ${type} ${amount} ${token}...`, 'success');
-        
-        // In real implementation, this would trigger the actual copy trade
-        setTimeout(() => {
-            addSystemMessage(`✅ Auto copy executed: ${type === 'acquire' ? 'Bought' : 'Sold'} ${amount} ${token}`, 'success');
-        }, 1000);
+        // Check if trading bot is active
+        {% if mirror.trading_bot and mirror.trading_bot.is_active %}
+            addSystemMessage(`🤖 Auto copy initiated by trading bot: ${type} ${amount} ${token}...`, 'success');
+            
+            // Send trade to bot for execution
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    'command': 'execute_auto_trade',
+                    'token': token,
+                    'type': type,
+                    'amount': amount,
+                    'bot_id': '{{ mirror.trading_bot.id }}'
+                }));
+            }
+        {% else %}
+            addSystemMessage('Trading bot is not active. Please activate the bot first.', 'warning');
+            // Highlight the bot configuration section
+            const botSection = document.querySelector('.trading-bot-section');
+            if (botSection) {
+                botSection.scrollIntoView({ behavior: 'smooth' });
+                botSection.style.animation = 'pulse 2s ease';
+            }
+        {% endif %}
     }
     
     function manualCopyTrade(token, type, amount) {
@@ -1641,12 +1757,15 @@
             addSystemMessage(`📋 Manual copy initiated: ${type} ${amount} ${token}...`, 'success');
             
             // Send manual trade execution command
-            socket.send(JSON.stringify({
-                'command': 'execute_trade',
-                'token': token,
-                'type': type,
-                'amount': amount
-            }));
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    'command': 'execute_manual_trade',
+                    'token': token,
+                    'type': type,
+                    'amount': amount,
+                    'manual': true
+                }));
+            }
         }
     }
     
@@ -1671,6 +1790,188 @@
             addSystemMessage('Transaction hash copied to clipboard', 'success');
         });
     }
+
+    // Trading Bot Toggle
+    function toggleBot() {
+        fetch(`/mirrors/${mirrorId}/toggle-bot/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update UI
+                const botStatus = document.getElementById('botStatus');
+                const toggleButton = document.querySelector('button[onclick="toggleBot()"]');
+                
+                if (data.active) {
+                    botStatus.textContent = 'ACTIVE';
+                    botStatus.style.background = 'var(--success)';
+                    toggleButton.textContent = '⏸️ STOP BOT';
+                    toggleButton.style.background = 'var(--danger)';
+                    addSystemMessage('Trading bot activated! Ready to copy trades.', 'success');
+                } else {
+                    botStatus.textContent = 'INACTIVE';
+                    botStatus.style.background = '#888';
+                    toggleButton.textContent = '▶️ START BOT';
+                    toggleButton.style.background = 'var(--success)';
+                    addSystemMessage('Trading bot deactivated.', 'info');
+                }
+            } else {
+                addSystemMessage('Error: ' + data.error, 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error toggling bot:', error);
+            addSystemMessage('Failed to toggle trading bot.', 'error');
+        });
+    }
+    
+    // Get CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Modal for wallet quick view
+    function showWalletModal(targetId) {
+        const wallet = walletStats[targetId];
+        if (!wallet) return;
+        
+        // Create modal if it doesn't exist
+        let modal = document.getElementById('walletModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'walletModal';
+            modal.className = 'modal';
+            modal.style.cssText = `
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                overflow-y: auto;
+                padding: 20px;
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        // Generate modal content
+        const modalContent = `
+            <div style="max-width: 1200px; margin: 0 auto; background: var(--panel); border: 2px solid var(--primary); border-radius: 15px; padding: 30px; position: relative;">
+                <button onclick="closeWalletModal()" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 0, 102, 0.2); border: 1px solid var(--danger); color: var(--danger); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem;">×</button>
+                
+                <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+                    💼 ${wallet.alias}
+                    <span style="font-size: 0.8rem; color: #888;">${targetId}</span>
+                </h2>
+                
+                ${generatePanelContent(wallet, targetId)}
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="{% url 'mirrors:wallet_detail' mirror.pk '__WALLET_ID__' %}".replace('__WALLET_ID__', '${targetId}') target="_blank" style="background: linear-gradient(45deg, var(--primary), var(--secondary)); color: var(--dark); padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                        🔍 View Full Details in New Tab
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        modal.innerHTML = modalContent;
+        modal.style.display = 'block';
+        
+        // Close modal when clicking outside
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeWalletModal();
+            }
+        };
+    }
+    
+    function closeWalletModal() {
+        const modal = document.getElementById('walletModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    // Save wallet stats to sessionStorage
+    function saveWalletStats() {
+        const dataToSave = {
+            walletStats: walletStats,
+            totalPnl: totalPnl,
+            timestamp: Date.now()
+        };
+        sessionStorage.setItem(`walletStats_${mirrorId}`, JSON.stringify(dataToSave));
+    }
+    
+    // Load wallet stats from sessionStorage
+    function loadWalletStats() {
+        const savedData = sessionStorage.getItem(`walletStats_${mirrorId}`);
+        if (savedData) {
+            try {
+                const data = JSON.parse(savedData);
+                // Check if data is less than 5 minutes old
+                if (Date.now() - data.timestamp < 5 * 60 * 1000) {
+                    walletStats = data.walletStats;
+                    totalPnl = data.totalPnl;
+                    renderWalletList();
+                    updateTotalPnl();
+                    return true;
+                }
+            } catch (e) {
+                console.error('Error loading saved wallet stats:', e);
+            }
+        }
+        return false;
+    }
+    
+    // Update the updateWalletStats function to save data
+    const originalUpdateWalletStats = updateWalletStats;
+    updateWalletStats = function(data) {
+        originalUpdateWalletStats(data);
+        saveWalletStats();
+    };
+    
+    // Load saved stats on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Try to load saved stats first
+        const hasLoadedStats = loadWalletStats();
+        
+        const targetsSection = document.querySelector('.targets-section');
+        if (targetsSection) {
+            const activitySection = createActivitySection();
+            targetsSection.parentNode.insertBefore(activitySection, targetsSection.nextSibling);
+        }
+        
+        // Start WebSocket connection if mirror is hunting
+        const mirrorState = "{{ mirror.state }}";
+        if (mirrorState === 'hunting') {
+            connectWebSocket();
+        } else {
+            addSystemMessage('Mirror is sleeping. Activate to start monitoring.', 'info');
+        }
+        
+        // If we loaded saved stats, show a message
+        if (hasLoadedStats) {
+            addSystemMessage('Restored previous session data', 'info');
+        }
+    });
 </script>
 
 </body>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Trading Bot - {{ mirror.codename }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --success: #00ff88;
+            --warning: #ffa500;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        .form-container {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .form-help {
+            display: block;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 10, 20, 0.8);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .alert-warning {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid var(--warning);
+            color: var(--warning);
+        }
+        
+        .alert-info {
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 204, 0.1);
+        }
+        
+        /* Risk indicators */
+        .risk-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .risk-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success), var(--warning), var(--danger));
+            transition: width 0.3s ease;
+        }
+        
+        .risk-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Stats preview */
+        .stats-preview {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Configure Trading Bot</h1>
+            <p>{{ mirror.codename }} - Automated Copy Trading System</p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if not has_wallets %}
+            <div class="alert alert-warning">
+                <span>⚠️</span>
+                <div>
+                    <strong>No wallets connected!</strong><br>
+                    You need to connect a wallet before configuring the trading bot.
+                    <a href="{% url 'mirrors:manage_wallets' %}" style="color: var(--warning); text-decoration: underline;">Connect Wallet →</a>
+                </div>
+            </div>
+        {% endif %}
+
+        <form method="post" id="botConfigForm">
+            {% csrf_token %}
+            
+            <div class="form-container">
+                <!-- Basic Configuration -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span>⚙️</span>
+                        Basic Configuration
+                    </h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            {{ form.wallet.label_tag }}
+                            {{ form.wallet }}
+                            <span class="form-help">Select the wallet to execute trades from</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.platform.label_tag }}
+                            {{ form.platform }}
+                            <span class="form-help">Trading platform for execution</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.copy_mode.label_tag }}
+                            {{ form.copy_mode }}
+                            <span class="form-help">How to calculate trade sizes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Management -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span>🛡️</span>
+                        Risk Management
+                    </h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            {{ form.max_trade_size.label_tag }}
+                            {{ form.max_trade_size }}
+                            <span class="form-help">Maximum size per trade in SOL</span>
+                            <div class="risk-indicator">
+                                <div class="risk-bar">
+                                    <div class="risk-fill" id="maxTradeSizeRisk" style="width: 30%;"></div>
+                                </div>
+                                <span class="risk-label" id="maxTradeSizeLabel">Low Risk</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.min_trade_size.label_tag }}
+                            {{ form.min_trade_size }}
+                            <span class="form-help">Minimum size per trade in SOL</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.daily_loss_limit.label_tag }}
+                            {{ form.daily_loss_limit }}
+                            <span class="form-help">Stop trading after this daily loss</span>
+                            <div class="risk-indicator">
+                                <div class="risk-bar">
+                                    <div class="risk-fill" id="dailyLossRisk" style="width: 50%;"></div>
+                                </div>
+                                <span class="risk-label" id="dailyLossLabel">Medium Risk</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.take_profit_percentage.label_tag }}
+                            {{ form.take_profit_percentage }}
+                            <span class="form-help">Auto-sell when profit reaches this %</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.stop_loss_percentage.label_tag }}
+                            {{ form.stop_loss_percentage }}
+                            <span class="form-help">Auto-sell when loss reaches this %</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Settings -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span>⚡</span>
+                        Advanced Settings
+                    </h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            {{ form.slippage_tolerance.label_tag }}
+                            {{ form.slippage_tolerance }}
+                            <span class="form-help">Maximum acceptable price slippage</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.gas_limit_multiplier.label_tag }}
+                            {{ form.gas_limit_multiplier }}
+                            <span class="form-help">Multiplier for gas estimation</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.delay_seconds.label_tag }}
+                            {{ form.delay_seconds }}
+                            <span class="form-help">Wait time before executing copy</span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if trading_bot %}
+                    <!-- Performance Stats -->
+                    <div class="stats-preview">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">Current Performance</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">{{ trading_bot.total_trades }}</div>
+                                <div class="stat-label">Total Trades</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: {% if trading_bot.success_rate > 50 %}var(--success){% else %}var(--danger){% endif %};">
+                                    {{ trading_bot.success_rate|floatformat:1 }}%
+                                </div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: {% if trading_bot.net_profit >= 0 %}var(--success){% else %}var(--danger){% endif %};">
+                                    {% if trading_bot.net_profit >= 0 %}+{% endif %}${{ trading_bot.net_profit|floatformat:2 }}
+                                </div>
+                                <div class="stat-label">Net Profit</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">{{ trading_bot.successful_trades }}</div>
+                                <div class="stat-label">Wins</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary" {% if not has_wallets %}disabled{% endif %}>
+                    <span>💾</span>
+                    Save Configuration
+                </button>
+                <a href="{% url 'mirrors:mirror_detail' mirror.pk %}" class="btn btn-secondary">
+                    <span>←</span>
+                    Back to Mirror
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Update risk indicators based on input values
+        function updateRiskIndicator(inputId, barId, labelId) {
+            const input = document.getElementById(inputId);
+            const bar = document.getElementById(barId);
+            const label = document.getElementById(labelId);
+            
+            if (!input || !bar || !label) return;
+            
+            input.addEventListener('input', function() {
+                const value = parseFloat(this.value) || 0;
+                let riskLevel, riskPercent, riskColor;
+                
+                if (inputId.includes('max_trade_size')) {
+                    // Max trade size risk calculation
+                    if (value <= 0.1) {
+                        riskLevel = 'Very Low';
+                        riskPercent = 10;
+                    } else if (value <= 1) {
+                        riskLevel = 'Low';
+                        riskPercent = 30;
+                    } else if (value <= 5) {
+                        riskLevel = 'Medium';
+                        riskPercent = 50;
+                    } else if (value <= 10) {
+                        riskLevel = 'High';
+                        riskPercent = 70;
+                    } else {
+                        riskLevel = 'Very High';
+                        riskPercent = 90;
+                    }
+                } else if (inputId.includes('daily_loss_limit')) {
+                    // Daily loss limit risk calculation
+                    if (value >= 1000) {
+                        riskLevel = 'Very Low';
+                        riskPercent = 10;
+                    } else if (value >= 500) {
+                        riskLevel = 'Low';
+                        riskPercent = 30;
+                    } else if (value >= 200) {
+                        riskLevel = 'Medium';
+                        riskPercent = 50;
+                    } else if (value >= 100) {
+                        riskLevel = 'High';
+                        riskPercent = 70;
+                    } else {
+                        riskLevel = 'Very High';
+                        riskPercent = 90;
+                    }
+                }
+                
+                bar.style.width = riskPercent + '%';
+                label.textContent = riskLevel + ' Risk';
+                
+                // Update label color based on risk
+                if (riskPercent <= 30) {
+                    label.style.color = 'var(--success)';
+                } else if (riskPercent <= 60) {
+                    label.style.color = 'var(--warning)';
+                } else {
+                    label.style.color = 'var(--danger)';
+                }
+            });
+            
+            // Trigger initial update
+            input.dispatchEvent(new Event('input'));
+        }
+        
+        // Initialize risk indicators
+        document.addEventListener('DOMContentLoaded', function() {
+            updateRiskIndicator('id_max_trade_size', 'maxTradeSizeRisk', 'maxTradeSizeLabel');
+            updateRiskIndicator('id_daily_loss_limit', 'dailyLossRisk', 'dailyLossLabel');
+            
+            // Copy mode explanation
+            const copyModeSelect = document.getElementById('id_copy_mode');
+            if (copyModeSelect) {
+                copyModeSelect.addEventListener('change', function() {
+                    const helpText = this.parentElement.querySelector('.form-help');
+                    switch(this.value) {
+                        case 'exact':
+                            helpText.textContent = 'Copy the exact trade amount from the target wallet';
+                            break;
+                        case 'proportional':
+                            helpText.textContent = 'Scale trade size based on your wallet balance';
+                            break;
+                        case 'fixed':
+                            helpText.textContent = 'Always use the maximum trade size configured';
+                            break;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

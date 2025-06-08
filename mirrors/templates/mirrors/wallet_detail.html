@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Details - {{ wallet_id }} | {{ mirror.codename }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --success: #00ff88;
+            --warning: #ffa500;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+            --panel-border: rgba(0, 255, 204, 0.3);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* Header Section */
+        .header {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .header-left {
+            flex: 1;
+        }
+        
+        .wallet-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .wallet-address {
+            font-size: 1rem;
+            color: #888;
+            font-family: monospace;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .header-stat {
+            text-align: center;
+        }
+        
+        .header-stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .header-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        /* Quick Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .stat-card-change {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #888;
+        }
+        
+        /* Tables Section */
+        .table-section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--panel-border);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            margin: -10px;
+            padding: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        
+        th {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary);
+            font-weight: 700;
+            text-align: left;
+            padding: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border-bottom: 2px solid var(--panel-border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        tr:hover {
+            background: rgba(0, 255, 204, 0.05);
+        }
+        
+        /* Platform badges */
+        .platform-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        /* Trade type badges */
+        .trade-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .trade-type.buy {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--success);
+        }
+        
+        .trade-type.sell {
+            background: rgba(255, 0, 102, 0.2);
+            color: var(--danger);
+        }
+        
+        /* Value formatting */
+        .value-positive {
+            color: var(--success);
+        }
+        
+        .value-negative {
+            color: var(--danger);
+        }
+        
+        .value-neutral {
+            color: #888;
+        }
+        
+        /* Performance Chart Section */
+        .chart-section {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            height: 400px;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        /* Advanced Statistics */
+        .advanced-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .advanced-stat-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid var(--panel-border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .advanced-stat-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 204, 0.1);
+        }
+        
+        /* Back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-stats {
+                justify-content: center;
+            }
+            
+            .wallet-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-wrapper {
+                margin: -20px;
+                padding: 20px;
+            }
+            
+            .advanced-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading state */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            color: #888;
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="{% url 'mirrors:mirror_detail' mirror.pk %}" class="back-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5"/>
+        </svg>
+    </a>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-left">
+                <h1 class="wallet-title">
+                    <span>💼</span>
+                    <span id="walletAlias">Loading...</span>
+                </h1>
+                <div class="wallet-address">{{ wallet_id }}</div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-label">Total P&L</div>
+                    <div class="header-stat-value" id="totalPnl" style="color: var(--primary);">$0.00</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-label">Win Rate</div>
+                    <div class="header-stat-value" id="winRate" style="color: var(--success);">0%</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-label">Total Trades</div>
+                    <div class="header-stat-value" id="totalTrades">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-card-label">Total Profit</div>
+                <div class="stat-card-value value-positive" id="totalProfit">$0.00</div>
+                <div class="stat-card-change" id="profitChange">+0% from last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📉</div>
+                <div class="stat-card-label">Total Loss</div>
+                <div class="stat-card-value value-negative" id="totalLoss">$0.00</div>
+                <div class="stat-card-change" id="lossChange">-0% from last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-card-label">Total Volume</div>
+                <div class="stat-card-value" id="totalVolume" style="color: var(--primary);">$0.00</div>
+                <div class="stat-card-change">Across all platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-card-label">Avg Trade Size</div>
+                <div class="stat-card-value" id="avgTradeSize" style="color: var(--secondary);">$0.00</div>
+                <div class="stat-card-change" id="avgChange">Per transaction</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-card-label">Best Platform</div>
+                <div class="stat-card-value" id="bestPlatform" style="color: var(--warning);">-</div>
+                <div class="stat-card-change" id="bestPlatformStats">No data</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-card-label">ROI</div>
+                <div class="stat-card-value" id="roi" style="color: var(--primary);">0%</div>
+                <div class="stat-card-change">Return on Investment</div>
+            </div>
+        </div>
+
+        <!-- Platform Performance Table -->
+        <div class="table-section">
+            <div class="section-header">
+                <h2 class="section-title">Platform Performance</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="exportPlatformData()">Export CSV</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table id="platformTable">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Total Trades</th>
+                            <th>Success Rate</th>
+                            <th>Total Volume</th>
+                            <th>Profit</th>
+                            <th>Loss</th>
+                            <th>Net P&L</th>
+                            <th>ROI</th>
+                            <th>Avg Trade</th>
+                            <th>Best Trade</th>
+                            <th>Worst Trade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="11" class="loading">Loading platform data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Trade History Table -->
+        <div class="table-section">
+            <div class="section-header">
+                <h2 class="section-title">Recent Trades</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="exportTradeHistory()">Export CSV</button>
+                    <button class="btn btn-primary" onclick="refreshData()">Refresh</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table id="tradeTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Platform</th>
+                            <th>Type</th>
+                            <th>Token</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>P&L</th>
+                            <th>P&L %</th>
+                            <th>Status</th>
+                            <th>TX Hash</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="11" class="loading">Loading trade history...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Performance Chart -->
+        <div class="chart-section">
+            <div class="section-header">
+                <h2 class="section-title">Performance Over Time</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary active" onclick="changeChartPeriod('7d')">7D</button>
+                    <button class="btn btn-secondary" onclick="changeChartPeriod('30d')">30D</button>
+                    <button class="btn btn-secondary" onclick="changeChartPeriod('all')">All</button>
+                </div>
+            </div>
+            <div class="chart-container" id="performanceChart">
+                <div class="loading">Loading chart data...</div>
+            </div>
+        </div>
+
+        <!-- Advanced Statistics -->
+        <div class="table-section">
+            <div class="section-header">
+                <h2 class="section-title">Advanced Analytics</h2>
+            </div>
+            <div class="advanced-stats">
+                <div class="advanced-stat-card">
+                    <h3 class="advanced-stat-title">Trading Patterns</h3>
+                    <div class="metric-row">
+                        <span class="metric-label">Most Active Hour</span>
+                        <span class="metric-value" id="activeHour">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Avg Trades Per Day</span>
+                        <span class="metric-value" id="avgTradesPerDay">0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Max Consecutive Wins</span>
+                        <span class="metric-value value-positive" id="maxWinStreak">0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Max Consecutive Losses</span>
+                        <span class="metric-value value-negative" id="maxLossStreak">0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Avg Hold Time</span>
+                        <span class="metric-value" id="avgHoldTime">-</span>
+                    </div>
+                </div>
+
+                <div class="advanced-stat-card">
+                    <h3 class="advanced-stat-title">Risk Metrics</h3>
+                    <div class="metric-row">
+                        <span class="metric-label">Sharpe Ratio</span>
+                        <span class="metric-value" id="sharpeRatio">0.00</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Max Drawdown</span>
+                        <span class="metric-value value-negative" id="maxDrawdown">0%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Risk/Reward Ratio</span>
+                        <span class="metric-value" id="riskReward">1:1</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Profit Factor</span>
+                        <span class="metric-value" id="profitFactor">0.00</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Recovery Factor</span>
+                        <span class="metric-value" id="recoveryFactor">0.00</span>
+                    </div>
+                </div>
+
+                <div class="advanced-stat-card">
+                    <h3 class="advanced-stat-title">Token Analysis</h3>
+                    <div class="metric-row">
+                        <span class="metric-label">Unique Tokens Traded</span>
+                        <span class="metric-value" id="uniqueTokens">0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Most Profitable Token</span>
+                        <span class="metric-value value-positive" id="bestToken">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Least Profitable Token</span>
+                        <span class="metric-value value-negative" id="worstToken">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Avg Token Diversity</span>
+                        <span class="metric-value" id="tokenDiversity">0%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">New Token Win Rate</span>
+                        <span class="metric-value" id="newTokenWinRate">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Platform colors mapping
+        const platformColors = {
+            'raydium': '#8C65F7',
+            'jupiter': '#FBA43A',
+            'pump': '#FF6B9D',
+            'dexscreener': '#00D4AA',
+            'gmgn': '#FF4757',
+            'photon': '#5F27CD',
+            'uniswap': '#FF007A',
+            'pancakeswap': '#FFDF00'
+        };
+
+        // WebSocket connection for real-time updates
+        let socket = null;
+        const mirrorId = "{{ mirror.id }}";
+        const walletId = "{{ wallet_id }}";
+
+        // Initialize WebSocket connection
+        function connectWebSocket() {
+            const wsScheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
+            const wsUrl = `${wsScheme}://${window.location.host}/ws/wallet/${mirrorId}/${walletId}/`;
+            
+            socket = new WebSocket(wsUrl);
+            
+            socket.onopen = function(e) {
+                console.log('WebSocket connection established');
+                // Request wallet data
+                socket.send(JSON.stringify({
+                    'command': 'get_wallet_data',
+                    'wallet_id': walletId
+                }));
+            };
+            
+            socket.onmessage = function(e) {
+                const data = JSON.parse(e.data);
+                handleWebSocketMessage(data);
+            };
+            
+            socket.onclose = function(e) {
+                console.log('WebSocket closed, attempting reconnect...');
+                setTimeout(connectWebSocket, 5000);
+            };
+        }
+
+        // Handle incoming WebSocket messages
+        function handleWebSocketMessage(data) {
+            switch(data.type) {
+                case 'wallet_data':
+                    updateWalletData(data.data);
+                    break;
+                case 'new_trade':
+                    addNewTrade(data.trade);
+                    updateStats(data.stats);
+                    break;
+                case 'stats_update':
+                    updateStats(data.stats);
+                    break;
+            }
+        }
+
+        // Update wallet data
+        function updateWalletData(data) {
+            // Update header
+            document.getElementById('walletAlias').textContent = data.alias || 'Unknown Wallet';
+            document.getElementById('totalPnl').textContent = formatCurrency(data.totalPnl);
+            document.getElementById('totalPnl').style.color = data.totalPnl >= 0 ? 'var(--success)' : 'var(--danger)';
+            document.getElementById('winRate').textContent = `${data.winRate}%`;
+            document.getElementById('totalTrades').textContent = data.totalTrades;
+            
+            // Update stats cards
+            document.getElementById('totalProfit').textContent = formatCurrency(data.totalProfit);
+            document.getElementById('totalLoss').textContent = formatCurrency(data.totalLoss);
+            document.getElementById('totalVolume').textContent = formatCurrency(data.totalVolume);
+            document.getElementById('avgTradeSize').textContent = formatCurrency(data.avgTradeSize);
+            document.getElementById('bestPlatform').textContent = data.bestPlatform || '-';
+            document.getElementById('roi').textContent = `${data.roi}%`;
+            document.getElementById('roi').style.color = data.roi >= 0 ? 'var(--success)' : 'var(--danger)';
+            
+            // Update platform table
+            updatePlatformTable(data.platforms);
+            
+            // Update trade history
+            updateTradeTable(data.recentTrades);
+            
+            // Update advanced stats
+            updateAdvancedStats(data.advancedStats);
+        }
+
+        // Update platform performance table
+        function updatePlatformTable(platforms) {
+            const tbody = document.querySelector('#platformTable tbody');
+            
+            if (!platforms || platforms.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; color: #888;">No platform data available</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = platforms.map(platform => {
+                const color = platformColors[platform.name.toLowerCase()] || '#888';
+                const roiColor = platform.roi >= 0 ? 'var(--success)' : 'var(--danger)';
+                const pnlColor = platform.netPnl >= 0 ? 'var(--success)' : 'var(--danger)';
+                
+                return `
+                    <tr>
+                        <td>
+                            <span class="platform-badge" style="background: ${color}; color: #fff;">
+                                ${platform.name.toUpperCase()}
+                            </span>
+                        </td>
+                        <td>${platform.totalTrades}</td>
+                        <td>
+                            <span style="color: ${platform.successRate >= 50 ? 'var(--success)' : 'var(--danger)'};">
+                                ${platform.successRate}%
+                            </span>
+                        </td>
+                        <td>${formatCurrency(platform.volume)}</td>
+                        <td class="value-positive">${formatCurrency(platform.profit)}</td>
+                        <td class="value-negative">${formatCurrency(platform.loss)}</td>
+                        <td style="color: ${pnlColor}; font-weight: 700;">
+                            ${formatCurrency(platform.netPnl)}
+                        </td>
+                        <td style="color: ${roiColor}; font-weight: 700;">
+                            ${platform.roi}%
+                        </td>
+                        <td>${formatCurrency(platform.avgTrade)}</td>
+                        <td class="value-positive">${formatCurrency(platform.bestTrade)}</td>
+                        <td class="value-negative">${formatCurrency(platform.worstTrade)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Update trade history table
+        function updateTradeTable(trades) {
+            const tbody = document.querySelector('#tradeTable tbody');
+            
+            if (!trades || trades.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; color: #888;">No trades recorded</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = trades.map(trade => {
+                const platformColor = platformColors[trade.platform.toLowerCase()] || '#888';
+                const pnlColor = trade.pnl >= 0 ? 'var(--success)' : 'var(--danger)';
+                const typeClass = trade.type === 'buy' ? 'buy' : 'sell';
+                const typeIcon = trade.type === 'buy' ? '🟢' : '🔴';
+                
+                return `
+                    <tr>
+                        <td>${new Date(trade.timestamp).toLocaleString()}</td>
+                        <td>
+                            <span class="platform-badge" style="background: ${platformColor}; color: #fff;">
+                                ${trade.platform.toUpperCase()}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="trade-type ${typeClass}">
+                                ${typeIcon} ${trade.type.toUpperCase()}
+                            </span>
+                        </td>
+                        <td style="color: var(--secondary); font-weight: 600;">${trade.token}</td>
+                        <td>${trade.amount}</td>
+                        <td>$${trade.price}</td>
+                        <td style="color: var(--primary);">${formatCurrency(trade.total)}</td>
+                        <td style="color: ${pnlColor}; font-weight: 700;">
+                            ${trade.pnl ? formatCurrency(trade.pnl) : '-'}
+                        </td>
+                        <td style="color: ${pnlColor};">
+                            ${trade.pnlPercentage ? `${trade.pnlPercentage}%` : '-'}
+                        </td>
+                        <td>
+                            <span style="color: ${trade.status === 'success' ? 'var(--success)' : 'var(--danger)'};">
+                                ${trade.status}
+                            </span>
+                        </td>
+                        <td>
+                            <button onclick="copyTxHash('${trade.txHash}')" class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.8rem;">
+                                Copy TX
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Update advanced statistics
+        function updateAdvancedStats(stats) {
+            if (!stats) return;
+            
+            // Trading Patterns
+            document.getElementById('activeHour').textContent = stats.activeHour || '-';
+            document.getElementById('avgTradesPerDay').textContent = stats.avgTradesPerDay || '0';
+            document.getElementById('maxWinStreak').textContent = stats.maxWinStreak || '0';
+            document.getElementById('maxLossStreak').textContent = stats.maxLossStreak || '0';
+            document.getElementById('avgHoldTime').textContent = stats.avgHoldTime || '-';
+            
+            // Risk Metrics
+            document.getElementById('sharpeRatio').textContent = stats.sharpeRatio || '0.00';
+            document.getElementById('maxDrawdown').textContent = `${stats.maxDrawdown || '0'}%`;
+            document.getElementById('riskReward').textContent = stats.riskReward || '1:1';
+            document.getElementById('profitFactor').textContent = stats.profitFactor || '0.00';
+            document.getElementById('recoveryFactor').textContent = stats.recoveryFactor || '0.00';
+            
+            // Token Analysis
+            document.getElementById('uniqueTokens').textContent = stats.uniqueTokens || '0';
+            document.getElementById('bestToken').textContent = stats.bestToken || '-';
+            document.getElementById('worstToken').textContent = stats.worstToken || '-';
+            document.getElementById('tokenDiversity').textContent = `${stats.tokenDiversity || '0'}%`;
+            document.getElementById('newTokenWinRate').textContent = `${stats.newTokenWinRate || '0'}%`;
+        }
+
+        // Utility functions
+        function formatCurrency(value) {
+            const num = parseFloat(value) || 0;
+            const sign = num >= 0 ? '+' : '';
+            return `${sign}$${Math.abs(num).toFixed(2)}`;
+        }
+
+        function copyTxHash(hash) {
+            navigator.clipboard.writeText(hash).then(() => {
+                showNotification('Transaction hash copied!');
+            });
+        }
+
+        function showNotification(message) {
+            // Simple notification implementation
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--primary);
+                color: var(--dark);
+                padding: 15px 25px;
+                border-radius: 8px;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+                z-index: 1000;
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Export functions
+        function exportPlatformData() {
+            // Implementation for CSV export
+            showNotification('Platform data exported!');
+        }
+
+        function exportTradeHistory() {
+            // Implementation for CSV export
+            showNotification('Trade history exported!');
+        }
+
+        function refreshData() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    'command': 'refresh_data',
+                    'wallet_id': walletId
+                }));
+                showNotification('Refreshing data...');
+            }
+        }
+
+        function changeChartPeriod(period) {
+            // Update chart period
+            document.querySelectorAll('.chart-section .btn-secondary').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Request new chart data
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    'command': 'get_chart_data',
+                    'wallet_id': walletId,
+                    'period': period
+                }));
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            connectWebSocket();
+            
+            // Simulate initial data load for demonstration
+            setTimeout(() => {
+                // This would be replaced with actual WebSocket data
+                const demoData = {
+                    alias: 'Smart Money Wallet #1',
+                    totalPnl: 15234.56,
+                    winRate: 68.5,
+                    totalTrades: 342,
+                    totalProfit: 25890.23,
+                    totalLoss: 10655.67,
+                    totalVolume: 458900.45,
+                    avgTradeSize: 1341.52,
+                    bestPlatform: 'Raydium',
+                    roi: 23.45,
+                    platforms: [
+                        {
+                            name: 'Raydium',
+                            totalTrades: 156,
+                            successRate: 72.5,
+                            volume: 234500.00,
+                            profit: 15600.00,
+                            loss: 5400.00,
+                            netPnl: 10200.00,
+                            roi: 4.35,
+                            avgTrade: 1503.21,
+                            bestTrade: 5600.00,
+                            worstTrade: -2100.00
+                        },
+                        {
+                            name: 'Jupiter',
+                            totalTrades: 98,
+                            successRate: 65.3,
+                            volume: 145600.00,
+                            profit: 8900.00,
+                            loss: 4200.00,
+                            netPnl: 4700.00,
+                            roi: 3.23,
+                            avgTrade: 1486.73,
+                            bestTrade: 3200.00,
+                            worstTrade: -1500.00
+                        }
+                    ],
+                    recentTrades: [
+                        {
+                            timestamp: new Date().toISOString(),
+                            platform: 'raydium',
+                            type: 'buy',
+                            token: 'BONK',
+                            amount: '1000000',
+                            price: '0.000012',
+                            total: 1200.00,
+                            pnl: 234.56,
+                            pnlPercentage: 19.55,
+                            status: 'success',
+                            txHash: '5J3mBbAH58CpQ3Y5RNJpUKPE62jPJzRCQYiuk84b'
+                        }
+                    ],
+                    advancedStats: {
+                        activeHour: '14:00 - 15:00',
+                        avgTradesPerDay: '12.5',
+                        maxWinStreak: '15',
+                        maxLossStreak: '7',
+                        avgHoldTime: '2h 34m',
+                        sharpeRatio: '1.85',
+                        maxDrawdown: '18.5',
+                        riskReward: '1:2.3',
+                        profitFactor: '2.43',
+                        recoveryFactor: '3.21',
+                        uniqueTokens: '47',
+                        bestToken: 'SOL (+$8,234)',
+                        worstToken: 'LUNA (-$3,456)',
+                        tokenDiversity: '68',
+                        newTokenWinRate: '45.5'
+                    }
+                };
+                
+                updateWalletData(demoData);
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
