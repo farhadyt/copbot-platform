@@ -1,0 +1,210 @@
+✅ ƏSAS MƏQSƏD
+Sənin tətbiqin:
+
+Shadow agent-lər yaradır,
+
+Hər agent Solana mainnet-ə WebSocket ilə qoşulur,
+
+Transaction-ları dinləməli, tapmalı,
+
+Vebdə və VB-də göstərməlidir.
+
+❌ REAL PROBLEM NƏDİR?
+1. ✅ WebSocket bağlantısı uğurla qurulur
+Loglar göstərir ki:
+
+arduino
+Copy
+Edit
+✅ Connected to Solana WebSocket: wss://api.mainnet-beta.solana.com
+Bu, texniki cəhətdən bağlantının açıldığını göstərir. Problem bağlantıda deyil.
+
+2. ❌ Method not found RPC xətası (Kritik!)
+Bu log var:
+
+css
+Copy
+Edit
+Connection test response: {"jsonrpc":"2.0","error":{"code":-32601,"message":"Method not found"}}
+Bu onu göstərir ki, WebSocket bağlantısından sonra səhv RPC method göndərilir.
+
+Ən çox rast gəlinən səbəb: Solana WebSocket interfeysi JSON-RPC ilə işləyir, ancaq bəzi methodlar WebSocket-də deyil, HTTP endpoint-lərində mövcuddur. Yəni, test məqsədilə göndərilən JSON-RPC getX tipli method, WebSocket tərəfindən dəstəklənmir.
+
+➡ Nəticə: Səhv method test mesajı göndərildiyi üçün backend "connected" desə də, bu real istifadəyə yaramır.
+
+3. ❌ Çox geniş (ALL) log subscription
+css
+Copy
+Edit
+Successfully subscribed to ALL program logs...
+Bu böyük problemdir:
+
+Solana WebSocket logsSubscribe metodu ilə ALL log-lara abunə olmaq çox məlumat axını yaradır.
+
+Bu məlumatlar filtr olunmur.
+
+Sənin agentin konkret cüzdan (wallet) və ya program ID üzrə filter etmədiyi üçün SPL Token əməliyyatları içərisində itir.
+
+➡ Nəticə: Gələn mesajlar çox olsa da, filter doğru olmadığı üçün found 0 transactions qalır.
+
+4. ❌ Transaction detection (parsing) mexanizmi işləmir
+nginx
+Copy
+Edit
+Processed 29400 messages, found 0 transactions
+Bu göstərir ki:
+
+Mesajlar gəlir, yəni Solana WebSocket-dən məlumat alırsan,
+
+Ancaq bu mesajlar içində transaction tapılmır.
+
+Əgər sən .logsSubscribe istifadə edirsənsə, gələn mesajların result.value.logs sahəsini SPL Token transfer pattern-lərinə görə analiz etməlisən.
+
+Əgər burada programId, instruction, və ya parsed məlumatına baxılmırsa, filter düzgün qurulmayıb.
+
+5. ❌ Bağlantı tez-tez itir
+mathematica
+Copy
+Edit
+WebSocket connection lost during listening
+Reconnecting...
+Max reconnection attempts reached
+Bu, ya:
+
+WebSocket overload (ALL subscription səbəbiylə)
+
+Və ya mesajların düzgün işlənməməsi (loop içərisində error)
+
+Yaxud WebSocket heartbeat (ping-pong) mexanizminin olmaması səbəbiylə olur
+
+✅ YEKUN PEŞƏKAR ANALİZ
+Problem	Açıqlama	Status
+❌ WebSocket method səhvdir	Method not found xəta verir	✅ Təsdiq olundu
+❌ ALL log subscription	Hədəf cüzdan üçün spesifik deyil	✅ Təsdiq olundu
+❌ Transaction parsing yoxdur	Gələn log-lar parse olunmur	✅ Təsdiq olundu
+❌ Connection sabit deyil	Tez-tez itir	✅ Təsdiq olundu
+
+✅ NƏTİCƏ
+Bu anda problem kodun üç əsas yerindədir:
+logsSubscribe düzgün şəkildə spesifik program ID və ya accountFilter ilə edilməlidir.
+
+transaction və ya log parsing modulu düzgün SPL Token Transfer əmrlərini çıxara bilmir.
+
+WebSocket bağlantısı üçün səhv test RPC method göndərilir.
+
+Əgər icazə versən, növbəti mərhələdə problemi kod səviyyəsində necə düzəltmək lazım olduğunu addım-addım izah edim və istəsən, peşəkar həll kodlarını yazım.
+
+İndi sən qərar ver:
+➡ Düzəlişlərə başlayaqmı?
+
+
+
+
+
+
+You said:
+eger deqiq hell edeceksense problemi profesional wekilde buyur , bawla
+
+
+ChatGPT said:
+Çox gözəl — indi başlayaq və problemi 100% dəqiqliklə və peşəkar səviyyədə addım-addım həll edək. Aşağıdakı mərhələlərlə gedəcəyik:
+
+🧩 MƏRHƏLƏLİ HƏLL PLANI
+✅ 1. WebSocket bağlantısında “Method not found” xətasını düzəltmək
+🔧 Problem:
+json
+Copy
+Edit
+{"jsonrpc":"2.0","error":{"code":-32601,"message":"Method not found"}}
+Bu xəta göstərir ki, test məqsədilə göndərilən RPC sorğusu WebSocket tərəfindən tanınmır.
+
+✅ Həll:
+Sən WebSocket-ə aşağıdakı kimi test mesajı göndərirsənsə (məsələn getRecentBlockhash, getBalance, və s.) bu yalnız HTTP RPC endpoint-lərdə işləyir.
+
+Ediləcək:
+Test məqsədilə WebSocket-ə heç bir RPC sorğusu göndərməyə ehtiyac yoxdur. Əgər bağlantı uğurla qurulubsa (on_open() içində), sadəcə .logsSubscribe göndərmək kifayətdir.
+
+✅ 2. .logsSubscribe-i düzgün wallet və ya token contract-ına bağlamaq
+🔧 Problem:
+css
+Copy
+Edit
+Successfully subscribed to ALL program logs...
+Bu subscription çox genişdir və faydasız datalarla doludur.
+
+✅ Həll:
+Solana SPL Token transferləri programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" altında olur.
+
+Ediləcək:
+WebSocket-də aşağıdakı kimi filterli subscription qurulmalıdır:
+
+json
+Copy
+Edit
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "logsSubscribe",
+  "params": [
+    {
+      "mentions": ["<target_wallet_address>"]
+    },
+    {
+      "commitment": "confirmed"
+    }
+  ]
+}
+və ya:
+
+json
+Copy
+Edit
+"params": [
+  {
+    "filter": {
+      "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    }
+  },
+  { "commitment": "confirmed" }
+]
+Bu zaman yalnız SPL token transfer əmrləri alınacaq və yüklənməni azaldacaq.
+
+✅ 3. transaction parsing (ayırma və tanıma) funksiyası düzəldilməlidir
+🔧 Problem:
+nginx
+Copy
+Edit
+Processed X messages, found 0 transactions
+Mesajlar gəlir, lakin transaction parsing işləmir.
+
+✅ Həll:
+logsSubscribe cavablarında value.logs və value.signature olur.
+
+Əgər logs içində Instruction: Transfer varsa və programId TokenkegQfe...-dirsə, bu SPL transfer-dir.
+
+Ediləcək: Gələn mesajda bu pattern axtarılmalıdır:
+
+python
+Copy
+Edit
+if "Program log: Instruction: Transfer" in log_line:
+    # bu transaction-dur
+və ya log-u JSON parse edib Instruction və Parsed hissələrində token və məbləğ çıxarılmalıdır.
+
+✅ 4. WebSocket bağlantısı tez-tez itir — sabitləşdirilməlidir
+🔧 Problem:
+nginx
+Copy
+Edit
+WebSocket connection lost... reconnecting...
+✅ Həll:
+WebSocket server ping/pong cavabı almazsa, disconnect edir.
+
+on_pong() funksiyası əlavə edilməli,
+
+ping göndərilməli,
+
+heartbeat sistemi qurulmalıdır.
+
+🛠 NÖVBƏTİ ADDIM
+Əgər sən hazırsansa, 1-ci addımdan — WebSocket test mesajını ləğv edib düzgün .logsSubscribe quruluşu yazmaqla başlaya bilərik.

@@ -18,6 +18,8 @@
             --danger: #ff0066;
             --dark: #0a0a0f;
             --panel: rgba(15, 15, 25, 0.95);
+            --success: #00ff66;
+            --warning: #ffcc00;
         }
         
         body {
@@ -76,9 +78,10 @@
         
         /* Main Container */
         .command-center {
-            padding: 2rem;
-            max-width: 1400px;
+            padding: 2rem 1rem;
+            max-width: 98%;
             margin: 0 auto;
+            width: 100%;
         }
         
         /* Stats Grid */
@@ -128,129 +131,257 @@
             letter-spacing: 2px;
         }
         
-        /* Mirror Section */
-        .section {
+        /* Agent Blocks - Horizontal Layout */
+        .agents-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .agent-block {
             background: var(--panel);
             border: 1px solid var(--primary);
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            min-height: calc(100vh - 280px);
+            height: calc(100vh - 280px);
         }
         
-        .section-header {
+        .agent-block-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 1px solid rgba(0, 255, 204, 0.3);
-            padding-bottom: 10px;
+            padding-bottom: 8px;
+            flex-shrink: 0;
         }
         
-        .section-title {
-            font-size: 1.5rem;
+        .agent-type-title {
+            font-size: 1.4rem;
             color: var(--primary);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
         
-        .btn-create {
+        .btn-create-agent {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: var(--dark);
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 20px;
+            border-radius: 50px;
             cursor: pointer;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             letter-spacing: 1px;
             transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .btn-create:hover {
+        .btn-create-agent:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
         }
         
-        /* Mirror Grid */
-        .mirror-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+        .btn-create-agent.disabled {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
         }
         
-        .mirror-card {
+        .btn-create-agent.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Agent List - Vertical Stacking */
+        .agents-list {
+            overflow-y: auto;
+            padding-right: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 0;
+        }
+        
+        .agents-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .agents-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .agents-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        /* Responsive horizontal layout */
+        @media (max-width: 1200px) {
+            .agents-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .agent-block {
+                height: calc(50vh - 140px);
+                min-height: calc(50vh - 140px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .command-center {
+                padding: 1rem 0.5rem;
+            }
+            
+            .agents-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .agent-block {
+                min-height: calc(100vh - 320px);
+                height: calc(100vh - 320px);
+        }
+        
+            .agent-block-header {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .agent-type-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        .agent-item {
             background: rgba(0, 255, 204, 0.05);
             border: 1px solid rgba(0, 255, 204, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .mirror-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
-            border-color: var(--primary);
-        }
-        
-        .mirror-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .mirror-type {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .mirror-stats {
-            margin-top: 15px;
+            border-radius: 8px;
+            padding: 12px;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            font-size: 0.9rem;
-            color: #888;
+            align-items: center;
+            transition: all 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0;
         }
         
-        .mirror-state {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+        .agent-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary);
+            box-shadow: 0 3px 15px rgba(0, 255, 204, 0.2);
+        }
+        
+        .agent-name {
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-top: 10px;
-        }
-        
-        .state-hunting {
-            background: rgba(0, 255, 204, 0.2);
             color: var(--primary);
-            border: 1px solid var(--primary);
         }
         
-        .state-sleeping {
-            background: rgba(255, 255, 255, 0.1);
+        .agent-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn-icon {
+            background: none;
+            border: none;
             color: #888;
-            border: 1px solid #888;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-edit:hover {
+            color: var(--warning);
+            background: rgba(255, 204, 0, 0.1);
+        }
+        
+        .btn-delete:hover {
+            color: var(--danger);
+            background: rgba(255, 0, 102, 0.1);
+        }
+        
+        .status-toggle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .status-toggle.active {
+            background: var(--success);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+        }
+        
+        .status-toggle.inactive {
+            background: var(--danger);
+            box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+        }
+        
+        .status-toggle:hover {
+            transform: scale(1.2);
         }
         
         /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             color: #888;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .empty-icon {
-            font-size: 4rem;
+            font-size: 3rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            opacity: 0.5;
         }
         
         .empty-text {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Placeholder styles for non-Shadow agents */
+        .agent-block.placeholder .agent-block-header {
+            opacity: 0.6;
+        }
+        
+        .agent-block.placeholder .empty-state {
+            opacity: 0.4;
+        }
+        
+        .coming-soon {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -272,15 +403,15 @@
         <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-label">Total Mirrors</div>
-                <div class="stat-value">{{ total_mirrors }}</div>
+                <div class="stat-label">Total Agents</div>
+                <div class="stat-value">{{ total_agents }}</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Active Hunters</div>
-                <div class="stat-value">{{ active_mirrors }}</div>
+                <div class="stat-label">Active Agents</div>
+                <div class="stat-value">{{ active_agents }}</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Echoes Today</div>
+                <div class="stat-label">Operations Today</div>
                 <div class="stat-value">0</div>
             </div>
             <div class="stat-card">
@@ -289,50 +420,540 @@
             </div>
         </div>
         
-        <!-- Mirrors Section -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">NEURAL MIRRORS</h2>
-            <a href="{% url 'mirrors:create_mirror' %}" class="btn-create">
-                + DEPLOY NEW MIRROR
-            </a>
+        <!-- Agent Blocks Container - Vertical Layout -->
+        <div class="agents-container">
+            <!-- Shadow Agents Block -->
+            <div class="agent-block">
+                <div class="agent-block-header">
+                    <h2 class="agent-type-title">SHADOW</h2>
+                    <a href="{% url 'mirrors:create_agent' agent_type='shadow' %}" class="btn-create-agent">
+                        + CREATE
+                    </a>
+                </div>
+                
+                {% if shadow_agents %}
+                    <div class="agents-list">
+                        {% for agent in shadow_agents %}
+                            <div class="agent-item">
+                                <div class="agent-name">
+                                    <a href="{% url 'mirrors:agent_transactions' agent.id %}" style="color: inherit; text-decoration: none;">
+                                        {{ agent.name }}
+                                    </a>
+                                </div>
+                                <div class="agent-controls">
+                                    <a href="{% url 'mirrors:agent_transactions' agent.id %}" class="btn-icon" title="View Transactions">
+                                        📊
+                                    </a>
+                                    <button class="btn-icon btn-edit" data-agent-id="{{ agent.id }}" title="Edit Agent">
+                                        ✏️
+                                    </button>
+                                    <button class="btn-icon btn-delete" data-agent-id="{{ agent.id }}" title="Delete Agent">
+                                        🗑️
+                                    </button>
+                                    <button class="status-toggle {% if agent.is_active %}active{% else %}inactive{% endif %}" 
+                                            data-agent-id="{{ agent.id }}"
+                                            title="{% if agent.is_active %}Active{% else %}Inactive{% endif %}">
+                                    </button>
+                                </div>
+                                
+                                <!-- Transaction Stats for Shadow Agents -->
+                                {% if agent.transaction_stats %}
+                                <div class="agent-stats" style="margin-top: 15px; padding: 10px; background: rgba(0, 255, 204, 0.05); border-radius: 8px; font-size: 0.8rem;">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                        <div style="color: #888;">Transactions:</div>
+                                        <div style="color: var(--primary); font-weight: 600;">{{ agent.transaction_stats.total_transactions }}</div>
+                                        <div style="color: #888;">Trades:</div>
+                                        <div style="color: var(--primary); font-weight: 600;">{{ agent.transaction_stats.total_trades }}</div>
+                                        <div style="color: #888;">Win Rate:</div>
+                                        <div style="color: {% if agent.transaction_stats.win_rate > 50 %}var(--success){% else %}var(--danger){% endif %}; font-weight: 600;">{{ agent.transaction_stats.win_rate }}%</div>
+                                        <div style="color: #888;">P&L:</div>
+                                        <div style="color: {% if agent.transaction_stats.total_profit >= 0 %}var(--success){% else %}var(--danger){% endif %}; font-weight: 600;">${{ agent.transaction_stats.total_profit|floatformat:2 }}</div>
+                                    </div>
+                                    {% if agent.is_active %}
+                                        <div style="margin-top: 8px; color: var(--success); font-size: 0.7rem;">
+                                            <i class="fas fa-wifi"></i> Solana Connected
+                                        </div>
+                                    {% else %}
+                                        <div style="margin-top: 8px; color: #888; font-size: 0.7rem;">
+                                            <i class="fas fa-wifi"></i> Disconnected
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">🕶️</div>
+                        <div class="empty-text">No Shadow agents deployed</div>
+                    </div>
+                {% endif %}
             </div>
             
-            {% if mirrors %}
-                <div class="mirror-grid">
-                    {% for mirror in mirrors %}
-                        <div class="mirror-card">
-                            <div class="mirror-name">{{ mirror.codename }}</div>
-                            <div class="mirror-type">{{ mirror.get_mirror_type_display }}</div>
-                            <div class="mirror-stats">
-                                <span>Syncs: {{ mirror.sync_count }}</span>
-                                <span>Success: {{ mirror.success_rate }}%</span>
+            <!-- Hawk Agents Block -->
+            <div class="agent-block placeholder">
+                <div class="agent-block-header">
+                    <h2 class="agent-type-title">HAWK</h2>
+                    <button class="btn-create-agent disabled" title="Coming Soon">
+                        + CREATE
+                    </button>
+                </div>
+                
+                {% if hawk_agents %}
+                    <div class="agents-list">
+                        {% for agent in hawk_agents %}
+                            <div class="agent-item">
+                                <div class="agent-name">{{ agent.name }}</div>
+                                <div class="agent-controls">
+                                    <button class="btn-icon btn-edit" data-agent-id="{{ agent.id }}" title="Edit Agent">✏️</button>
+                                    <button class="btn-icon btn-delete" data-agent-id="{{ agent.id }}" title="Delete Agent">🗑️</button>
+                                    <button class="status-toggle {% if agent.is_active %}active{% else %}inactive{% endif %}" data-agent-id="{{ agent.id }}" title="{% if agent.is_active %}Active{% else %}Inactive{% endif %}"></button>
+                                </div>
                             </div>
-                            <span class="mirror-state state-{{ mirror.state }}">
-                                {{ mirror.get_state_display|upper }}
-                            </span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">🦅</div>
+                        <div class="empty-text">No Hawk agents deployed</div>
+                        <div class="coming-soon">Coming Soon...</div>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Hunter Agents Block -->
+            <div class="agent-block placeholder">
+                <div class="agent-block-header">
+                    <h2 class="agent-type-title">HUNTER</h2>
+                    <button class="btn-create-agent disabled" title="Coming Soon">
+                        + CREATE
+                    </button>
+                </div>
+                
+                {% if hunter_agents %}
+                    <div class="agents-list">
+                        {% for agent in hunter_agents %}
+                            <div class="agent-item">
+                                <div class="agent-name">{{ agent.name }}</div>
+                                <div class="agent-controls">
+                                    <button class="btn-icon btn-edit" data-agent-id="{{ agent.id }}" title="Edit Agent">✏️</button>
+                                    <button class="btn-icon btn-delete" data-agent-id="{{ agent.id }}" title="Delete Agent">🗑️</button>
+                                    <button class="status-toggle {% if agent.is_active %}active{% else %}inactive{% endif %}" data-agent-id="{{ agent.id }}" title="{% if agent.is_active %}Active{% else %}Inactive{% endif %}"></button>
+                                </div>
                         </div>
                     {% endfor %}
                 </div>
             {% else %}
                 <div class="empty-state">
-                    <div class="empty-icon">🤖</div>
-                    <div class="empty-text">No mirrors deployed yet</div>
-                    <button class="btn-create" onclick="alert('Mirror creation coming soon!')">
-                        DEPLOY YOUR FIRST MIRROR
+                        <div class="empty-icon">🎯</div>
+                        <div class="empty-text">No Hunter agents deployed</div>
+                        <div class="coming-soon">Coming Soon...</div>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Mirror Agents Block -->
+            <div class="agent-block placeholder">
+                <div class="agent-block-header">
+                    <h2 class="agent-type-title">MIRROR</h2>
+                    <button class="btn-create-agent disabled" title="Coming Soon">
+                        + CREATE
                     </button>
                 </div>
+                
+                {% if mirror_agents %}
+                    <div class="agents-list">
+                        {% for agent in mirror_agents %}
+                            <div class="agent-item">
+                                <div class="agent-name">{{ agent.name }}</div>
+                                <div class="agent-controls">
+                                    <button class="btn-icon btn-edit" data-agent-id="{{ agent.id }}" title="Edit Agent">✏️</button>
+                                    <button class="btn-icon btn-delete" data-agent-id="{{ agent.id }}" title="Delete Agent">🗑️</button>
+                                    <button class="status-toggle {% if agent.is_active %}active{% else %}inactive{% endif %}" data-agent-id="{{ agent.id }}" title="{% if agent.is_active %}Active{% else %}Inactive{% endif %}"></button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">🪞</div>
+                        <div class="empty-text">No Mirror agents deployed</div>
+                        <div class="coming-soon">Coming Soon...</div>
+                </div>
             {% endif %}
+            </div>
         </div>
     </div>
     
-    <script>
-        // Add some interactivity
-        document.querySelectorAll('.mirror-card').forEach(card => {
-            card.addEventListener('click', function() {
-                alert('Mirror details coming soon!');
-            });
-        });
-    </script>
+<script>
+// Real-time monitoring system for Command Center
+let agentConnections = {};
+let isGlobalMonitoringActive = false;
+
+// Initialize monitoring when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAgentMonitoring();
+    setupGlobalControls();
+});
+
+// Initialize WebSocket connections for all active agents
+async function initializeAgentMonitoring() {
+    const activeAgents = document.querySelectorAll('.mirror-card .state-hunting');
+    
+    if (activeAgents.length === 0) {
+        addSystemMessage('No active agents found. Deploy and activate agents to start monitoring.', 'info');
+        return;
+    }
+    
+    // Connect to each active agent
+    activeAgents.forEach(async (agentElement) => {
+        const agentCard = agentElement.closest('.mirror-card');
+        const agentName = agentCard.querySelector('.mirror-name').textContent;
+        const agentId = extractAgentId(agentCard);
+        
+        if (agentId) {
+            await connectToAgent(agentId, agentName);
+        }
+    });
+    
+    startGlobalMonitoring();
+}
+
+// Connect to individual agent
+async function connectToAgent(agentId, agentName) {
+    try {
+        const wsScheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        const wsUrl = `${wsScheme}://${window.location.host}/ws/agent/${agentId}/`;
+        
+        const socket = new WebSocket(wsUrl);
+        
+        socket.onopen = function(e) {
+            console.log(`✅ Connected to agent ${agentName}`);
+            agentConnections[agentId] = {
+                socket: socket,
+                name: agentName,
+                connected: true,
+                transactionCount: 0
+            };
+            
+            updateAgentStatus(agentId, 'connected');
+            
+            // Start monitoring
+            socket.send(JSON.stringify({
+                'command': 'start_monitoring',
+                'agent_id': agentId
+            }));
+        };
+        
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            handleAgentMessage(agentId, data);
+        };
+        
+        socket.onclose = function(e) {
+            console.log(`❌ Agent ${agentName} disconnected`);
+            updateAgentStatus(agentId, 'disconnected');
+            
+            // Attempt reconnection
+            setTimeout(() => {
+                connectToAgent(agentId, agentName);
+            }, 5000);
+        };
+        
+        socket.onerror = function(err) {
+            console.error(`Agent ${agentName} error:`, err);
+            updateAgentStatus(agentId, 'error');
+        };
+        
+    } catch (error) {
+        console.error(`Failed to connect to agent ${agentName}:`, error);
+    }
+}
+
+// Handle messages from agents
+function handleAgentMessage(agentId, data) {
+    const connection = agentConnections[agentId];
+    
+    switch(data.type) {
+        case 'transaction_detected':
+            connection.transactionCount++;
+            displayTransaction(agentId, data.transaction);
+            updateGlobalStats();
+            break;
+            
+        case 'monitoring_started':
+            addSystemMessage(`🎯 ${connection.name} started hunting`, 'success');
+            break;
+            
+        case 'error':
+            addSystemMessage(`❌ ${connection.name}: ${data.message}`, 'error');
+            break;
+            
+        case 'heartbeat':
+            // Update last seen
+            connection.lastSeen = new Date();
+            break;
+    }
+}
+
+// Display detected transaction
+function displayTransaction(agentId, transaction) {
+    const connection = agentConnections[agentId];
+    const transactionElement = createTransactionElement(connection.name, transaction);
+    
+    // Add to global feed
+    const globalFeed = document.getElementById('globalTransactionFeed');
+    if (globalFeed) {
+        globalFeed.insertBefore(transactionElement, globalFeed.firstChild);
+        
+        // Keep only last 50 transactions
+        while (globalFeed.children.length > 50) {
+            globalFeed.removeChild(globalFeed.lastChild);
+        }
+    }
+    
+    // Update agent card
+    updateAgentCard(agentId, transaction);
+}
+
+// Create transaction display element
+function createTransactionElement(agentName, transaction) {
+    const div = document.createElement('div');
+    div.className = 'transaction-item';
+    div.style.cssText = `
+        padding: 15px; 
+        margin-bottom: 10px; 
+        background: rgba(0, 255, 204, 0.05); 
+        border: 1px solid rgba(0, 255, 204, 0.3); 
+        border-radius: 10px;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    const tradeColor = transaction.type === 'acquire' ? '#00ff88' : '#ff0066';
+    const tradeIcon = transaction.type === 'acquire' ? '🟢' : '🔴';
+    
+    div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="color: #00ffcc; font-weight: 700;">${agentName}</span>
+                <span style="color: ${tradeColor};">${tradeIcon} ${transaction.type.toUpperCase()}</span>
+                <span style="background: #8C65F7; color: #fff; padding: 3px 8px; border-radius: 12px; font-size: 0.8rem;">
+                    ${transaction.platform?.toUpperCase() || 'SOLANA'}
+                </span>
+            </div>
+            <span style="color: #888; font-size: 0.8rem;">
+                ${new Date(transaction.timestamp).toLocaleTimeString()}
+            </span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.9rem;">
+            <div>
+                <span style="color: #888;">Token:</span><br>
+                <span style="color: #ff00ff; font-weight: 700;">${transaction.token}</span>
+            </div>
+            <div>
+                <span style="color: #888;">Amount:</span><br>
+                <span style="color: #fff; font-weight: 700;">${transaction.amount}</span>
+            </div>
+            <div>
+                <span style="color: #888;">Value:</span><br>
+                <span style="color: #00ffcc; font-weight: 700;">$${transaction.total}</span>
+            </div>
+        </div>
+    `;
+    
+    return div;
+}
+
+// Update agent card with latest activity
+function updateAgentCard(agentId, transaction) {
+    const agentCard = document.querySelector(`[data-agent-id="${agentId}"]`);
+    if (agentCard) {
+        const statsElement = agentCard.querySelector('.mirror-stats');
+        const connection = agentConnections[agentId];
+        
+        if (statsElement) {
+            statsElement.innerHTML = `
+                <span>Syncs: ${connection.transactionCount}</span>
+                <span>Status: Hunting</span>
+            `;
+        }
+        
+        // Add pulse animation
+        agentCard.style.animation = 'pulse 0.5s ease';
+        setTimeout(() => {
+            agentCard.style.animation = '';
+        }, 500);
+    }
+}
+
+// Update agent connection status
+function updateAgentStatus(agentId, status) {
+    const agentCard = document.querySelector(`[data-agent-id="${agentId}"]`);
+    if (agentCard) {
+        const statusElement = agentCard.querySelector('.connection-status') || 
+                             agentCard.querySelector('.mirror-state');
+        
+        if (statusElement) {
+            let statusText, statusClass;
+            
+            switch(status) {
+                case 'connected':
+                    statusText = 'HUNTING';
+                    statusClass = 'state-hunting';
+                    break;
+                case 'disconnected':
+                    statusText = 'DISCONNECTED';
+                    statusClass = 'state-sleeping';
+                    break;
+                case 'error':
+                    statusText = 'ERROR';
+                    statusClass = 'state-error';
+                    break;
+            }
+            
+            statusElement.textContent = statusText;
+            statusElement.className = `mirror-state ${statusClass}`;
+        }
+    }
+}
+
+// Setup global monitoring controls
+function setupGlobalControls() {
+    // Add global transaction feed if not exists
+    if (!document.getElementById('globalTransactionFeed')) {
+        const feedSection = createGlobalFeedSection();
+        const commandCenter = document.querySelector('.command-center');
+        if (commandCenter) {
+            commandCenter.appendChild(feedSection);
+        }
+    }
+}
+
+// Create global transaction feed section
+function createGlobalFeedSection() {
+    const section = document.createElement('div');
+    section.className = 'section';
+    section.style.cssText = `
+        background: rgba(15, 15, 25, 0.95); 
+        border: 1px solid #00ffcc; 
+        border-radius: 10px; 
+        padding: 20px; 
+        margin-top: 20px;
+    `;
+    
+    section.innerHTML = `
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 255, 204, 0.3); padding-bottom: 10px;">
+            <h2 class="section-title" style="font-size: 1.5rem; color: #00ffcc; letter-spacing: 2px;">
+                🔥 LIVE TRANSACTION FEED
+            </h2>
+            <div class="feed-controls" style="display: flex; gap: 10px;">
+                <button onclick="clearTransactionFeed()" style="background: rgba(255, 0, 102, 0.2); border: 1px solid #ff0066; color: #ff0066; padding: 8px 16px; border-radius: 5px; cursor: pointer;">
+                    CLEAR
+                </button>
+            </div>
+        </div>
+        <div id="globalTransactionFeed" style="max-height: 400px; overflow-y: auto;">
+            <div style="text-align: center; color: #888; padding: 40px;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📡</div>
+                <p>Waiting for agent activity...</p>
+            </div>
+        </div>
+    `;
+    
+    return section;
+}
+
+// Utility functions
+function addSystemMessage(message, type = 'info') {
+    console.log(`[SYSTEM] ${message}`);
+    
+    const feed = document.getElementById('globalTransactionFeed');
+    if (feed) {
+        const messageDiv = document.createElement('div');
+        messageDiv.style.cssText = `
+            padding: 10px; 
+            margin-bottom: 5px; 
+            background: rgba(0, 255, 204, 0.1); 
+            border-left: 3px solid ${type === 'error' ? '#ff0066' : '#00ffcc'}; 
+            color: #aaa; 
+            font-size: 0.9rem;
+        `;
+        
+        messageDiv.innerHTML = `
+            <span style="color: ${type === 'error' ? '#ff0066' : '#00ffcc'};">SYSTEM:</span> ${message}
+            <span style="float: right; font-size: 0.8rem;">${new Date().toLocaleTimeString()}</span>
+        `;
+        
+        feed.insertBefore(messageDiv, feed.firstChild);
+    }
+}
+
+function extractAgentId(agentCard) {
+    // Extract agent ID from card or use codename as fallback
+    const codename = agentCard.querySelector('.mirror-name')?.textContent;
+    return codename ? codename.toLowerCase().replace(/[^a-z0-9]/g, '') : null;
+}
+
+function startGlobalMonitoring() {
+    isGlobalMonitoringActive = true;
+    addSystemMessage('🚀 Global agent monitoring system activated', 'success');
+}
+
+function updateGlobalStats() {
+    const totalConnections = Object.keys(agentConnections).length;
+    const activeConnections = Object.values(agentConnections).filter(c => c.connected).length;
+    const totalTransactions = Object.values(agentConnections).reduce((sum, c) => sum + c.transactionCount, 0);
+    
+    // Update stats cards
+    const statsCards = document.querySelectorAll('.stat-value');
+    if (statsCards.length >= 3) {
+        statsCards[1].textContent = activeConnections; // Active Hunters
+        statsCards[2].textContent = totalTransactions; // Echoes Today
+    }
+}
+
+function clearTransactionFeed() {
+    const feed = document.getElementById('globalTransactionFeed');
+    if (feed) {
+        feed.innerHTML = `
+            <div style="text-align: center; color: #888; padding: 40px;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📡</div>
+                <p>Transaction feed cleared. Waiting for new activity...</p>
+            </div>
+        `;
+    }
+}
+
+// CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(-20px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+    
+    .state-error {
+        background: rgba(255, 0, 102, 0.2);
+        color: #ff0066;
+        border: 1px solid #ff0066;
+    }
+`;
+document.head.appendChild(style);
+
+// Add agent IDs to mirror cards
+document.querySelectorAll('.mirror-card').forEach((card, index) => {
+    const agentName = card.querySelector('.mirror-name')?.textContent;
+    if (agentName) {
+        card.dataset.agentId = agentName.toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+});
+</script>
 </body>
 </html>

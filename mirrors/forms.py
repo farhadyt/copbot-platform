@@ -1,5 +1,5 @@
 from django import forms
-from .models import Mirror, Target, TradingPlatform, ConnectedWallet, TradingBot
+from .models import Mirror, Target, TradingPlatform, ConnectedWallet, TradingBot, Agent
 
 class MirrorForm(forms.ModelForm):
     class Meta:
@@ -141,3 +141,152 @@ class TradingBotForm(forms.ModelForm):
                 'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
             }),
         }
+
+class AgentForm(forms.ModelForm):
+    """Form for creating and editing Shadow agents"""
+    
+    # Active days as checkboxes
+    active_days = forms.MultipleChoiceField(
+        choices=[
+            (0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'), (3, 'Thursday'),
+            (4, 'Friday'), (5, 'Saturday'), (6, 'Sunday')
+        ],
+        widget=forms.CheckboxSelectMultiple(attrs={
+            'class': 'form-check-input'
+        }),
+        required=False,
+        initial=[0, 1, 2, 3, 4, 5, 6]  # All days selected by default
+    )
+    
+    # Scan frequency with proper choices
+    scan_frequency = forms.ChoiceField(
+        choices=[
+            ('Maximum Fast', 'Maximum Fast - Highest Speed'),
+            ('Fast', 'Fast - High Speed'),
+            ('Normal', 'Normal - Medium Speed'),
+            ('Slow', 'Slow - Low Speed')
+        ],
+        initial='Maximum Fast',
+        required=True,
+        widget=forms.Select(attrs={
+            'class': 'form-control glow-input',
+            'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+        })
+    )
+    
+    class Meta:
+        model = Agent
+        fields = [
+            'name', 'agent_type', 'active_days', 'active_hours_start', 'active_hours_end',
+            'max_transactions_hour', 'max_transactions_day', 'scan_frequency',
+            'min_transaction_value', 'max_transaction_value', 'min_wallet_balance',
+            'token_filter_type', 'excluded_tokens', 'included_tokens', 'max_retention_days'
+        ]
+        
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Leave empty for auto-generation (e.g., Shadow-1)',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;',
+                'required': False
+            }),
+            'agent_type': forms.HiddenInput(),  # Will be set in the view
+            'active_hours_start': forms.TimeInput(attrs={
+                'class': 'form-control glow-input',
+                'type': 'time',
+                'value': '00:00',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'active_hours_end': forms.TimeInput(attrs={
+                'class': 'form-control glow-input',
+                'type': 'time',
+                'value': '23:59',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'max_transactions_hour': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Max transactions per hour (optional)',
+                'min': '1',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'max_transactions_day': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Max transactions per day (optional)',
+                'min': '1',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'min_transaction_value': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Minimum transaction value (USD)',
+                'step': '0.01',
+                'value': '1.00',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'max_transaction_value': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Maximum transaction value (USD, optional)',
+                'step': '0.01',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'min_wallet_balance': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Minimum wallet balance (USD, optional)',
+                'step': '0.01',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'token_filter_type': forms.RadioSelect(attrs={
+                'class': 'form-check-input'
+            }),
+            'excluded_tokens': forms.Textarea(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Enter token symbols separated by commas (e.g., SCAM, RISKY)',
+                'rows': 3,
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'included_tokens': forms.Textarea(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Enter token symbols separated by commas (e.g., SOL, BONK, WIF)',
+                'rows': 3,
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+            'max_retention_days': forms.NumberInput(attrs={
+                'class': 'form-control glow-input',
+                'placeholder': 'Max days to keep transaction data',
+                'min': '1',
+                'value': '10',
+                'style': 'background: rgba(0, 10, 20, 0.8); border: 1px solid var(--primary); color: #fff;'
+            }),
+        }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        # Make name field not required
+        self.fields['name'].required = False
+        
+        # Convert active_days from list to comma-separated string for form processing
+        if self.instance and self.instance.pk and self.instance.active_days:
+            if isinstance(self.instance.active_days, list):
+                self.initial['active_days'] = self.instance.active_days
+    
+    def clean_name(self):
+        """Allow empty name for auto-generation"""
+        name = self.cleaned_data.get('name')
+        if name:
+            return name.strip()
+        return ''
+    
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        
+        # Convert active_days from form data to list
+        active_days_data = self.cleaned_data.get('active_days', [])
+        if active_days_data:
+            instance.active_days = [int(day) for day in active_days_data]
+        else:
+            instance.active_days = []
+        
+        if commit:
+            instance.save()
+        
+        return instance

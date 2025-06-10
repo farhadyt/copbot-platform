@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create {{ agent_type|title }} Agent{% endblock %}
+
+{% block content %}
+<style>
+    .agent-form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: rgba(0, 10, 20, 0.95);
+        border-radius: 15px;
+        border: 1px solid var(--primary);
+    }
+    
+    .form-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: rgba(0, 255, 204, 0.05);
+        border-radius: 10px;
+        border: 1px solid rgba(0, 255, 204, 0.2);
+    }
+    
+    .section-title {
+        color: var(--primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 5px;
+    }
+    
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+    }
+    
+    .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+    }
+    
+    .btn-create {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    
+    .btn-create:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 255, 204, 0.3);
+    }
+    
+    .btn-cancel {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 15px 40px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+    }
+    
+    .btn-cancel:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
+<div class="agent-form-container">
+    <h1 class="text-center" style="color: var(--primary); margin-bottom: 30px;">
+        CREATE {{ agent_type|upper }} AGENT
+    </h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- General Information -->
+        <div class="form-section">
+            <h3 class="section-title">General Information</h3>
+            
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--primary);">Agent Name</label>
+                {{ form.name }}
+                <small class="form-text text-muted">Leave empty for auto-generation (e.g., Shadow-1)</small>
+            </div>
+            
+            {{ form.agent_type }}
+            
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--primary);">Active Days</label>
+                <div class="checkbox-group">
+                    {% for choice in form.active_days %}
+                        <div class="checkbox-item">
+                            {{ choice.tag }}
+                            <label for="{{ choice.id_for_label }}">{{ choice.choice_label }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Active Hours Start</label>
+                    {{ form.active_hours_start }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Active Hours End</label>
+                    {{ form.active_hours_end }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Transaction Limits -->
+        <div class="form-section">
+            <h3 class="section-title">Transaction Limits</h3>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Max Transactions per Hour</label>
+                    {{ form.max_transactions_hour }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Max Transactions per Day</label>
+                    {{ form.max_transactions_day }}
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--primary);">Scan Frequency</label>
+                {{ form.scan_frequency }}
+            </div>
+        </div>
+        
+        <!-- Value Filters -->
+        <div class="form-section">
+            <h3 class="section-title">Value Filters</h3>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Min Transaction Value (USD)</label>
+                    {{ form.min_transaction_value }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Max Transaction Value (USD)</label>
+                    {{ form.max_transaction_value }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Min Wallet Balance (USD)</label>
+                    {{ form.min_wallet_balance }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Token Filters -->
+        <div class="form-section">
+            <h3 class="section-title">Token Filters</h3>
+            
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--primary);">Filter Type</label>
+                <div class="radio-group">
+                    {% for choice in form.token_filter_type %}
+                        <div class="radio-item">
+                            {{ choice.tag }}
+                            <label for="{{ choice.id_for_label }}">{{ choice.choice_label }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Excluded Tokens</label>
+                    {{ form.excluded_tokens }}
+                    <small class="form-text text-muted">Only used when "Exclude specific tokens" is selected</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="color: var(--primary);">Included Tokens</label>
+                    {{ form.included_tokens }}
+                    <small class="form-text text-muted">Only used when "Include specific tokens" is selected</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Database Retention -->
+        <div class="form-section">
+            <h3 class="section-title">Database Retention</h3>
+            
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--primary);">Max Retention Days</label>
+                {{ form.max_retention_days }}
+                <small class="form-text text-muted">Transaction data older than this will be automatically deleted (FIFO)</small>
+            </div>
+        </div>
+        
+        <!-- Form Actions -->
+        <div class="text-center" style="margin-top: 40px;">
+            <button type="submit" class="btn-create">
+                CREATE {{ agent_type|upper }} AGENT
+            </button>
+            <a href="{% url 'horizon:command_center' %}" class="btn-cancel" style="margin-left: 20px;">
+                CANCEL
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Show/hide token filter fields based on selection
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterTypeInputs = document.querySelectorAll('input[name="token_filter_type"]');
+        const excludedTokensField = document.querySelector('textarea[name="excluded_tokens"]').closest('.col-md-6');
+        const includedTokensField = document.querySelector('textarea[name="included_tokens"]').closest('.col-md-6');
+        
+        function toggleTokenFields() {
+            const selectedValue = document.querySelector('input[name="token_filter_type"]:checked').value;
+            
+            if (selectedValue === 'exclude') {
+                excludedTokensField.style.display = 'block';
+                includedTokensField.style.display = 'none';
+            } else if (selectedValue === 'include') {
+                excludedTokensField.style.display = 'none';
+                includedTokensField.style.display = 'block';
+            } else {
+                excludedTokensField.style.display = 'none';
+                includedTokensField.style.display = 'none';
+            }
+        }
+        
+        filterTypeInputs.forEach(input => {
+            input.addEventListener('change', toggleTokenFields);
+        });
+        
+        // Initial toggle
+        toggleTokenFields();
+    });
+</script>
+
+{% endblock %} 

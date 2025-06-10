@@ -1,0 +1,506 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ agent.name }} - Transactions{% endblock %}
+
+{% block content %}
+<style>
+    .transactions-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .agent-header {
+        background: rgba(0, 10, 20, 0.95);
+        border: 1px solid var(--primary);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    
+    .agent-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .agent-title {
+        font-size: 2rem;
+        color: var(--primary);
+        margin: 0;
+    }
+    
+    .status-badge {
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .status-active {
+        background: rgba(40, 167, 69, 0.2);
+        color: var(--success);
+        border: 1px solid var(--success);
+    }
+    
+    .status-inactive {
+        background: rgba(220, 53, 69, 0.2);
+        color: var(--danger);
+        border: 1px solid var(--danger);
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .stat-card {
+        background: rgba(0, 255, 204, 0.05);
+        border: 1px solid rgba(0, 255, 204, 0.3);
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 5px;
+    }
+    
+    .monitoring-status {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .monitoring-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+    
+    .monitoring-active {
+        background: var(--success);
+    }
+    
+    .monitoring-inactive {
+        background: var(--danger);
+        animation: none;
+    }
+    
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+    }
+    
+    .transactions-table {
+        background: rgba(0, 10, 20, 0.95);
+        border: 1px solid var(--primary);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .table-header {
+        background: rgba(0, 255, 204, 0.1);
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .table-title {
+        font-size: 1.3rem;
+        color: var(--primary);
+        margin: 0;
+    }
+    
+    .refresh-btn {
+        background: rgba(0, 255, 204, 0.1);
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .refresh-btn:hover {
+        background: var(--primary);
+        color: var(--dark);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    th {
+        background: rgba(0, 255, 204, 0.05);
+        padding: 12px;
+        text-align: left;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+    }
+    
+    td {
+        padding: 12px;
+        color: #fff;
+        border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+    }
+    
+    tr:hover {
+        background: rgba(0, 255, 204, 0.05);
+    }
+    
+    .tx-type-buy {
+        color: var(--success);
+        font-weight: 600;
+    }
+    
+    .tx-type-sell {
+        color: var(--danger);
+        font-weight: 600;
+    }
+    
+    .profit-positive {
+        color: var(--success);
+    }
+    
+    .profit-negative {
+        color: var(--danger);
+    }
+    
+    .tx-hash {
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        color: var(--secondary);
+    }
+    
+    .tx-hash:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .empty-icon {
+        font-size: 4rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+    
+    .new-transaction {
+        animation: highlight 2s ease;
+    }
+    
+    @keyframes highlight {
+        0% { background: rgba(0, 255, 204, 0.3); }
+        100% { background: transparent; }
+    }
+</style>
+
+<div class="transactions-container">
+    <!-- Agent Header -->
+    <div class="agent-header">
+        <div class="monitoring-status">
+            <span id="monitoring-indicator" class="monitoring-indicator monitoring-inactive"></span>
+            <span id="monitoring-text" style="color: rgba(255, 255, 255, 0.6);">Disconnected</span>
+        </div>
+        
+        <div class="agent-info">
+            <h1 class="agent-title">{{ agent.name }}</h1>
+            <span class="status-badge {% if agent.is_active %}status-active{% else %}status-inactive{% endif %}">
+                {% if agent.is_active %}Active{% else %}Inactive{% endif %}
+            </span>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="total-transactions">{{ stats.total_transactions }}</div>
+                <div class="stat-label">Total Transactions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-trades">{{ stats.total_trades }}</div>
+                <div class="stat-label">Closed Trades</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="win-rate">{{ stats.win_rate }}%</div>
+                <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value {% if stats.total_profit >= 0 %}profit-positive{% else %}profit-negative{% endif %}" id="total-profit">
+                    ${{ stats.total_profit|floatformat:2 }}
+                </div>
+                <div class="stat-label">Total Profit</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Transactions Table -->
+    <div class="transactions-table">
+        <div class="table-header">
+            <h2 class="table-title">Recent Transactions</h2>
+            <button class="refresh-btn" onclick="refreshTransactions()">
+                <i class="fas fa-sync"></i> Refresh
+            </button>
+        </div>
+        
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Type</th>
+                        <th>Token</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Total Value</th>
+                        <th>Platform</th>
+                        <th>Wallet</th>
+                        <th>P&L</th>
+                        <th>Tx Hash</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-tbody">
+                    {% for tx in transactions %}
+                    <tr>
+                        <td>{{ tx.timestamp|date:"m/d H:i:s" }}</td>
+                        <td class="tx-type-{{ tx.tx_type|lower }}">{{ tx.tx_type }}</td>
+                        <td>{{ tx.token_symbol }}</td>
+                        <td>{{ tx.amount|floatformat:4 }}</td>
+                        <td>${{ tx.price_usd|floatformat:6 }}</td>
+                        <td>${{ tx.total_value_usd|floatformat:2 }}</td>
+                        <td>{{ tx.platform }}</td>
+                        <td title="{{ tx.wallet_address }}">{{ tx.wallet_address|slice:":8" }}...</td>
+                        <td>
+                            {% if tx.is_closed %}
+                                <span class="{% if tx.realized_profit_usd >= 0 %}profit-positive{% else %}profit-negative{% endif %}">
+                                    ${{ tx.realized_profit_usd|floatformat:2 }}
+                                    ({{ tx.profit_percent|floatformat:2 }}%)
+                                </span>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="https://solscan.io/tx/{{ tx.tx_hash }}" target="_blank" class="tx-hash">
+                                {{ tx.tx_hash|slice:":8" }}...
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="10">
+                            <div class="empty-state">
+                                <div class="empty-icon">📊</div>
+                                <h3>No Transactions Yet</h3>
+                                <p>Transactions will appear here once detected</p>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+// WebSocket connection
+let socket = null;
+const agentId = "{{ agent.id }}";
+
+function connectWebSocket() {
+    const wsScheme = window.location.protocol === "https:" ? "wss" : "ws";
+    const wsUrl = `${wsScheme}://${window.location.host}/ws/agent/${agentId}/`;
+    
+    socket = new WebSocket(wsUrl);
+    
+    socket.onopen = function(e) {
+        console.log("WebSocket connected");
+        updateMonitoringStatus(true);
+        
+        // Request current status
+        socket.send(JSON.stringify({
+            'command': 'get_status'
+        }));
+        
+        // Request recent transactions
+        socket.send(JSON.stringify({
+            'command': 'get_transactions'
+        }));
+    };
+    
+    socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        handleWebSocketMessage(data);
+    };
+    
+    socket.onerror = function(e) {
+        console.error("WebSocket error:", e);
+        updateMonitoringStatus(false);
+    };
+    
+    socket.onclose = function(e) {
+        console.log("WebSocket closed");
+        updateMonitoringStatus(false);
+        
+        // Reconnect after 5 seconds
+        setTimeout(connectWebSocket, 5000);
+    };
+}
+
+function handleWebSocketMessage(data) {
+    switch(data.type) {
+        case 'agent_status':
+            updateStats(data.stats);
+            break;
+            
+        case 'new_transaction':
+            addNewTransaction(data.transaction);
+            break;
+            
+        case 'transactions':
+            updateTransactionsTable(data.data);
+            break;
+    }
+}
+
+function updateMonitoringStatus(connected) {
+    const indicator = document.getElementById('monitoring-indicator');
+    const text = document.getElementById('monitoring-text');
+    
+    if (connected) {
+        indicator.classList.remove('monitoring-inactive');
+        indicator.classList.add('monitoring-active');
+        text.textContent = 'Connected';
+        text.style.color = 'var(--success)';
+    } else {
+        indicator.classList.remove('monitoring-active');
+        indicator.classList.add('monitoring-inactive');
+        text.textContent = 'Disconnected';
+        text.style.color = 'var(--danger)';
+    }
+}
+
+function updateStats(stats) {
+    document.getElementById('total-transactions').textContent = stats.total_transactions || 0;
+    document.getElementById('total-trades').textContent = stats.total_trades || 0;
+    document.getElementById('win-rate').textContent = (stats.win_rate || 0) + '%';
+    
+    const profitElement = document.getElementById('total-profit');
+    const profit = stats.total_profit || 0;
+    profitElement.textContent = '$' + profit.toFixed(2);
+    profitElement.className = profit >= 0 ? 'stat-value profit-positive' : 'stat-value profit-negative';
+}
+
+function addNewTransaction(transaction) {
+    const tbody = document.getElementById('transactions-tbody');
+    const row = createTransactionRow(transaction);
+    
+    // Add to top of table
+    tbody.insertBefore(row, tbody.firstChild);
+    
+    // Add highlight animation
+    row.classList.add('new-transaction');
+    
+    // Remove oldest transaction if more than 50
+    if (tbody.children.length > 50) {
+        tbody.removeChild(tbody.lastChild);
+    }
+}
+
+function createTransactionRow(tx) {
+    const row = document.createElement('tr');
+    
+    const timestamp = new Date(tx.timestamp);
+    const timeStr = `${timestamp.getMonth()+1}/${timestamp.getDate()} ${timestamp.getHours()}:${timestamp.getMinutes()}:${timestamp.getSeconds()}`;
+    
+    row.innerHTML = `
+        <td>${timeStr}</td>
+        <td class="tx-type-${tx.tx_type.toLowerCase()}">${tx.tx_type}</td>
+        <td>${tx.token_symbol}</td>
+        <td>${parseFloat(tx.amount).toFixed(4)}</td>
+        <td>$${parseFloat(tx.price_usd).toFixed(6)}</td>
+        <td>$${parseFloat(tx.total_value_usd).toFixed(2)}</td>
+        <td>${tx.platform}</td>
+        <td title="${tx.wallet_address}">${tx.wallet_address.slice(0, 8)}...</td>
+        <td>
+            ${tx.is_closed ? `
+                <span class="${parseFloat(tx.realized_profit_usd) >= 0 ? 'profit-positive' : 'profit-negative'}">
+                    $${parseFloat(tx.realized_profit_usd).toFixed(2)}
+                    (${parseFloat(tx.profit_percent).toFixed(2)}%)
+                </span>
+            ` : '-'}
+        </td>
+        <td>
+            <a href="https://solscan.io/tx/${tx.tx_hash}" target="_blank" class="tx-hash">
+                ${tx.tx_hash.slice(0, 8)}...
+            </a>
+        </td>
+    `;
+    
+    return row;
+}
+
+function updateTransactionsTable(transactions) {
+    const tbody = document.getElementById('transactions-tbody');
+    tbody.innerHTML = '';
+    
+    if (transactions.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="10">
+                    <div class="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <h3>No Transactions Yet</h3>
+                        <p>Transactions will appear here once detected</p>
+                    </div>
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    transactions.forEach(tx => {
+        tbody.appendChild(createTransactionRow(tx));
+    });
+}
+
+function refreshTransactions() {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify({
+            'command': 'get_transactions'
+        }));
+    }
+}
+
+// Initialize WebSocket connection
+connectWebSocket();
+</script>
+{% endblock %}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ agent.name }} - CopBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --danger: #ff0066;
+            --dark: #0a0a0f;
+            --panel: rgba(15, 15, 25, 0.95);
+            --success: #00ff66;
+            --warning: #ffcc00;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        .nav-header {
+            background: var(--panel);
+            border-bottom: 1px solid var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+        
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-user span {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .btn-logout {
+            background: linear-gradient(45deg, var(--danger), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 102, 0.5);
+        }
+        
+        /* Main Container */
+        .container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        /* Form Styles */
+        .agent-form {
+            background: var(--panel);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-select option {
+            background: var(--dark);
+            color: #fff;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* Checkbox Groups */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .checkbox-item label {
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        /* Radio Groups */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .radio-item label {
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        /* Buttons */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .help-text {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        
+        .token-input-group {
+            margin-top: 0.5rem;
+        }
+        
+        .token-input-group .form-input {
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row, .form-row-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="{% url 'horizon:command_center' %}" class="nav-brand">COPBOT</a>
+        <div class="nav-user">
+            <span>PILOT: {{ user.username }}</span>
+            <form action="{% url 'nexus:disconnect' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">DISCONNECT</button>
+            </form>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">EDIT {{ agent.name|upper }}</h1>
+            <p class="page-subtitle">Modify your {{ agent.get_agent_type_display }} agent configuration</p>
+        </div>
+        
+        <form method="post" class="agent-form">
+            {% csrf_token %}
+            
+            <!-- General Info Section -->
+            <div class="form-section">
+                <h2 class="section-title">🔤 GENERAL INFO</h2>
+                
+                <div class="form-group">
+                    <label for="name" class="form-label">Agent Name</label>
+                    <input type="text" id="name" name="name" class="form-input" value="{{ agent.name }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Active Days</label>
+                    <div class="checkbox-group">
+                        {% for day_num, day_name in days_of_week %}
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="day_{{ day_num }}" name="day_{{ day_num }}" 
+                                       {% if day_num in agent.active_days %}checked{% endif %}>
+                                <label for="day_{{ day_num }}">{{ day_name }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="help-text">Select which days the agent should be active</div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="active_hours_start" class="form-label">Active Hours Start</label>
+                        <input type="time" id="active_hours_start" name="active_hours_start" class="form-input" value="{{ agent.active_hours_start|time:'H:i' }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="active_hours_end" class="form-label">Active Hours End</label>
+                        <input type="time" id="active_hours_end" name="active_hours_end" class="form-input" value="{{ agent.active_hours_end|time:'H:i' }}">
+                    </div>
+                </div>
+                <div class="help-text">Set the time range when the agent should be active</div>
+            </div>
+            
+            <!-- Transaction Limits Section -->
+            <div class="form-section">
+                <h2 class="section-title">⏱️ TRANSACTION LIMITS</h2>
+                
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="max_transactions_hour" class="form-label">Max Transactions/Hour</label>
+                        <input type="number" id="max_transactions_hour" name="max_transactions_hour" class="form-input" min="1" 
+                               value="{% if agent.max_transactions_hour %}{{ agent.max_transactions_hour }}{% endif %}" placeholder="Unlimited">
+                        <div class="help-text">Leave empty for unlimited</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_transactions_day" class="form-label">Max Transactions/Day</label>
+                        <input type="number" id="max_transactions_day" name="max_transactions_day" class="form-input" min="1" 
+                               value="{% if agent.max_transactions_day %}{{ agent.max_transactions_day }}{% endif %}" placeholder="Unlimited">
+                        <div class="help-text">Leave empty for unlimited</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="scan_frequency" class="form-label">Scan Frequency</label>
+                        <select id="scan_frequency" name="scan_frequency" class="form-select">
+                            <option value="Maximum Fast" {% if agent.scan_frequency == "Maximum Fast" %}selected{% endif %}>Maximum Fast</option>
+                            <option value="Fast" {% if agent.scan_frequency == "Fast" %}selected{% endif %}>Fast</option>
+                            <option value="Normal" {% if agent.scan_frequency == "Normal" %}selected{% endif %}>Normal</option>
+                            <option value="Slow" {% if agent.scan_frequency == "Slow" %}selected{% endif %}>Slow</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Filters Section -->
+            <div class="form-section">
+                <h2 class="section-title">💵 VALUE FILTERS</h2>
+                
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="min_transaction_value" class="form-label">Min Transaction Value (USD)</label>
+                        <input type="number" id="min_transaction_value" name="min_transaction_value" class="form-input" step="0.01" 
+                               value="{{ agent.min_transaction_value }}" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_transaction_value" class="form-label">Max Transaction Value (USD)</label>
+                        <input type="number" id="max_transaction_value" name="max_transaction_value" class="form-input" step="0.01" min="0" 
+                               value="{% if agent.max_transaction_value %}{{ agent.max_transaction_value }}{% endif %}" placeholder="Unlimited">
+                        <div class="help-text">Leave empty for unlimited</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="min_wallet_balance" class="form-label">Min Wallet Balance (USD)</label>
+                        <input type="number" id="min_wallet_balance" name="min_wallet_balance" class="form-input" step="0.01" min="0" 
+                               value="{% if agent.min_wallet_balance %}{{ agent.min_wallet_balance }}{% endif %}" placeholder="Unlimited">
+                        <div class="help-text">Leave empty for unlimited</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Token Filters Section -->
+            <div class="form-section">
+                <h2 class="section-title">🪙 TOKEN FILTERS</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">Token Filter Type</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="all_tokens" name="token_filter_type" value="all" 
+                                   {% if agent.token_filter_type == "all" %}checked{% endif %}>
+                            <label for="all_tokens">All Tokens – monitor all tokens</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exclude_tokens" name="token_filter_type" value="exclude" 
+                                   {% if agent.token_filter_type == "exclude" %}checked{% endif %}>
+                            <label for="exclude_tokens">Exclude These Tokens – input field to list tokens to ignore</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="include_tokens" name="token_filter_type" value="include" 
+                                   {% if agent.token_filter_type == "include" %}checked{% endif %}>
+                            <label for="include_tokens">Only These Tokens – input field to list specific tokens to track</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="token-input-group">
+                    <div class="form-group" id="excluded_tokens_group" style="display: {% if agent.token_filter_type == 'exclude' %}block{% else %}none{% endif %};">
+                        <label for="excluded_tokens" class="form-label">Excluded Tokens</label>
+                        <input type="text" id="excluded_tokens" name="excluded_tokens" class="form-input" 
+                               value="{{ agent.excluded_tokens }}" placeholder="e.g., BTC, ETH, SOL (comma-separated)">
+                        <div class="help-text">Enter token symbols separated by commas</div>
+                    </div>
+                    
+                    <div class="form-group" id="included_tokens_group" style="display: {% if agent.token_filter_type == 'include' %}block{% else %}none{% endif %};">
+                        <label for="included_tokens" class="form-label">Included Tokens</label>
+                        <input type="text" id="included_tokens" name="included_tokens" class="form-input" 
+                               value="{{ agent.included_tokens }}" placeholder="e.g., BTC, ETH, SOL (comma-separated)">
+                        <div class="help-text">Enter token symbols separated by commas</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Database Retention Section -->
+            <div class="form-section">
+                <h2 class="section-title">🗄️ DATABASE RETENTION</h2>
+                
+                <div class="form-group">
+                    <label for="max_retention_days" class="form-label">Max Days</label>
+                    <input type="number" id="max_retention_days" name="max_retention_days" class="form-input" 
+                           value="{{ agent.max_retention_days }}" min="1" max="365" required>
+                    <div class="help-text">Keep transaction data for X days. Automatically delete older data after this period (FIFO policy).</div>
+                </div>
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <a href="{% url 'horizon:command_center' %}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update {{ agent.name }}</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        // Handle token filter type changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const tokenFilterRadios = document.querySelectorAll('input[name="token_filter_type"]');
+            const excludedGroup = document.getElementById('excluded_tokens_group');
+            const includedGroup = document.getElementById('included_tokens_group');
+            
+            function updateTokenInputs() {
+                const selectedValue = document.querySelector('input[name="token_filter_type"]:checked').value;
+                
+                excludedGroup.style.display = selectedValue === 'exclude' ? 'block' : 'none';
+                includedGroup.style.display = selectedValue === 'include' ? 'block' : 'none';
+            }
+            
+            tokenFilterRadios.forEach(radio => {
+                radio.addEventListener('change', updateTokenInputs);
+            });
+            
+            // Initial state is already set by Django template
+        });
+    </script>
+</body>
+</html> 
